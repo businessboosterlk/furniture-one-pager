@@ -1,0 +1,215 @@
+/* HERO. Raw timber, then joined, then finished, then at home. One camera. The page scroll drives it.
+   hero.js writes only --p (0 to 1) and data-at. Everything that moves is here.
+   Without script, or with reduced motion, it rests on the finished frame (step 3) and nothing is hidden. */
+.hero {
+  --t: calc(var(--p, 1) * 3.5);
+  position: relative;
+}
+.hero-live .hero__track {
+  height: calc((100svh - var(--header-h)) * 3.4);
+}
+.hero__stage {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100svh - var(--header-h));
+  padding-block: 28px 20px;
+  gap: 18px;
+}
+.hero-live .hero__stage {
+  position: sticky;
+  top: var(--header-h);
+  height: calc(100svh - var(--header-h));
+  min-height: 0;
+  overflow: hidden;
+}
+.hero__copy {
+  order: 1;
+  text-align: center;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+.hero__eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero__name {
+  font-size: clamp(40px, 7.5svh, 56px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+.hero-live .hero__name {
+  opacity: clamp(0.16, calc(0.16 + (var(--t) - 1.5) * 0.84), 1);
+}
+.hero__lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--muted);
+}
+.hero__doors {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  max-width: 380px;
+  margin-top: 6px;
+}
+.hero__media {
+  order: 2;
+  position: relative;
+  flex: 1;
+  min-height: 200px;
+  overflow: hidden;
+  background: #ebe3d4;
+}
+.hero__frame {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+.hero-live .hero__media .hero__frame {
+  transform: scale(calc(1 + var(--p, 1) * 0.05));
+  transform-origin: 50% 60%;
+}
+/* Without script only the finished frame shows. With script each later frame fades in over the one before. */
+.hero__frame[data-step='1'],
+.hero__frame[data-step='2'],
+.hero__frame[data-step='4'] {
+  opacity: 0;
+}
+.hero__frame[data-step='3'] {
+  opacity: 1;
+}
+.hero-live .hero__frame[data-step='1'] {
+  opacity: 1;
+}
+.hero-live .hero__frame[data-step='2'] {
+  opacity: clamp(0, calc((var(--t) - 0.5) * 2), 1);
+}
+.hero-live .hero__frame[data-step='3'] {
+  opacity: clamp(0, calc((var(--t) - 1.5) * 2), 1);
+}
+.hero-live .hero__frame[data-step='4'] {
+  opacity: clamp(0, calc((var(--t) - 2.5) * 2), 1);
+}
+/* The trail: one hairline and four small timber marks. No words, no numbers. The line fills and each mark lights as --t passes it. */
+.hero__trail {
+  order: 3;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 9px;
+  margin-top: 4px;
+}
+.hero__trail::before,
+.hero__trail::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+  height: 1px;
+}
+.hero__trail::before {
+  background: var(--line);
+}
+.hero__trail::after {
+  background: var(--accent);
+  transform-origin: 0 50%;
+  transform: scaleX(0.6667);
+}
+.hero-live .hero__trail::after {
+  transform: scaleX(clamp(0, calc(var(--t) / 3), 1));
+}
+.hero__mark {
+  position: relative;
+  z-index: 1;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: var(--paper);
+}
+.hero__mark::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+}
+/* Without script the finished frame rests, so marks one to three are lit. */
+.hero:not(.hero-live) .hero__mark[data-step='1']::after,
+.hero:not(.hero-live) .hero__mark[data-step='2']::after,
+.hero:not(.hero-live) .hero__mark[data-step='3']::after {
+  opacity: 1;
+}
+.hero-live .hero__mark[data-step='1']::after {
+  opacity: clamp(0, calc((var(--t) + 0.2) * 6), 1);
+}
+.hero-live .hero__mark[data-step='2']::after {
+  opacity: clamp(0, calc((var(--t) - 0.8) * 6), 1);
+}
+.hero-live .hero__mark[data-step='3']::after {
+  opacity: clamp(0, calc((var(--t) - 1.8) * 6), 1);
+}
+.hero-live .hero__mark[data-step='4']::after {
+  opacity: clamp(0, calc((var(--t) - 2.8) * 6), 1);
+}
+
+@media (min-width: 900px) {
+  .hero__stage {
+    display: grid;
+    grid-template-columns: minmax(520px, 44%) 1fr;
+    grid-template-rows: 1fr auto;
+    column-gap: clamp(40px, 5vw, 96px);
+    row-gap: 0;
+    padding-block: 56px 40px;
+    align-items: end;
+  }
+  .hero__copy {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    text-align: left;
+    justify-items: start;
+    gap: 20px;
+    order: 0;
+  }
+  .hero__name {
+    font-size: clamp(64px, 6.4vw, 112px);
+  }
+  .hero__lede {
+    font-size: 1.625rem;
+  }
+  .hero__doors {
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    max-width: none;
+    width: auto;
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .hero__media {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: stretch;
+    order: 0;
+    min-height: 0;
+  }
+  .hero__trail {
+    grid-column: 1;
+    grid-row: 2;
+    order: 0;
+    width: min(360px, 100%);
+    margin-top: 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-live .hero__track {
+    height: auto;
+  }
+}

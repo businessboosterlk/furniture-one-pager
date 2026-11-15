@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactLinks from '../components/ContactLinks.astro';
+import { site } from '../site.config';
+---
+
+<Base title="Contact" description={`How to reach ${site.name} by WhatsApp or email.`}>
+  <section class="page">
+    <h1>Contact</h1>
+    <p class="lead">Message us on WhatsApp or send an email.</p>
+    <ContactLinks />
+    <p>{site.address.line1}, {site.address.city}, {site.address.country}</p>
+  </section>
+</Base>

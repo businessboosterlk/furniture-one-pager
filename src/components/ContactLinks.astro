@@ -1,0 +1,41 @@
+---
+// WhatsApp and email links only. No form posts anywhere: client demos stay front-end only.
+import { site } from '../site.config';
+const wa = `https://wa.me/${site.contact.whatsapp}`;
+const mail = `mailto:${site.contact.email}`;
+---
+
+<ul class="contact-links">
+  <li>
+    <span>WhatsApp</span>
+    <a href={wa} rel="noopener noreferrer" target="_blank">{site.contact.whatsappLabel}</a>
+  </li>
+  <li>
+    <span>Email</span>
+    <a href={mail}>{site.contact.email}</a>
+  </li>
+</ul>
+
+<style>
+  .contact-links {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    gap: 1rem;
+  }
+  li {
+    display: grid;
+    gap: 0.125rem;
+  }
+  span {
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+  a {
+    font-size: 1.125rem;
+    min-height: 44px;
+    display: inline-block;
+    padding: 0.5rem 0;
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+import { hero } from '../site.config';
+import { ph } from '../lib/ph';
+import Icon from './Icon.astro';
+import Picture from './Picture.astro';
+---
+
+<section class="hero" data-hero aria-labelledby="hero-title">
+  <div class="hero__track">
+    <div class="hero__stage gutter">
+      <div class="hero__copy">
+        <p class="hero__eyebrow" set:html={ph(hero.piece.eyebrow)} />
+        <h1 class="hero__name" id="hero-title" set:html={ph(hero.piece.name)} />
+        <p class="hero__lede">{hero.lede}</p>
+        <div class="hero__doors">
+          <a class="btn btn--solid" href={hero.doors.ready.href}>{hero.doors.ready.label} <span aria-hidden="true">·</span> from <span set:html={ph(hero.piece.price)} /></a>
+          <a class="btn btn--line" href={hero.doors.build.href}>{hero.doors.build.label} <Icon name="arrow" /></a>
+        </div>
+      </div>
+      <div class="hero__media">
+        {hero.steps.map((s, index) => (
+          <figure class="hero__frame" data-step={index + 1}>
+            <Picture slot={s.slot} alt={s.alt} eager={s.n === '03'} />
+          </figure>
+        ))}
+      </div>
+      <ol class="sr" aria-label="How a piece is made">
+        {hero.steps.map((s) => (
+          <li>{s.label}. {s.alt}</li>
+        ))}
+      </ol>
+      <div class="hero__trail" aria-hidden="true">
+        {hero.steps.map((_, index) => (
+          <span class="hero__mark" data-step={index + 1} />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

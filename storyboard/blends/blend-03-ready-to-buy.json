@@ -1,0 +1,96 @@
+{
+ "name": "ready to buy card",
+ "sources": [
+  {
+   "id": "A",
+   "ref": "https://www.pinterest.com/pin/1147292073901113729",
+   "family": "STILL home concept board",
+   "kind_of_place": "site UI",
+   "take": {
+    "axis": "STRUCTURE",
+    "thing": "On the product card the name sits left and a row of fabric dots sits right of it, with the price under the name.",
+    "why": "The shopper sees there is a fabric choice before opening the piece, a cheap front door to Build yours."
+   },
+   "native": {
+    "palette": "ivory, olive, oak",
+    "type": "serif headline, tiny spaced capitals",
+    "spacing": "pale grey cards"
+   },
+   "left_out": [
+    "the pale grey card ground",
+    "the eyebrow line above the headline"
+   ],
+   "differences": [
+    "Dots open the Build yours section on that fabric",
+    "Our cards sit on ivory not grey",
+    "Price sits on the button row not under the name"
+   ],
+   "removal": "The card hides that a fabric choice exists."
+  },
+  {
+   "id": "B",
+   "ref": "https://www.pinterest.com/pin/1083819466608971260",
+   "family": "Muse lounge chair sheet",
+   "kind_of_place": "product sheet",
+   "take": {
+    "axis": "IMAGE",
+    "thing": "The cut out piece sits large on a plain ground with a macro of its fabric running off the cropped screen edge.",
+    "why": "It shows the weave a buyer will touch, which a flat colour dot never can."
+   },
+   "native": {
+    "palette": "white ground, mustard, dark wood",
+    "type": "thin spaced capitals",
+    "spacing": "white space"
+   },
+   "left_out": [
+    "the mustard colourway",
+    "the three crops along the bottom"
+   ],
+   "differences": [
+    "The macro appears only when a dot is pressed",
+    "The ground is ivory not white",
+    "One card, not a full sheet"
+   ],
+   "removal": "Fabric becomes a flat dot and buyers cannot judge texture."
+  },
+  {
+   "id": "C",
+   "ref": "https://www.pinterest.com/pin/1082271354226779947",
+   "family": "Form&Wood designer",
+   "kind_of_place": "site UI",
+   "take": {
+    "axis": "CONTENT",
+    "thing": "Each card reads the piece name, one material line, then price and the Buy button on the same row.",
+    "why": "It answers can I afford this beside the action, so the visitor decides without scrolling."
+   },
+   "native": {
+    "palette": "cream, near black, oak",
+    "type": "grotesque wordmark, small sans",
+    "spacing": "tight cards"
+   },
+   "left_out": [
+    "the star scores and tag chips",
+    "the giant wordmark with the chair"
+   ],
+   "differences": [
+    "The material line sits under a serif name",
+    "No star scores or tags",
+    "The button is WhatsApp not a cart"
+   ],
+   "removal": "The price drifts away from the button and the card turns into a gallery."
+  }
+ ],
+ "house": {
+  "palette": "#F4EFE6 ivory, #2A211B ink, #9A6A3F timber",
+  "type": "Cormorant Garamond + Inter",
+  "spacing_step": "8px"
+ },
+ "axes": {
+  "STRUCTURE": "A",
+  "TYPE": "HOUSE",
+  "IMAGE": "B",
+  "COLOUR": "HOUSE",
+  "INTERACTION": "HOUSE",
+  "CONTENT": "C"
+ }
+}

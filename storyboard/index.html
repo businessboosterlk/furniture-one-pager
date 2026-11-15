@@ -1,0 +1,821 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>Storyboard</title><style>@font-face{font-family:"Cormorant Garamond";font-weight:300 700;font-style:normal;src:url(vendor/cormorant.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:300 700;font-style:italic;src:url(vendor/cormorant-italic.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:400;src:url(vendor/Inter-400.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:600;src:url(vendor/Inter-600.woff2) format("woff2")}
+
+:root{--iv:#F4EFE6;--iv2:#E9E1D2;--ink:#2A211B;--tim:#9A6A3F;--muted:#6B5E52;--line:rgba(42,33,27,.16);--paper:#FBF8F2}
+@page{size:420mm 297mm;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);font-size:15px;line-height:1.45}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+
+/* ---------- icons: Lucide, drawn by CSS mask from the package files, never typed by hand */
+.ic{display:inline-block;width:1.15em;height:1.15em;background:currentColor;vertical-align:-.2em;flex:none;
+  -webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat}
+.ic-menu{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtbWVudSIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgd2lkdGg9IjI0IgogIGhlaWdodD0iMjQiCiAgdmlld0JveD0iMCAwIDI0IDI0IgogIGZpbGw9Im5vbmUiCiAgc3Ryb2tlPSIjMDAwIgogIHN0cm9rZS13aWR0aD0iMiIKICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKPgogIDxwYXRoIGQ9Ik00IDVoMTYiIC8+CiAgPHBhdGggZD0iTTQgMTJoMTYiIC8+CiAgPHBhdGggZD0iTTQgMTloMTYiIC8+Cjwvc3ZnPgo=")}
+.ic-message-circle{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtbWVzc2FnZS1jaXJjbGUiCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNMi45OTIgMTYuMzQyYTIgMiAwIDAgMSAuMDk0IDEuMTY3bC0xLjA2NSAzLjI5YTEgMSAwIDAgMCAxLjIzNiAxLjE2OGwzLjQxMy0uOTk4YTIgMiAwIDAgMSAxLjA5OS4wOTIgMTAgMTAgMCAxIDAtNC43NzctNC43MTkiIC8+Cjwvc3ZnPgo=")}
+.ic-phone{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtcGhvbmUiCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNMTMuODMyIDE2LjU2OGExIDEgMCAwIDAgMS4yMTMtLjMwM2wuMzU1LS40NjVBMiAyIDAgMCAxIDE3IDE1aDNhMiAyIDAgMCAxIDIgMnYzYTIgMiAwIDAgMS0yIDJBMTggMTggMCAwIDEgMiA0YTIgMiAwIDAgMSAyLTJoM2EyIDIgMCAwIDEgMiAydjNhMiAyIDAgMCAxLS44IDEuNmwtLjQ2OC4zNTFhMSAxIDAgMCAwLS4yOTIgMS4yMzMgMTQgMTQgMCAwIDAgNi4zOTIgNi4zODQiIC8+Cjwvc3ZnPgo=")}
+.ic-map-pin{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtbWFwLXBpbiIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgd2lkdGg9IjI0IgogIGhlaWdodD0iMjQiCiAgdmlld0JveD0iMCAwIDI0IDI0IgogIGZpbGw9Im5vbmUiCiAgc3Ryb2tlPSIjMDAwIgogIHN0cm9rZS13aWR0aD0iMiIKICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKPgogIDxwYXRoIGQ9Ik0yMCAxMGMwIDQuOTkzLTUuNTM5IDEwLjE5My03LjM5OSAxMS43OTlhMSAxIDAgMCAxLTEuMjAyIDBDOS41MzkgMjAuMTkzIDQgMTQuOTkzIDQgMTBhOCA4IDAgMCAxIDE2IDAiIC8+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMCIgcj0iMyIgLz4KPC9zdmc+Cg==")}
+.ic-arrow-right{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtYXJyb3ctcmlnaHQiCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNNSAxMmgxNCIgLz4KICA8cGF0aCBkPSJtMTIgNSA3IDctNyA3IiAvPgo8L3N2Zz4K")}
+.ic-ruler{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtcnVsZXIiCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNMjEuMyAxNS4zYTIuNCAyLjQgMCAwIDEgMCAzLjRsLTIuNiAyLjZhMi40IDIuNCAwIDAgMS0zLjQgMEwyLjcgOC43YTIuNDEgMi40MSAwIDAgMSAwLTMuNGwyLjYtMi42YTIuNDEgMi40MSAwIDAgMSAzLjQgMFoiIC8+CiAgPHBhdGggZD0ibTE0LjUgMTIuNSAyLTIiIC8+CiAgPHBhdGggZD0ibTExLjUgOS41IDItMiIgLz4KICA8cGF0aCBkPSJtOC41IDYuNSAyLTIiIC8+CiAgPHBhdGggZD0ibTE3LjUgMTUuNSAyLTIiIC8+Cjwvc3ZnPgo=")}
+.ic-check{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtY2hlY2siCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNMjAgNiA5IDE3bC01LTUiIC8+Cjwvc3ZnPgo=")}
+.ic-clock{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtY2xvY2siCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNMTIgNnY2bDQgMiIgLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIgLz4KPC9zdmc+Cg==")}
+.ic-instagram{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtaW5zdGFncmFtIgogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiMwMDAiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB4PSIyIiB5PSIyIiByeD0iNSIgcnk9IjUiIC8+CiAgPHBhdGggZD0iTTE2IDExLjM3QTQgNCAwIDEgMSAxMi42MyA4IDQgNCAwIDAgMSAxNiAxMS4zN3oiIC8+CiAgPGxpbmUgeDE9IjE3LjUiIHgyPSIxNy41MSIgeTE9IjYuNSIgeTI9IjYuNSIgLz4KPC9zdmc+Cg==")}
+.ic-plus{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtcGx1cyIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgd2lkdGg9IjI0IgogIGhlaWdodD0iMjQiCiAgdmlld0JveD0iMCAwIDI0IDI0IgogIGZpbGw9Im5vbmUiCiAgc3Ryb2tlPSIjMDAwIgogIHN0cm9rZS13aWR0aD0iMiIKICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKPgogIDxwYXRoIGQ9Ik01IDEyaDE0IiAvPgogIDxwYXRoIGQ9Ik0xMiA1djE0IiAvPgo8L3N2Zz4K")}
+.ic-chevron-down{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtY2hldnJvbi1kb3duIgogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiMwMDAiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHBhdGggZD0ibTYgOSA2IDYgNi02IiAvPgo8L3N2Zz4K")}
+.ic-signal{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtc2lnbmFsIgogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiMwMDAiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHBhdGggZD0iTTIgMjBoLjAxIiAvPgogIDxwYXRoIGQ9Ik03IDIwdi00IiAvPgogIDxwYXRoIGQ9Ik0xMiAyMHYtOCIgLz4KICA8cGF0aCBkPSJNMTcgMjBWOCIgLz4KICA8cGF0aCBkPSJNMjIgNHYxNiIgLz4KPC9zdmc+Cg==")}
+.ic-wifi{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtd2lmaSIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgd2lkdGg9IjI0IgogIGhlaWdodD0iMjQiCiAgdmlld0JveD0iMCAwIDI0IDI0IgogIGZpbGw9Im5vbmUiCiAgc3Ryb2tlPSIjMDAwIgogIHN0cm9rZS13aWR0aD0iMiIKICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKPgogIDxwYXRoIGQ9Ik0xMiAyMGguMDEiIC8+CiAgPHBhdGggZD0iTTIgOC44MmExNSAxNSAwIDAgMSAyMCAwIiAvPgogIDxwYXRoIGQ9Ik01IDEyLjg1OWExMCAxMCAwIDAgMSAxNCAwIiAvPgogIDxwYXRoIGQ9Ik04LjUgMTYuNDI5YTUgNSAwIDAgMSA3IDAiIC8+Cjwvc3ZnPgo=")}
+.ic-battery-full{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtYmF0dGVyeS1mdWxsIgogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiMwMDAiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHBhdGggZD0iTTEwIDEwdjQiIC8+CiAgPHBhdGggZD0iTTE0IDEwdjQiIC8+CiAgPHBhdGggZD0iTTIyIDE0di00IiAvPgogIDxwYXRoIGQ9Ik02IDEwdjQiIC8+CiAgPHJlY3QgeD0iMiIgeT0iNiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiByeD0iMiIgLz4KPC9zdmc+Cg==")}
+.ic-image{--i:url("data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NC4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtaW1hZ2UiCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHg9IjMiIHk9IjMiIHJ4PSIyIiByeT0iMiIgLz4KICA8Y2lyY2xlIGN4PSI5IiBjeT0iOSIgcj0iMiIgLz4KICA8cGF0aCBkPSJtMjEgMTUtMy4wODYtMy4wODZhMiAyIDAgMCAwLTIuODI4IDBMNiAyMSIgLz4KPC9zdmc+Cg==")}
+
+/* ---------- document pages */
+.page{width:420mm;height:297mm;overflow:hidden;position:relative;page-break-after:always;break-after:page;padding:46px 56px 0;background:var(--paper)}
+.page:last-child{page-break-after:auto;break-after:auto}
+.ptop{display:flex;align-items:flex-end;justify-content:space-between;height:78px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.ptop .l{display:flex;align-items:flex-end}
+.ptop .num{font-family:"Cormorant Garamond",serif;font-size:56px;line-height:.9;color:var(--tim);margin-right:22px;min-width:70px}
+.ptop .ttl{font-family:"Cormorant Garamond",serif;font-size:42px;line-height:1;font-weight:600}
+.stage{font-size:14px;color:var(--muted);text-align:right}
+.stage b{color:var(--ink);font-weight:600}
+.pfoot{position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:9px}
+.body{display:grid;grid-template-columns:414px 1fr;gap:44px;margin-top:26px;align-items:start}
+.cap{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+
+/* ---------- phone frame */
+.phone{width:414px;height:868px;border:12px solid #1A1411;border-radius:58px;background:#1A1411;position:relative}
+.scr.ph{width:390px;height:844px;border-radius:46px;overflow:hidden;position:relative;background:var(--iv);font-size:14px}
+.status{position:absolute;left:0;right:0;top:0;height:54px;background:var(--iv);z-index:5;display:flex;justify-content:space-between;align-items:center;padding:6px 34px 0 40px;font-weight:600;font-size:15px}
+.status .r{display:flex;gap:6px;align-items:center;font-size:17px}
+.island{position:absolute;top:11px;left:50%;margin-left:-62px;width:124px;height:35px;border-radius:20px;background:#000;z-index:6}
+.pbody{position:absolute;left:0;right:0;top:54px;bottom:34px;overflow:hidden;background:var(--iv)}
+.homebar{position:absolute;left:0;right:0;bottom:0;height:34px;background:var(--iv);z-index:5}
+.homebar i{position:absolute;left:50%;margin-left:-67px;bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--ink)}
+.cropnote{position:absolute;left:0;right:0;bottom:34px;background:var(--iv2);color:var(--muted);font-size:12px;text-align:center;padding:5px 0;border-top:1px dashed var(--tim);z-index:4}
+
+/* ---------- desk frame */
+.rcol{min-width:0}
+.dwrap{border:1px solid #BDB3A3;border-radius:10px;background:var(--iv);overflow:hidden}
+.dchrome{height:34px;background:#E2DACB;border-bottom:1px solid #CFC5B3;display:flex;align-items:center;gap:8px;padding:0 14px}
+.dchrome i{width:10px;height:10px;border-radius:50%;background:#BDB3A3}
+.dchrome .addr{margin-left:14px;flex:1;max-width:420px;height:20px;border-radius:10px;background:var(--paper);border:1px solid #CFC5B3;font-size:11.5px;color:var(--muted);padding:2px 12px}
+.dview{position:relative;overflow:hidden;width:1015px}
+.scr.dk{width:1440px;height:900px;transform-origin:0 0;position:absolute;left:0;top:0;background:var(--iv);overflow:hidden;font-size:17px;line-height:1.5}
+
+/* ---------- notes */
+.notes{margin-top:20px;display:grid;grid-template-columns:140px 1fr;row-gap:9px;column-gap:18px;font-size:14px;line-height:1.45;border-top:1px solid var(--line);padding-top:14px}
+.notes dt{font-weight:600;color:var(--tim)}
+
+/* ---------- placeholder mark (in the page text and inside the frames) */
+.pl{outline:1.5px dashed var(--tim);outline-offset:2px;border-radius:2px;background:rgba(154,106,63,.10);padding:0 3px;font-style:normal;white-space:normal}
+.dark .pl{background:rgba(154,106,63,.28)}
+
+/* ================== FRAME VOCABULARY: the only classes the crew may use ================== */
+.f{font-family:Inter,sans-serif;color:var(--ink);background:var(--iv);width:100%;height:100%;position:relative}
+.f-ph .in{padding:0 20px}
+.f-dk .in{padding:0 48px}
+.f *{box-sizing:border-box}
+.hdr{display:flex;align-items:center;justify-content:space-between}
+.f-dk .hdr{height:88px}.f-ph .hdr{height:56px}
+.brand{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:24px;letter-spacing:.02em}
+.nav{display:flex;gap:36px;font-size:14px}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.poster{font-family:"Cormorant Garamond",serif;font-weight:500;line-height:.92;letter-spacing:-.01em}
+.f-dk .poster{font-size:132px}.f-ph .poster{font-size:62px}
+.h2{font-family:"Cormorant Garamond",serif;font-weight:500;line-height:1}
+.f-dk .h2{font-size:64px}.f-ph .h2{font-size:38px}
+.h3{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:26px;line-height:1.1}
+.lede{font-size:16px;color:var(--muted);max-width:44ch}
+.small{font-size:13px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ink);color:var(--iv);font-size:14px;font-weight:600;padding:0 24px;height:48px;border-radius:2px;white-space:nowrap}
+.btn-o{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--ink);color:var(--ink);font-size:14px;font-weight:600;padding:0 24px;height:48px;border-radius:2px;white-space:nowrap}
+.btn-t{display:inline-flex;align-items:center;gap:8px;color:var(--tim);font-size:14px;font-weight:600}
+.price{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:28px;line-height:1}
+.pick{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:40px;padding:0 14px;border:1px solid var(--line);font-size:13px;font-weight:600}
+.pick.on{border-color:var(--ink);background:var(--ink);color:var(--iv)}
+.dot{display:inline-block;width:18px;height:18px;border-radius:50%;border:1px solid var(--line)}
+.dot.on{outline:1.5px solid var(--ink);outline-offset:2px}
+.chip{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px 0 8px;border:1px solid var(--line);font-size:13px}
+.chip .dot{width:24px;height:24px}
+.chip.on{border-color:var(--ink)}
+.rule{height:1px;background:var(--line);width:100%}
+.progress{height:1px;background:var(--line);position:relative}
+.progress i{position:absolute;left:0;top:-1px;height:3px;background:var(--tim)}
+.steps{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.steps .on{color:var(--ink);font-weight:600}
+.card{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.band{background:var(--ink);color:var(--iv)}
+.band .eyebrow,.band .small,.band .lede{color:#CBBFAF}
+.band .btn{background:var(--iv);color:var(--ink)}
+.timber{border:1px solid rgba(244,239,230,.35);padding:20px 24px;display:flex;flex-direction:column;gap:6px}
+/* picture slot: a labelled ivory panel, never a picture and never a drawn piece of furniture */
+.slot{position:relative;background:var(--iv2);border:1px dashed var(--tim);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;color:var(--muted)}
+.slot::before{content:attr(data-label);font-size:13px;font-weight:600;max-width:80%;line-height:1.3}
+.slot::after{content:attr(data-size);position:absolute;left:10px;bottom:8px;font-size:11px;letter-spacing:.06em;color:var(--tim)}
+.slot.sketch{background:var(--iv)}
+.band .slot{background:#3A2F28;color:#CBBFAF}
+.hair{height:2px;width:56px;background:var(--tim)}
+.col{display:flex;flex-direction:column}
+.grow{flex:1}
+.cen{text-align:center}
+
+.f .small{line-height:1.8}
+.poster .pl,.h2 .pl{background:none;outline-offset:8px;padding:0 6px}
+.f .btn,.f .btn-o{gap:10px}
+.f .nav span.btn{margin-left:8px}
+.f .hdr .brand{white-space:nowrap}
+
+.f h1,.f h2{font-family:"Cormorant Garamond",serif;font-weight:500;line-height:1;margin:0}
+.f-dk h1,.f-dk h2{font-size:64px}.f-ph h1,.f-ph h2{font-size:38px}
+.f h3{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:26px;line-height:1.1;margin:0}
+.f p{margin:0}
+.f-ph .pick{min-width:0;padding:0 10px;height:38px;font-size:12px}
+.ptop .num{font-variant-numeric:lining-nums}
+:where(.f button){font:inherit;background:none;border:0;color:inherit;padding:0;cursor:default}
+.slot[style*="50%"]::after{display:none}
+.slot[style*="50%"]::before{font-size:10px}
+.f .small{line-height:2.1}
+.f-ph .pick .pl{padding:0}.f-ph .pick{padding:0 8px;font-size:11px}
+</style></head><body><section class="page"><div class="ptop"><div class="l"><span class="num"></span><span class="ttl">Storyboard</span></div><div class="stage"><b>[Brand name]</b><br>For review</div></div><div class="body" style="grid-template-columns:1fr 1fr;gap:70px;margin-top:40px"><div><div class="cap">The page, in order</div><div class="row" style="padding:9px 0;border-bottom:1px solid var(--line)"><span><b class="serif" style="color:var(--tim);font-size:26px;margin-right:14px">1</b><span class="serif" style="font-size:24px">Header</span></span><span class="small">Shop · Build yours · Craft · Visit · Message us</span></div><div class="row" style="padding:9px 0;border-bottom:1px solid var(--line)"><span><b class="serif" style="color:var(--tim);font-size:26px;margin-right:14px">2</b><span class="serif" style="font-size:24px">Hero</span></span><span class="small">Buy it ready. Or build it yours.</span></div><div class="row" style="padding:9px 0;border-bottom:1px solid var(--line)"><span><b class="serif" style="color:var(--tim);font-size:26px;margin-right:14px">3</b><span class="serif" style="font-size:24px">Rooms</span></span><span class="small">One home. Four rooms. Walk through. Tap any piece you like.</span></div><div class="row" style="padding:9px 0;border-bottom:1px solid var(--line)"><span><b class="serif" style="color:var(--tim);font-size:26px;margin-right:14px">4</b><span class="serif" style="font-size:24px">Ready to buy</span></span><span class="small">Ready to take home.</span></div><div class="row" style="padding:9px 0;border-bottom:1px solid var(--line)"><span><b class="serif" style="color:var(--tim);font-size:26px;margin-right:14px">5</b><span class="serif" style="font-size:24px">Build yours</span></span><span class="small">Make it yours. Pick a start, a size and a fabric. The price moves with you.</span></div><div class="row" style="padding:9px 0;border-bottom:1px solid var(--line)"><span><b class="serif" style="color:var(--tim);font-size:26px;margin-right:14px">6</b><span class="serif" style="font-size:24px">Detail row</span></span><span class="small">Look closer.</span></div><div class="row" style="padding:9px 0;border-bottom:1px solid var(--line)"><span><b class="serif" style="color:var(--tim);font-size:26px;margin-right:14px">7</b><span class="serif" style="font-size:24px">Craft band</span></span><span class="small"><span class="pl">[One line from the workshop]</span></span></div><div class="row" style="padding:9px 0;border-bottom:1px solid var(--line)"><span><b class="serif" style="color:var(--tim);font-size:26px;margin-right:14px">8</b><span class="serif" style="font-size:24px">Visit and contact</span></span><span class="small">Come and sit on it.</span></div><div class="cap" style="margin-top:34px">Colour and type</div><div style="display:flex;gap:22px"><div><div style="width:150px;height:84px;background:#F4EFE6;border:1px solid var(--line)"></div><div class="small" style="margin-top:6px"><b>Ivory</b> #F4EFE6</div></div><div><div style="width:150px;height:84px;background:#2A211B;border:1px solid var(--line)"></div><div class="small" style="margin-top:6px"><b>Ink</b> #2A211B</div></div><div><div style="width:150px;height:84px;background:#9A6A3F;border:1px solid var(--line)"></div><div class="small" style="margin-top:6px"><b>Timber</b> #9A6A3F</div></div></div><div style="margin-top:26px"><div class="serif" style="font-size:54px;line-height:1">Cormorant Garamond</div><div class="small" style="margin-top:6px">Display and prices. Pairs with Inter for everything small. An 8px step.</div></div></div><div><div class="cap">How to read this</div><p style="font-size:17px;max-width:46ch">One minimal, classy page for a new furniture business. Each page below is one section, with the phone and the desk built as two separate designs. Nothing here is the final look: it fixes the order, the words and where every picture goes.</p><div class="cap" style="margin-top:30px">Marks you will see</div><p style="margin-top:10px"><span class="pl">[Brand name]</span> a dashed timber bracket is a placeholder for a real name, price or fact. None is invented.</p><div style="margin-top:14px;display:flex;gap:16px;align-items:center"><div class="slot" data-label="Picture slot" data-size="1600x1200" style="width:200px;height:120px"></div><span>A labelled ivory panel is a picture slot with its size. Furniture is never drawn here, only photographed later.</span></div><div class="cap" style="margin-top:30px">Three rules this page keeps</div><p style="margin-top:8px">1. Two ways in: buy it ready or build it yours.<br>2. Phone is centred and clear of the island and home bar. Desk starts at the left gutter.<br>3. Every button ends in WhatsApp with the choices already in the message.</p></div></div><div class="pfoot"><span>Storyboard · one page furniture site · phone and desk · every name, price and photo is a placeholder</span><span>Cover</span></div></section><section class="page"><div class="ptop"><div class="l"><span class="num">1</span><span class="ttl">Header</span></div><div class="stage"><b>Section 1 of 8</b><br>Phone and desk are separate designs</div></div><div class="body"><div><div class="cap">Phone · 390 by 844 · F01</div><div class="phone"><div class="scr ph"><div class="status"><span>9:41</span><span class="r"><i class="ic ic-signal"></i><i class="ic ic-wifi"></i><i class="ic ic-battery-full"></i></span></div><div class="island"></div><div class="pbody"><div class="f f-ph"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in" style="padding-top:16px">
+    <div class="hdr" style="display:flex; align-items:center; justify-content:space-between; height:56px">
+      <span class="nav" style="display:flex; align-items:center; width:56px; justify-content:flex-start">
+        <i class="ic ic-menu"></i>
+      </span>
+      <span class="brand" style="text-align:center"><span class="pl">[Brand name]</span></span>
+      <span class="nav" style="display:flex; align-items:center; width:56px; justify-content:flex-end">
+        <i class="ic ic-message-circle"></i>
+      </span>
+    </div>
+  </div>
+  <div class="in" style="padding-top:0">
+    <div class="rule" style="width:100%; height:1px"></div>
+  </div>
+  <div class="in" style="padding-top:48px">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:20px; text-align:center">
+      <span class="h2">Shop</span>
+      <span class="h2">Build yours</span>
+      <span class="h2">Craft</span>
+      <span class="h2">Visit</span>
+    </div>
+  </div>
+  <div class="in" style="padding-top:48px">
+    <div class="btn" style="display:flex; align-items:center; justify-content:center; gap:8px; width:100%; height:48px">
+      <i class="ic ic-message-circle"></i>
+      <span>Message us</span>
+    </div>
+  </div>
+  <div style="flex-grow:1"></div>
+</div></div></div><div class="homebar"><i></i></div></div></div></div><div class="rcol"><div class="cap">Desk · 1440 by 900 · F02</div><div class="dwrap"><div class="dchrome"><i></i><i></i><i></i><span class="addr">[brand-name].lk</span></div><div class="dview" style="height:634.4px"><div class="scr dk" style="transform:scale(0.70486)"><div class="f f-dk"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in" style="padding-top:48px">
+    <div class="eyebrow">At the top</div>
+  </div>
+  <div class="in" style="padding-top:16px">
+    <div class="hdr" style="display:flex; align-items:center; justify-content:space-between; height:88px">
+      <div class="brand"><span class="pl">[Brand name]</span></div>
+      <div class="nav" style="display:flex; gap:32px; align-items:center"><span>Shop</span><span>Build yours</span><span>Craft</span><span>Visit</span><span class="btn" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px">
+          <i class="ic ic-message-circle"></i> Message us
+        </span></div>
+    </div>
+  </div>
+
+  <div style="height:120px"></div>
+
+  <div class="in">
+    <div class="eyebrow">Scrolled</div>
+  </div>
+  <div class="in" style="padding-top:16px">
+    <div class="hdr" style="display:flex; align-items:center; justify-content:space-between; height:64px; border-bottom:1px solid #e5e5e5">
+      <div class="brand"><span class="pl">[Brand name]</span></div>
+      <div class="nav" style="display:flex; gap:32px; align-items:center"><span>Shop</span><span>Build yours</span><span>Craft</span><span>Visit</span><span class="btn" style="display:inline-flex; align-items:center; gap:8px; padding:8px 18px">
+          <i class="ic ic-message-circle"></i> Message us
+        </span></div>
+    </div>
+  </div>
+
+  <div class="grow"></div>
+</div></div></div></div></div><dl class="notes"><dt>Purpose</dt><dd>Brand at the left gutter, four links, one Message us button. Phone shows the menu open; the closed state is the header row alone. Desk shows two states: at the top and scrolled.</dd><dt>Words</dt><dd>Shop · Build yours · Craft · Visit · Message us</dd><dt>Photo needed</dt><dd>none</dd><dt>Borrowed from</dt><dd>Nothing from the pins. House system plus the conversion standard (WhatsApp one tap away on every screen).</dd><dt>Thulaib to decide</dt><dd>Does the client want a language switch (English, Sinhala) in the header?</dd></dl></div></div><div class="pfoot"><span>Storyboard · one page furniture site · phone and desk · every name, price and photo is a placeholder</span><span>Page 2</span></div></section><section class="page"><div class="ptop"><div class="l"><span class="num">2</span><span class="ttl">Hero</span></div><div class="stage"><b>Section 2 of 8</b><br>Phone and desk are separate designs</div></div><div class="body"><div><div class="cap">Phone · 390 by 844 · F03</div><div class="phone"><div class="scr ph"><div class="status"><span>9:41</span><span class="r"><i class="ic ic-signal"></i><i class="ic ic-wifi"></i><i class="ic ic-battery-full"></i></span></div><div class="island"></div><div class="pbody"><div class="f f-ph"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in" style="padding-top:8px">
+    <div class="hdr" style="display:flex; align-items:center; justify-content:space-between; width:100%">
+      <span class="nav" style="display:flex; gap:8px; align-items:center">
+        <i class="ic ic-menu"></i>
+      </span>
+      <span class="brand"><span class="pl">[Brand name]</span></span>
+      <span class="nav" style="display:flex; gap:8px; align-items:center">
+        <i class="ic ic-message-circle"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="in" style="display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:24px">
+    <div class="eyebrow" style="text-align:center"><span class="pl">[Category]</span> · <span class="pl">[Timber]</span> · <span class="pl">[Fabric]</span></div>
+    <div class="poster" style="text-align:center"><span class="pl">[Piece name]</span></div>
+    
+    <div style="position:relative; width:350px; height:210px; margin:0 auto">
+      <div class="slot" data-label="Hero photo: the piece in a calm room" data-size="1600x1200" style="width:100%; height:210px"></div>
+      <div class="slot" data-label="Pencil drawing" data-size="1200x1200" style="position:absolute; right:8px; bottom:8px; width:96px; height:96px"></div>
+    </div>
+
+    <div class="lede" style="text-align:center">Buy it ready. Or build it yours.</div>
+    
+    <div style="display:flex; flex-direction:column; gap:12px; width:100%; margin-top:4px">
+      <div class="btn" style="width:100%; text-align:center; padding:14px 0">Ready to buy · from LKR <span class="pl">[price]</span></div>
+      <div class="btn-o" style="width:100%; text-align:center; padding:14px 0; display:flex; align-items:center; justify-content:center; gap:8px">
+        Build your own <i class="ic ic-arrow-right"></i>
+      </div>
+    </div>
+  </div>
+</div></div></div><div class="homebar"><i></i></div></div></div></div><div class="rcol"><div class="cap">Desk · 1440 by 900 · F04</div><div class="dwrap"><div class="dchrome"><i></i><i></i><i></i><span class="addr">[brand-name].lk</span></div><div class="dview" style="height:634.4px"><div class="scr dk" style="transform:scale(0.70486)"><div class="f f-dk"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in" style="padding:0 48px; flex-shrink:0">
+    <div class="hdr" style="display:flex; justify-content:space-between; align-items:center; padding:24px 0 16px 0">
+      <div class="brand"><span class="pl">[Brand name]</span></div>
+      <div class="nav" style="display:flex; gap:32px; align-items:center"><span>Shop</span><span>Build yours</span><span>Craft</span><span>Visit</span><span class="btn" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px">
+          <i class="ic ic-message-circle"></i> Message us
+        </span></div>
+    </div>
+  </div>
+  <div class="grow" style="display:flex; align-items:center; padding:0 48px; flex:1; min-height:0">
+    <div style="display:flex; gap:64px; width:100%; align-items:center">
+      <div style="width:560px; flex-shrink:0">
+        <div class="eyebrow" style="margin-bottom:16px"><span class="pl">[Category]</span> · <span class="pl">[Timber]</span> · <span class="pl">[Fabric]</span></div>
+        <div class="poster" style="margin-bottom:24px"><span class="pl">[Piece name]</span></div>
+        <div class="lede" style="margin-bottom:32px">Buy it ready. Or build it yours.</div>
+        <div style="display:flex; gap:16px; margin-bottom:32px">
+          <span class="btn" style="padding:12px 24px">Ready to buy · from LKR <span class="pl">[price]</span></span>
+          <span class="btn-o" style="padding:12px 24px; display:inline-flex; align-items:center; gap:8px">Build your own <i class="ic ic-arrow-right"></i></span>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center; margin-bottom:16px">
+          <span class="pick"><span class="pl">[Size 1]</span></span>
+          <span class="pick"><span class="pl">[Size 2]</span></span>
+          <span class="pick"><span class="pl">[Size 3]</span></span>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center">
+          <span class="dot on" style="background:#8b6f4e; border-radius:50%"></span>
+          <span class="dot" style="background:#6b5b4e; border-radius:50%"></span>
+          <span class="dot" style="background:#a89f91; border-radius:50%"></span>
+        </div>
+      </div>
+      <div style="flex:1; position:relative; min-width:0">
+        <div class="slot" data-label="Hero photo: the piece in a calm room" data-size="1600x1200" style="width:100%; height:520px; border-radius:2px"></div>
+        <div style="position:absolute; left:-48px; bottom:-24px; width:220px">
+          <div class="slot" data-label="Pencil drawing" data-size="1200x1200" style="width:220px; height:220px; border-radius:2px"></div>
+          <div style="margin-top:12px; display:flex; flex-direction:column; gap:4px">
+            <span class="small"><span class="pl">[Width]</span> mm</span>
+            <span class="small"><span class="pl">[Depth]</span> mm</span>
+            <span class="small"><span class="pl">[Seat height]</span> mm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div></div></div><dl class="notes"><dt>Purpose</dt><dd>Two doors. Ready to buy carries the price on the button. Build your own opens the configurator. The piece name sits at poster scale beside the photo and a pencil drawing sits with it.</dd><dt>Words</dt><dd>Buy it ready. Or build it yours.</dd><dt>Photo needed</dt><dd>hero-photo (1600x1200) · hero-drawing (1200x1200)</dd><dt>Borrowed from</dt><dd>BLEND-01 front door, decided and not redone: two doors, price on the button row, name in a serif at poster scale, drawing beside the photo.</dd><dt>Thulaib to decide</dt><dd>Which one piece leads the hero? It decides the photo and the drawing.</dd></dl></div></div><div class="pfoot"><span>Storyboard · one page furniture site · phone and desk · every name, price and photo is a placeholder</span><span>Page 3</span></div></section><section class="page"><div class="ptop"><div class="l"><span class="num">3</span><span class="ttl">Rooms</span></div><div class="stage"><b>Section 3 of 8</b><br>Phone and desk are separate designs</div></div><div class="body"><div><div class="cap">Phone · 390 by 844 · F05</div><div class="phone"><div class="scr ph"><div class="status"><span>9:41</span><span class="r"><i class="ic ic-signal"></i><i class="ic ic-wifi"></i><i class="ic ic-battery-full"></i></span></div><div class="island"></div><div class="pbody"><div class="f f-ph"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in" style="padding-top:24px">
+    <div class="row" style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap">
+      <span class="pick on" style="display:inline-block; padding:10px 16px; min-height:44px; box-sizing:border-box"><span class="pl">[Living]</span></span>
+      <span class="pick" style="display:inline-block; padding:10px 16px; min-height:44px; box-sizing:border-box"><span class="pl">[Dining]</span></span>
+      <span class="pick" style="display:inline-block; padding:10px 16px; min-height:44px; box-sizing:border-box"><span class="pl">[Bedroom]</span></span>
+      <span class="pick" style="display:inline-block; padding:10px 16px; min-height:44px; box-sizing:border-box"><span class="pl">[Study]</span></span>
+    </div>
+    <h2 style="text-align:center; margin-top:24px; margin-bottom:8px">One home. Four rooms.</h2>
+    <p class="lede" style="text-align:center; margin:0 0 24px 0">Walk through. Tap any piece you like.</p>
+  </div>
+
+  <div class="slot" data-label="Room photo 1 of 4, same camera spot" data-size="2400x1350" style="width:100%; height:300px; position:relative; overflow:hidden">
+    <div class="chip" style="position:absolute; left:16px; bottom:36px; display:flex; align-items:center; gap:8px; padding:8px 12px">
+      <span class="dot on" style="border-radius:50%; background:#8b6f5e"></span>
+      <span class="small" style=""><span class="pl">[Piece name]</span></span>
+    </div>
+  </div>
+
+  <div class="in" style="padding-top:16px; padding-bottom:0">
+    <div class="row" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px">
+      <span class="small">01 / 04</span>
+      <span class="btn-t" style="display:inline-flex; align-items:center; gap:4px; min-height:44px; padding:0 4px">
+        Next room <i class="ic ic-arrow-right"></i>
+      </span>
+    </div>
+    <div class="progress" style="width:100%; height:1px; position:relative">
+      <i style="width:25%; display:block; height:1px"></i>
+    </div>
+  </div>
+</div></div></div><div class="homebar"><i></i></div></div></div></div><div class="rcol"><div class="cap">Desk · 1440 by 900 · F06</div><div class="dwrap"><div class="dchrome"><i></i><i></i><i></i><span class="addr">[brand-name].lk</span></div><div class="dview" style="height:634.4px"><div class="scr dk" style="transform:scale(0.70486)"><div class="f f-dk"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in" style="padding:0 48px">
+    <div class="hdr" style="display:flex; justify-content:space-between; align-items:center; padding:24px 0 0 0">
+      <div class="brand"><span class="pl">[Brand name]</span></div>
+      <div class="nav" style="display:flex; gap:32px; align-items:center"><span>Shop</span><span>Build yours</span><span>Craft</span><span>Visit</span><span class="btn" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px">
+          <i class="ic ic-message-circle"></i> Message us
+        </span></div>
+    </div>
+  </div>
+
+  <div class="in" style="padding:0 48px; flex-grow:1; display:flex; align-items:center">
+    <div style="display:flex; gap:48px; width:100%; align-items:flex-start">
+      <!-- Left column 340px -->
+      <div style="width:340px; flex-shrink:0; display:flex; flex-direction:column; gap:0">
+        <div class="eyebrow" style="margin-bottom:8px">Rooms</div>
+        <h2 style="margin:0 0 12px 0">One home. Four rooms.</h2>
+        <div class="lede" style="margin-bottom:32px">Walk through. Tap any piece you like.</div>
+        
+        <div style="display:flex; flex-direction:column; gap:8px">
+          <div class="pick on" style="width:100%; height:48px; display:flex; align-items:center; padding:0 16px; box-sizing:border-box"><span class="pl">[Living]</span></div>
+          <div class="pick" style="width:100%; height:48px; display:flex; align-items:center; padding:0 16px; box-sizing:border-box"><span class="pl">[Dining]</span></div>
+          <div class="pick" style="width:100%; height:48px; display:flex; align-items:center; padding:0 16px; box-sizing:border-box"><span class="pl">[Bedroom]</span></div>
+          <div class="pick" style="width:100%; height:48px; display:flex; align-items:center; padding:0 16px; box-sizing:border-box"><span class="pl">[Study]</span></div>
+        </div>
+        
+        <div class="small" style="margin-top:24px">01 / 04</div>
+      </div>
+
+      <!-- Right column fills rest -->
+      <div style="flex:1; display:flex; flex-direction:column; gap:16px; min-width:0">
+        <div class="slot" data-label="Room photo 1 of 4, same camera spot" data-size="2400x1350" style="width:100%; height:520px; position:relative; border-radius:2px">
+          <div class="chip" style="position:absolute; left:80px; top:300px; display:flex; align-items:center; gap:8px; padding:8px 12px">
+            <span class="dot on" style="border-radius:50%; background:#8a6f5c"></span>
+            <span><span class="pl">[Piece name]</span></span>
+          </div>
+          <div class="chip" style="position:absolute; left:520px; top:360px; display:flex; align-items:center; gap:8px; padding:8px 12px">
+            <span class="dot on" style="border-radius:50%; background:#6b4f3a"></span>
+            <span><span class="pl">[Piece name]</span></span>
+          </div>
+        </div>
+        <div class="progress" style="width:100%; height:1px; position:relative">
+          <i style="width:25%; display:block; height:1px"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div></div></div><dl class="notes"><dt>Purpose</dt><dd>Four views of one room from one camera spot. Tap a name and the view pushes in over about 600 ms, never a hard cut. A tappable dot on each piece opens it.</dd><dt>Words</dt><dd>One home. Four rooms. Walk through. Tap any piece you like.</dd><dt>Photo needed</dt><dd>room-1 (2400x1350) · room-2 (2400x1350) · room-3 (2400x1350) · room-4 (2400x1350)</dd><dt>Borrowed from</dt><dd>Camera never cuts (concept film pin). Small piece in an empty room (home pin). Headline in the empty wall at the left gutter (home pin).</dd><dt>Thulaib to decide</dt><dd>Which four rooms does the showroom or catalogue cover?</dd></dl></div></div><div class="pfoot"><span>Storyboard · one page furniture site · phone and desk · every name, price and photo is a placeholder</span><span>Page 4</span></div></section><section class="page"><div class="ptop"><div class="l"><span class="num">4</span><span class="ttl">Ready to buy</span></div><div class="stage"><b>Section 4 of 8</b><br>Phone and desk are separate designs</div></div><div class="body"><div><div class="cap">Phone · 390 by 844 · F07</div><div class="phone"><div class="scr ph"><div class="status"><span>9:41</span><span class="r"><i class="ic ic-signal"></i><i class="ic ic-wifi"></i><i class="ic ic-battery-full"></i></span></div><div class="island"></div><div class="pbody"><div class="f f-ph"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in" style="padding-top:24px">
+    <div style="text-align:center">
+      <h2 class="h2" style="margin:0 0 8px 0">Ready to take home.</h2>
+      <p class="lede" style="margin:0 0 24px 0"><span class="pl">[One line: delivery promise]</span></p>
+    </div>
+  </div>
+
+  <div class="in" style="display:flex; justify-content:center; padding-bottom:0">
+    <div class="card" style="width:350px; display:flex; flex-direction:column; gap:12px">
+      <div class="slot" data-label="Piece photo 1" data-size="1000x1250" style="width:100%; height:300px; border-radius:4px"></div>
+      <div>
+        <h3 class="h3" style="margin:0 0 4px 0"><span class="pl">[Piece name]</span></h3>
+        <p class="small" style="margin:0"><span class="pl">[Timber]</span> frame · <span class="pl">[Fabric]</span> · <span class="pl">[Detail]</span></p>
+      </div>
+      <div class="row" style="display:flex; gap:8px; align-items:center">
+        <span class="dot on" style="background:#8a6f5c; border-radius:50%"></span>
+        <span class="dot" style="background:#c9b8a8; border-radius:50%"></span>
+        <span class="dot" style="background:#4a4a4a; border-radius:50%"></span>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-between; align-items:center; gap:12px">
+        <span class="price" style="">LKR <span class="pl">[price]</span></span>
+        <button class="btn" style="display:inline-flex; align-items:center; gap:8px; padding:12px 16px; cursor:pointer; min-height:44px">
+          Buy on WhatsApp
+          <i class="ic ic-message-circle" style="font-style:normal">✆</i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="in" style="padding-top:20px; padding-bottom:0">
+    <div style="text-align:center">
+      <p class="small" style="margin:0 0 8px 0">01 / 04</p>
+      <div class="progress" style="width:100%; height:2px; position:relative">
+        <i style="width:25%; display:block; height:2px"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="grow" style="flex-grow:1"></div>
+</div></div></div><div class="homebar"><i></i></div></div></div></div><div class="rcol"><div class="cap">Desk · 1440 by 900 · F08</div><div class="dwrap"><div class="dchrome"><i></i><i></i><i></i><span class="addr">[brand-name].lk</span></div><div class="dview" style="height:634.4px"><div class="scr dk" style="transform:scale(0.70486)"><div class="f f-dk"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in" style="padding:0 48px">
+    <div class="hdr" style="display:flex; justify-content:space-between; align-items:center; padding:24px 0 0 0">
+      <div class="brand"><span class="pl">[Brand name]</span></div>
+      <div class="nav" style="display:flex; gap:32px; align-items:center"><span>Shop</span><span>Build yours</span><span>Craft</span><span>Visit</span><span class="btn" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px">Message us <i class="ic ic-message-circle"></i></span></div>
+    </div>
+  </div>
+
+  <div class="in" style="padding:0 48px; margin-top:64px">
+    <h2 style="margin:0 0 8px 0">Ready to take home.</h2>
+    <div class="lede" style="margin:0"><span class="pl">[One line: delivery promise]</span></div>
+  </div>
+
+  <div class="in" style="padding:0 48px; margin-top:40px; flex-grow:1">
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:24px">
+      <!-- Card 1 -->
+      <div class="card" style="display:flex; flex-direction:column">
+        <div class="slot" data-label="Piece photo 1" data-size="1000x1250" style="width:100%; height:330px"></div>
+        <h3 style="margin:16px 0 4px 0"><span class="pl">[Piece name]</span></h3>
+        <div class="small" style="margin:0 0 12px 0"><span class="pl">[Timber]</span> frame · <span class="pl">[Fabric]</span> · <span class="pl">[Detail]</span></div>
+        <div style="display:flex; gap:8px; margin-bottom:16px">
+          <span class="dot on" style="background:#8b6f47; border-radius:50%"></span>
+          <span class="dot" style="background:#a8a29e; border-radius:50%"></span>
+          <span class="dot" style="background:#6b7280; border-radius:50%"></span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto">
+          <span class="price" style="">LKR <span class="pl">[price]</span></span>
+          <span class="btn" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px">Buy <i class="ic ic-message-circle"></i></span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card" style="display:flex; flex-direction:column">
+        <div class="slot" data-label="Piece photo 2" data-size="1000x1250" style="width:100%; height:330px"></div>
+        <h3 style="margin:16px 0 4px 0"><span class="pl">[Piece name]</span></h3>
+        <div class="small" style="margin:0 0 12px 0"><span class="pl">[Timber]</span> frame · <span class="pl">[Fabric]</span> · <span class="pl">[Detail]</span></div>
+        <div style="display:flex; gap:8px; margin-bottom:16px">
+          <span class="dot on" style="background:#8b6f47; border-radius:50%"></span>
+          <span class="dot" style="background:#a8a29e; border-radius:50%"></span>
+          <span class="dot" style="background:#6b7280; border-radius:50%"></span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto">
+          <span class="price" style="">LKR <span class="pl">[price]</span></span>
+          <span class="btn" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px">Buy <i class="ic ic-message-circle"></i></span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card" style="display:flex; flex-direction:column">
+        <div class="slot" data-label="Piece photo 3" data-size="1000x1250" style="width:100%; height:330px"></div>
+        <h3 style="margin:16px 0 4px 0"><span class="pl">[Piece name]</span></h3>
+        <div class="small" style="margin:0 0 12px 0"><span class="pl">[Timber]</span> frame · <span class="pl">[Fabric]</span> · <span class="pl">[Detail]</span></div>
+        <div style="display:flex; gap:8px; margin-bottom:16px">
+          <span class="dot on" style="background:#8b6f47; border-radius:50%"></span>
+          <span class="dot" style="background:#a8a29e; border-radius:50%"></span>
+          <span class="dot" style="background:#6b7280; border-radius:50%"></span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto">
+          <span class="price" style="">LKR <span class="pl">[price]</span></span>
+          <span class="btn" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px">Buy <i class="ic ic-message-circle"></i></span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card" style="display:flex; flex-direction:column">
+        <div class="slot" data-label="Piece photo 4" data-size="1000x1250" style="width:100%; height:330px"></div>
+        <h3 style="margin:16px 0 4px 0"><span class="pl">[Piece name]</span></h3>
+        <div class="small" style="margin:0 0 12px 0"><span class="pl">[Timber]</span> frame · <span class="pl">[Fabric]</span> · <span class="pl">[Detail]</span></div>
+        <div style="display:flex; gap:8px; margin-bottom:16px">
+          <span class="dot on" style="background:#8b6f47; border-radius:50%"></span>
+          <span class="dot" style="background:#a8a29e; border-radius:50%"></span>
+          <span class="dot" style="background:#6b7280; border-radius:50%"></span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto">
+          <span class="price" style="">LKR <span class="pl">[price]</span></span>
+          <span class="btn" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px">Buy <i class="ic ic-message-circle"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div></div></div><dl class="notes"><dt>Purpose</dt><dd>Four finished pieces. Name, one material line, fabric dots, price and Buy on one row. Buy opens a WhatsApp message that already names the piece.</dd><dt>Words</dt><dd>Ready to take home.</dd><dt>Photo needed</dt><dd>card-1 (1000x1250) · card-2 (1000x1250) · card-3 (1000x1250) · card-4 (1000x1250)</dd><dt>Borrowed from</dt><dd>Name left, fabric dots right (home pin). Fabric macro running off the cropped edge (sheet pin). Name, material, price and Buy on one row (shop pin).</dd><dt>Thulaib to decide</dt><dd>How many pieces are ready to buy today? What is the delivery promise?</dd></dl></div></div><div class="pfoot"><span>Storyboard · one page furniture site · phone and desk · every name, price and photo is a placeholder</span><span>Page 5</span></div></section><section class="page"><div class="ptop"><div class="l"><span class="num">5</span><span class="ttl">Build yours</span></div><div class="stage"><b>Section 5 of 8</b><br>Phone and desk are separate designs</div></div><div class="body"><div><div class="cap">Phone · 390 by 844 · F09</div><div class="phone"><div class="scr ph"><div class="status"><span>9:41</span><span class="r"><i class="ic ic-signal"></i><i class="ic ic-wifi"></i><i class="ic ic-battery-full"></i></span></div><div class="island"></div><div class="pbody"><div class="f f-ph"><div class="col" style="height:100%">
+  <div class="in" style="display:flex; flex-direction:column; gap:12px; padding-top:16px; padding-bottom:16px; height:100%">
+    <div style="text-align:center">
+      <div class="eyebrow">Build yours</div>
+      <h2 style="margin:4px 0 0 0">Make it yours.</h2>
+      <div class="lede" style="margin-top:4px">Pick a start, a size and a fabric. The price moves with you.</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:8px; margin-top:4px">
+      <div class="steps" style="display:flex; justify-content:space-between; gap:8px">
+        <span>01 Start</span>
+        <span class="on">02 Size</span>
+        <span>03 Fabric</span>
+        <span>04 Send</span>
+      </div>
+      <div class="progress" style="height:2px; position:relative">
+        <i style="width:50%; display:block; height:2px"></i>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:6px; margin-top:8px">
+      <div style="display:flex; justify-content:center; gap:8px">
+        <button class="pick on" style="width:64px; height:44px">01</button>
+        <button class="pick" style="width:64px; height:44px">02</button>
+        <button class="pick" style="width:64px; height:44px">03</button>
+      </div>
+      <div class="small" style="text-align:center"><span class="pl">[Preset name]</span></div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:6px">
+      <div class="slot" data-label="Drawing with measurements" data-size="1200x1200" style="width:100%; height:130px; border-radius:4px"></div>
+      <div class="small" style="text-align:center"><span class="pl">[Width]</span> mm · <span class="pl">[Depth]</span> mm · <span class="pl">[Seat height]</span> mm</div>
+    </div>
+
+    <div style="display:flex; justify-content:center; gap:8px; margin-top:4px">
+      <button class="pick" style="width:auto; padding:0 16px; height:44px"><span class="pl">[Size 1]</span></button>
+      <button class="pick on" style="width:auto; padding:0 16px; height:44px"><span class="pl">[Size 2]</span></button>
+      <button class="pick" style="width:auto; padding:0 16px; height:44px"><span class="pl">[Size 3]</span></button>
+    </div>
+
+    <div style="display:flex; justify-content:center; gap:12px; margin-top:4px">
+      <div class="chip" style="display:flex; align-items:center; gap:6px; padding:8px 12px">
+        <span class="dot on" style="background:#8a6f5c; border-radius:50%"></span>
+        <span><span class="pl">[Fabric 1]</span></span>
+      </div>
+      <div class="chip" style="display:flex; align-items:center; gap:6px; padding:8px 12px">
+        <span class="dot" style="background:#b8a99a; border-radius:50%"></span>
+        <span><span class="pl">[Fabric 2]</span></span>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:8px">
+      <span class="price" style="">LKR <span class="pl">[price]</span></span>
+      <span class="small">live price</span>
+    </div>
+
+    <div style="flex-grow:1"></div>
+
+    <button class="btn" style="width:100%; height:48px; display:flex; align-items:center; justify-content:center; gap:8px">
+      <i class="ic ic-message-circle"></i>
+      Send my build on WhatsApp
+    </button>
+  </div>
+</div></div></div><div class="homebar"><i></i></div></div></div></div><div class="rcol"><div class="cap">Desk · 1440 by 900 · F10</div><div class="dwrap"><div class="dchrome"><i></i><i></i><i></i><span class="addr">[brand-name].lk</span></div><div class="dview" style="height:634.4px"><div class="scr dk" style="transform:scale(0.70486)"><div class="f f-dk"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in">
+    <div class="hdr" style="display:flex; justify-content:space-between; align-items:center; padding:24px 0 0 0">
+      <div class="brand"><span class="pl">[Brand name]</span></div>
+      <div class="nav" style="display:flex; gap:32px; align-items:center"><span>Shop</span><span>Build yours</span><span>Craft</span><span>Visit</span></div>
+    </div>
+  </div>
+
+  <div class="in" style="margin-top:48px">
+    <h2 style="margin:0 0 8px 0">Make it yours.</h2>
+    <div class="lede" style="margin:0 0 32px 0">Pick a start, a size and a fabric. The price moves with you.</div>
+  </div>
+
+  <div class="in">
+    <div class="steps" style="display:flex; gap:0; width:100%; margin-bottom:8px">
+      <span style="flex:1; padding:8px 0; border-bottom:2px solid #e0e0e0; text-align:left">01 Start</span>
+      <span class="on" style="flex:1; padding:8px 0; border-bottom:2px solid #1a1a1a; text-align:left">02 Size</span>
+      <span style="flex:1; padding:8px 0; border-bottom:2px solid #e0e0e0; text-align:left">03 Fabric</span>
+      <span style="flex:1; padding:8px 0; border-bottom:2px solid #e0e0e0; text-align:left">04 Send</span>
+    </div>
+    <div class="progress" style="width:100%; height:2px; margin-bottom:40px">
+      <i style="width:50%; display:block; height:2px"></i>
+    </div>
+  </div>
+
+  <div class="in" style="flex:1; display:flex; gap:56px; padding-bottom:48px">
+    <!-- Left column -->
+    <div style="width:560px; display:flex; flex-direction:column">
+      <div class="slot" data-label="Drawing with measurements" data-size="1200x1200" style="width:100%; height:400px; border-radius:4px"></div>
+      <div class="row" style="display:flex; gap:24px; margin-top:16px">
+        <span class="small"><span class="pl">[Width]</span> mm</span>
+        <span class="small"><span class="pl">[Depth]</span> mm</span>
+        <span class="small"><span class="pl">[Seat height]</span> mm</span>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div style="flex:1; display:flex; flex-direction:column; gap:24px">
+      <div>
+        <div class="small" style="margin-bottom:8px">Start</div>
+        <div style="display:flex; gap:12px">
+          <button class="pick on" style="padding:10px 20px; cursor:pointer">01</button>
+          <button class="pick" style="padding:10px 20px; cursor:pointer">02</button>
+          <button class="pick" style="padding:10px 20px; cursor:pointer">03</button>
+        </div>
+        <div class="small" style="margin-top:6px"><span class="pl">[Preset name]</span></div>
+      </div>
+
+      <div>
+        <div class="small" style="margin-bottom:8px">Size</div>
+        <div style="display:flex; gap:12px">
+          <button class="pick" style="padding:10px 20px; cursor:pointer"><span class="pl">[Size 1]</span></button>
+          <button class="pick on" style="padding:10px 20px; cursor:pointer"><span class="pl">[Size 2]</span></button>
+          <button class="pick" style="padding:10px 20px; cursor:pointer"><span class="pl">[Size 3]</span></button>
+        </div>
+      </div>
+
+      <div>
+        <div class="small" style="margin-bottom:8px">Fabric</div>
+        <div style="display:flex; gap:16px; align-items:center">
+          <div style="display:flex; gap:12px; flex-wrap:wrap">
+            <div class="chip" style="display:flex; align-items:center; gap:8px; padding:8px 12px">
+              <span class="dot on" style="border-radius:50%; background:#8b6f47"></span>
+              <span><span class="pl">[Fabric 1]</span></span>
+            </div>
+            <div class="chip" style="display:flex; align-items:center; gap:8px; padding:8px 12px">
+              <span class="dot" style="border-radius:50%; background:#6b5b4e"></span>
+              <span><span class="pl">[Fabric 2]</span></span>
+            </div>
+            <div class="chip" style="display:flex; align-items:center; gap:8px; padding:8px 12px">
+              <span class="dot" style="border-radius:50%; background:#3a3a3a"></span>
+              <span><span class="pl">[Fabric 3]</span></span>
+            </div>
+          </div>
+          <div class="slot" data-label="Weave close-up" data-size="800x800" style="width:120px; height:120px; border-radius:4px; flex-shrink:0"></div>
+        </div>
+      </div>
+
+      <div class="row" style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:auto; padding-top:16px">
+        <div>
+          <div class="price" style="">LKR <span class="pl">[price]</span></div>
+          <div class="small" style="margin-top:4px">live price</div>
+        </div>
+        <button class="btn" style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px; cursor:pointer">
+          <i class="ic ic-message-circle"></i> Send my build on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</div></div></div></div></div><dl class="notes"><dt>Purpose</dt><dd>Light, never a full configurator. A step bar with a hairline, three presets, fixed size buttons, fabric chips that open a close-up of the weave, a drawing that shows the measurements and a live price beside the send button.</dd><dt>Words</dt><dd>Make it yours. Pick a start, a size and a fabric. The price moves with you.</dd><dt>Photo needed</dt><dd>build-drawing (1200x1200) · weave-1 (800x800) · weave-2 (800x800) · weave-3 (800x800)</dd><dt>Borrowed from</dt><dd>Presets 01 02 03 (UI card pin). Drawing shows measurements (pin). Fixed size buttons with the live price beside the enquiry button (live configurator). Hairline step bar is a house addition.</dd><dt>Thulaib to decide</dt><dd>Which sizes, fabrics and presets are real? What does each change in the price?</dd></dl></div></div><div class="pfoot"><span>Storyboard · one page furniture site · phone and desk · every name, price and photo is a placeholder</span><span>Page 6</span></div></section><section class="page"><div class="ptop"><div class="l"><span class="num">6</span><span class="ttl">Detail row</span></div><div class="stage"><b>Section 6 of 8</b><br>Phone and desk are separate designs</div></div><div class="body"><div><div class="cap">Phone · 390 by 844 · F11</div><div class="phone"><div class="scr ph"><div class="status"><span>9:41</span><span class="r"><i class="ic ic-signal"></i><i class="ic ic-wifi"></i><i class="ic ic-battery-full"></i></span></div><div class="island"></div><div class="pbody"><div class="f f-ph"><div class="col" style="height:100%">
+  <div class="in" style="display:flex; flex-direction:column; gap:24px; padding-top:24px">
+    <h2 style="text-align:center; margin:0">Look closer.</h2>
+
+    <!-- Detail 1 -->
+    <div class="row" style="display:flex; gap:16px; align-items:flex-start; justify-content:flex-start">
+      <div class="slot" data-label="Detail 1" data-size="800x800" style="width:120px; height:120px; flex-shrink:0"></div>
+      <div class="col" style="display:flex; flex-direction:column; gap:4px; padding-top:4px">
+        <div class="eyebrow">01</div>
+        <h3 style="margin:0"><span class="pl">[Part 1]</span></h3>
+        <div class="small" style="margin:0"><span class="pl">[One line: what it does for you]</span></div>
+      </div>
+    </div>
+
+    <!-- Detail 2 -->
+    <div class="row" style="display:flex; gap:16px; align-items:flex-start; justify-content:flex-start">
+      <div class="slot" data-label="Detail 2" data-size="800x800" style="width:120px; height:120px; flex-shrink:0"></div>
+      <div class="col" style="display:flex; flex-direction:column; gap:4px; padding-top:4px">
+        <div class="eyebrow">02</div>
+        <h3 style="margin:0"><span class="pl">[Part 2]</span></h3>
+        <div class="small" style="margin:0"><span class="pl">[One line: what it does for you]</span></div>
+      </div>
+    </div>
+
+    <!-- Detail 3 -->
+    <div class="row" style="display:flex; gap:16px; align-items:flex-start; justify-content:flex-start">
+      <div class="slot" data-label="Detail 3" data-size="800x800" style="width:120px; height:120px; flex-shrink:0"></div>
+      <div class="col" style="display:flex; flex-direction:column; gap:4px; padding-top:4px">
+        <div class="eyebrow">03</div>
+        <h3 style="margin:0"><span class="pl">[Part 3]</span></h3>
+        <div class="small" style="margin:0"><span class="pl">[One line: what it does for you]</span></div>
+      </div>
+    </div>
+  </div>
+</div></div></div><div class="homebar"><i></i></div></div></div></div><div class="rcol"><div class="cap">Desk · 1440 by 900 · F12</div><div class="dwrap"><div class="dchrome"><i></i><i></i><i></i><span class="addr">[brand-name].lk</span></div><div class="dview" style="height:634.4px"><div class="scr dk" style="transform:scale(0.70486)"><div class="f f-dk"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in" style="padding:48px 48px 0 48px; display:flex; flex-direction:column; gap:48px; flex:1">
+    <div class="hdr" style="display:flex; justify-content:space-between; align-items:center; width:100%">
+      <div class="brand"><span class="pl">[Brand name]</span></div>
+      <div class="nav" style="display:flex; gap:32px; align-items:center"><span>Shop</span><span>Build yours</span><span>Craft</span><span>Visit</span></div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:24px">
+      <h2 style="margin:0">Look closer.</h2>
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:32px; width:100%">
+        <!-- Column 1 -->
+        <div class="card" style="display:flex; flex-direction:column; gap:16px; width:100%">
+          <div class="slot" data-label="Detail 1" data-size="800x800" style="width:100%; height:427px; border-radius:4px"></div>
+          <div class="eyebrow" style="">01</div>
+          <h3 style="margin:0"><span class="pl">[Part 1]</span></h3>
+          <div class="small" style=""><span class="pl">[One line: what it does for you]</span></div>
+        </div>
+        <!-- Column 2 -->
+        <div class="card" style="display:flex; flex-direction:column; gap:16px; width:100%">
+          <div class="slot" data-label="Detail 2" data-size="800x800" style="width:100%; height:427px; border-radius:4px"></div>
+          <div class="eyebrow" style="">02</div>
+          <h3 style="margin:0"><span class="pl">[Part 2]</span></h3>
+          <div class="small" style=""><span class="pl">[One line: what it does for you]</span></div>
+        </div>
+        <!-- Column 3 -->
+        <div class="card" style="display:flex; flex-direction:column; gap:16px; width:100%">
+          <div class="slot" data-label="Detail 3" data-size="800x800" style="width:100%; height:427px; border-radius:4px"></div>
+          <div class="eyebrow" style="">03</div>
+          <h3 style="margin:0"><span class="pl">[Part 3]</span></h3>
+          <div class="small" style=""><span class="pl">[One line: what it does for you]</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div></div></div><dl class="notes"><dt>Purpose</dt><dd>Three labelled close-ups. Each part has a name and one line on what it does for the buyer.</dd><dt>Words</dt><dd>Look closer.</dd><dt>Photo needed</dt><dd>detail-1 (800x800) · detail-2 (800x800) · detail-3 (800x800)</dd><dt>Borrowed from</dt><dd>Three square crops with part name and benefit (sheet pin). One word name and two word character (pin). A hand on the weave (UI card pin).</dd><dt>Thulaib to decide</dt><dd>Which three details prove the quality?</dd></dl></div></div><div class="pfoot"><span>Storyboard · one page furniture site · phone and desk · every name, price and photo is a placeholder</span><span>Page 7</span></div></section><section class="page"><div class="ptop"><div class="l"><span class="num">7</span><span class="ttl">Craft band</span></div><div class="stage"><b>Section 7 of 8</b><br>Phone and desk are separate designs</div></div><div class="body"><div><div class="cap">Phone · 390 by 844 · F13</div><div class="phone"><div class="scr ph"><div class="status"><span>9:41</span><span class="r"><i class="ic ic-signal"></i><i class="ic ic-wifi"></i><i class="ic ic-battery-full"></i></span></div><div class="island"></div><div class="pbody"><div class="f f-ph"><div class="band" style="height:100%; display:flex; flex-direction:column">
+  <div class="slot" data-label="Workshop: a pair of hands at a bench" data-size="2400x1200" style="width:100%; height:240px; flex-shrink:0"></div>
+  
+  <div class="in" style="flex:1; display:flex; flex-direction:column; gap:16px; padding-top:24px; padding-bottom:24px; overflow:hidden">
+    <div class="eyebrow" style="text-align:left">The workshop</div>
+    
+    <h2 style="text-align:left; margin:0"><span class="pl">[One line from the workshop]</span></h2>
+    
+    <div class="timber" style="padding:20px; display:flex; flex-direction:column; gap:8px">
+      <div class="eyebrow" style="text-align:left">Timber</div>
+      <h3 style="text-align:left; margin:0"><span class="pl">[Timber species]</span></h3>
+      <div class="small" style="text-align:left"><span class="pl">[Origin]</span></div>
+      <div class="small" style="text-align:left"><span class="pl">[Why it lasts: one line]</span></div>
+    </div>
+    
+    <div class="row" style="display:flex; align-items:center; gap:14px; margin-top:4px">
+      <div class="slot" data-label="Maker" data-size="600x600" style="width:64px; height:64px; border-radius:50%; flex-shrink:0"></div>
+      <div class="small" style="text-align:left">Made by <span class="pl">[Maker name]</span></div>
+    </div>
+    
+    <div style="flex-grow:1"></div>
+  </div>
+</div></div></div><div class="homebar"><i></i></div></div></div></div><div class="rcol"><div class="cap">Desk · 1440 by 900 · F14</div><div class="dwrap"><div class="dchrome"><i></i><i></i><i></i><span class="addr">[brand-name].lk</span></div><div class="dview" style="height:634.4px"><div class="scr dk" style="transform:scale(0.70486)"><div class="f f-dk"><div class="band" style="display:flex; width:100%; height:100%; overflow:hidden">
+  <div class="slot" data-label="Workshop: a pair of hands at a bench" data-size="2400x1200" style="width:720px; height:100%; flex-shrink:0"></div>
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding:0 96px 0 72px; box-sizing:border-box">
+    <div class="eyebrow">The workshop</div>
+    <h2 style="margin:16px 0 24px 0"><span class="pl">[One line from the workshop]</span></h2>
+    <div class="timber" style="padding:24px; max-width:420px">
+      <div class="eyebrow">Timber</div>
+      <h3 style="margin:8px 0 4px 0"><span class="pl">[Timber species]</span></h3>
+      <div class="small" style="margin-bottom:12px"><span class="pl">[Origin]</span></div>
+      <div class="small" style=""><span class="pl">[Why it lasts: one line]</span></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:16px; margin-top:32px">
+      <div class="slot" data-label="Maker" data-size="600x600" style="width:72px; height:72px; border-radius:50%; flex-shrink:0"></div>
+      <div class="small">Made by <span class="pl">[Maker name]</span></div>
+    </div>
+  </div>
+</div></div></div></div></div><dl class="notes"><dt>Purpose</dt><dd>One dark band, one workshop photo, one line and a named timber card. The photo runs to the cropped screen edge on desk.</dd><dt>Words</dt><dd><span class="pl">[One line from the workshop]</span></dd><dt>Photo needed</dt><dd>craft-band (2400x1200) · maker (600x600)</dd><dt>Borrowed from</dt><dd>One dark band, one photo, one line (studio pin). A named timber card (maker pin). A maker portrait (portfolio pin).</dd><dt>Thulaib to decide</dt><dd>Is it made by hand in Sri Lanka? Which timber? Only then can we write a line here.</dd></dl></div></div><div class="pfoot"><span>Storyboard · one page furniture site · phone and desk · every name, price and photo is a placeholder</span><span>Page 8</span></div></section><section class="page"><div class="ptop"><div class="l"><span class="num">8</span><span class="ttl">Visit and contact</span></div><div class="stage"><b>Section 8 of 8</b><br>Phone and desk are separate designs</div></div><div class="body"><div><div class="cap">Phone · 390 by 844 · F15</div><div class="phone"><div class="scr ph"><div class="status"><span>9:41</span><span class="r"><i class="ic ic-signal"></i><i class="ic ic-wifi"></i><i class="ic ic-battery-full"></i></span></div><div class="island"></div><div class="pbody"><div class="f f-ph"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in" style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:12px; padding-top:20px; padding-bottom:20px">
+    <h2 style="text-align:center; margin:0">Come and sit on it.</h2>
+    
+    <div class="row" style="display:flex; justify-content:center; align-items:center; gap:8px">
+      <i class="ic ic-map-pin"></i>
+      <small><span class="pl">[Showroom address]</span></small>
+    </div>
+    
+    <div class="row" style="display:flex; justify-content:center; align-items:center; gap:8px">
+      <i class="ic ic-clock"></i>
+      <small><span class="pl">[Opening hours]</span></small>
+    </div>
+    
+    <div style="display:flex; flex-direction:column; gap:8px; margin-top:4px">
+      <button class="btn" style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px; min-height:44px">
+        <i class="ic ic-message-circle"></i>
+        WhatsApp us
+      </button>
+      <button class="btn-o" style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px; min-height:44px">
+        <i class="ic ic-phone"></i>
+        Call <span class="pl">[Phone number]</span>
+      </button>
+    </div>
+    
+    <div class="slot" data-label="Map" data-size="1200x800" style="width:100%; height:130px; margin-top:4px"></div>
+  </div>
+  
+  <div class="in" style="padding-bottom:20px">
+    <div class="rule" style="margin-bottom:16px"></div>
+    
+    <div style="text-align:center">
+      <div class="brand" style="margin-bottom:12px"><span class="pl">[Brand name]</span></div>
+      
+      <div class="row" style="display:flex; justify-content:center; gap:16px; margin-bottom:12px">
+        <small>Shop</small>
+        <small>Build yours</small>
+        <small>Craft</small>
+        <small>Visit</small>
+      </div>
+      
+      <div class="row" style="display:flex; justify-content:center; align-items:center; gap:8px; margin-bottom:8px">
+        <i class="ic ic-instagram"></i>
+        <small><span class="pl">[Instagram handle]</span></small>
+      </div>
+      
+      <small>© <span class="pl">[Year]</span> <span class="pl">[Brand name]</span></small>
+    </div>
+  </div>
+</div></div></div><div class="homebar"><i></i></div></div></div></div><div class="rcol"><div class="cap">Desk · 1440 by 900 · F16</div><div class="dwrap"><div class="dchrome"><i></i><i></i><i></i><span class="addr">[brand-name].lk</span></div><div class="dview" style="height:634.4px"><div class="scr dk" style="transform:scale(0.70486)"><div class="f f-dk"><div class="col" style="height:100%; display:flex; flex-direction:column">
+  <div class="in">
+    <div class="hdr" style="display:flex; justify-content:space-between; align-items:center; padding-top:24px; padding-bottom:24px">
+      <div class="brand"><span class="pl">[Brand name]</span></div>
+      <div class="nav" style="display:flex; gap:32px; align-items:center"><span>Shop</span><span>Build yours</span><span>Craft</span><span>Visit</span><span class="btn" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px">Message us</span></div>
+    </div>
+  </div>
+
+  <div class="in" style="flex-grow:1; display:flex; flex-direction:column; justify-content:center">
+    <div style="display:flex; gap:64px; align-items:flex-start">
+      <div style="width:520px; flex-shrink:0">
+        <h2 style="margin:0 0 24px 0">Come and sit on it.</h2>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px">
+          <i class="ic ic-map-pin"></i>
+          <span class="small"><span class="pl">[Showroom address]</span></span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px">
+          <i class="ic ic-clock"></i>
+          <span class="small"><span class="pl">[Opening hours]</span></span>
+        </div>
+        <div style="display:flex; gap:16px">
+          <span class="btn" style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px">
+            <i class="ic ic-message-circle"></i> WhatsApp us
+          </span>
+          <span class="btn-o" style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px">
+            <i class="ic ic-phone"></i> Call <span class="pl">[Phone number]</span>
+          </span>
+        </div>
+      </div>
+      <div style="flex-grow:1">
+        <div class="slot" data-label="Map" data-size="1200x800" style="width:100%; height:380px"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="in">
+    <div class="rule" style="border-top:1px solid #e5e5e5; margin-bottom:24px"></div>
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:24px">
+      <div class="brand"><span class="pl">[Brand name]</span></div>
+      <div class="nav" style="display:flex; gap:32px; align-items:center"><span>Shop</span><span>Build yours</span><span>Craft</span><span>Visit</span></div>
+      <div style="display:flex; align-items:center; gap:16px">
+        <i class="ic ic-instagram"></i>
+        <span class="small"><span class="pl">[Instagram handle]</span></span>
+        <span class="small">© <span class="pl">[Year]</span></span>
+      </div>
+    </div>
+  </div>
+</div></div></div></div></div><dl class="notes"><dt>Purpose</dt><dd>Where to find them and when. Two ways to talk: WhatsApp first, call second. Footer with links and Instagram.</dd><dt>Words</dt><dd>Come and sit on it.</dd><dt>Photo needed</dt><dd>map (1200x800)</dd><dt>Borrowed from</dt><dd>Nothing from the pins. House system plus the conversion standard.</dd><dt>Thulaib to decide</dt><dd>Is there a showroom? If not, this headline changes to a delivery line.</dd></dl></div></div><div class="pfoot"><span>Storyboard · one page furniture site · phone and desk · every name, price and photo is a placeholder</span><span>Page 9</span></div></section><section class="page"><div class="ptop"><div class="l"><span class="num"></span><span class="ttl">Next steps</span></div><div class="stage"><b>Stop here</b><br>Nothing built, nothing deployed</div></div><div class="body" style="grid-template-columns:1fr 1fr;gap:70px;margin-top:40px"><div><div class="cap">What happens next</div><p style="font-size:20px;line-height:1.5;margin-top:8px"><b>1.</b> You paste CHATGPT-THREE-LOOKS.md into ChatGPT with this storyboard attached. It returns three looks. You pick one.<br><br><b>2.</b> You make the stand-in pictures with STAND-IN-IMAGES.md. The first six are essential.<br><br><b>3.</b> Chat 2 builds the page in the look you chose. Chat 3 runs the gates (phone view, desk view, every button pressed, speed).<br><br><b>4.</b> Nothing goes live until the client confirms the name, the pieces, the prices and the photos.</p></div><div><div class="cap">Needed from you or the client</div><p style="font-size:19px;line-height:1.6;margin-top:8px"><b>1.</b> Does the client want a language switch (English, Sinhala) in the header?<br><b>2.</b> Which one piece leads the hero? It decides the photo and the drawing.<br><b>3.</b> Which four rooms does the showroom or catalogue cover?<br><b>4.</b> How many pieces are ready to buy today? What is the delivery promise?<br><b>5.</b> Which sizes, fabrics and presets are real? What does each change in the price?<br><b>6.</b> Which three details prove the quality?<br><b>7.</b> Is it made by hand in Sri Lanka? Which timber? Only then can we write a line here.<br><b>8.</b> Is there a showroom? If not, this headline changes to a delivery line.</p><div class="cap" style="margin-top:28px">Honest limits</div><p style="margin-top:8px">Every product, price and photo here is a placeholder. AI pictures are stand-ins for a first look and never go live on a client's address. ChatGPT rarely holds one camera spot across four pictures, so the room set may need a second try.</p></div></div><div class="pfoot"><span>Storyboard · one page furniture site · phone and desk · every name, price and photo is a placeholder</span><span>Last page</span></div></section></body></html>

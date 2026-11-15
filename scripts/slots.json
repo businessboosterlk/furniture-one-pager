@@ -1,0 +1,90 @@
+{
+ "hero-3-piece": {
+  "size": "2400x1600",
+  "group": "Hero"
+ },
+ "hero-2-joinery": {
+  "size": "2400x1600",
+  "group": "Hero"
+ },
+ "hero-1-timber": {
+  "size": "2400x1600",
+  "group": "Hero"
+ },
+ "hero-4-home": {
+  "size": "2400x1600",
+  "group": "Hero"
+ },
+ "room-1": {
+  "size": "2400x1600",
+  "group": "Rooms"
+ },
+ "room-2": {
+  "size": "2400x1600",
+  "group": "Rooms"
+ },
+ "room-3": {
+  "size": "2400x1600",
+  "group": "Rooms"
+ },
+ "room-4": {
+  "size": "2400x1600",
+  "group": "Rooms"
+ },
+ "card-1": {
+  "size": "1000x1250",
+  "group": "Ready To Buy"
+ },
+ "card-2": {
+  "size": "1000x1250",
+  "group": "Ready To Buy"
+ },
+ "card-3": {
+  "size": "1000x1250",
+  "group": "Ready To Buy"
+ },
+ "card-4": {
+  "size": "1000x1250",
+  "group": "Ready To Buy"
+ },
+ "build-drawing": {
+  "size": "1200x1200",
+  "group": "Build Yours"
+ },
+ "weave-1": {
+  "size": "800x800",
+  "group": "Build Yours"
+ },
+ "weave-2": {
+  "size": "800x800",
+  "group": "Build Yours"
+ },
+ "weave-3": {
+  "size": "800x800",
+  "group": "Build Yours"
+ },
+ "detail-1": {
+  "size": "800x800",
+  "group": "Detail Row"
+ },
+ "detail-2": {
+  "size": "800x800",
+  "group": "Detail Row"
+ },
+ "detail-3": {
+  "size": "800x800",
+  "group": "Detail Row"
+ },
+ "craft-band": {
+  "size": "2400x1200",
+  "group": "Craft Band"
+ },
+ "maker": {
+  "size": "600x600",
+  "group": "Craft Band"
+ },
+ "map": {
+  "size": "1200x800",
+  "group": "Visit"
+ }
+}

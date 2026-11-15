@@ -1,0 +1,96 @@
+{
+ "name": "rooms",
+ "sources": [
+  {
+   "id": "A",
+   "ref": "https://www.pinterest.com/pin/343681015332716488",
+   "family": "keyboard concept site film",
+   "kind_of_place": "film or motion",
+   "take": {
+    "axis": "INTERACTION",
+    "thing": "The camera never cuts: each room is a new framing from one lens height joined by a short push in, never a fade to white.",
+    "why": "It makes the visitor feel they walk through one home, so every piece is seen in a real room."
+   },
+   "native": {
+    "palette": "grey, white text, one red accent",
+    "type": "white sans, large headline",
+    "spacing": "full bleed, centred object"
+   },
+   "left_out": [
+    "the floating parts and the red keycap",
+    "the loop and the orange button"
+   ],
+   "differences": [
+    "Photos of rooms, not a keyboard",
+    "Four rooms instead of one object",
+    "A push in of about 600 ms with no 3D in the browser"
+   ],
+   "removal": "The rooms become four separate photos that fade between each other and feel like a catalogue."
+  },
+  {
+   "id": "B",
+   "ref": "https://www.pinterest.com/pin/1122874119628908626",
+   "family": "essentia home",
+   "kind_of_place": "social post",
+   "take": {
+    "axis": "IMAGE",
+    "thing": "A small piece stands alone on a rug in an empty room, framed through a blurred foreground arm of another chair.",
+    "why": "It gives depth and calm with no graphic, so the piece looks owned not displayed."
+   },
+   "native": {
+    "palette": "bone room, olive chair, walnut arm",
+    "type": "light lower case sans headline",
+    "spacing": "generous empty wall"
+   },
+   "left_out": [
+    "the made for your project headline",
+    "the architect and designer paragraph"
+   ],
+   "differences": [
+    "We keep the same camera spot across four rooms",
+    "No headline sits on the photo of the room",
+    "Our piece can be bought by tapping it"
+   ],
+   "removal": "The rooms lose their depth and read as flat stock photos."
+  },
+  {
+   "id": "C",
+   "ref": "https://www.pinterest.com/pin/1147292073901113729",
+   "family": "STILL home concept board",
+   "kind_of_place": "site UI",
+   "take": {
+    "axis": "STRUCTURE",
+    "thing": "The section headline sits in the empty wall of the room photo at the left gutter with the room names in a quiet row under it.",
+    "why": "It tells the visitor where they are before any product competes for attention."
+   },
+   "native": {
+    "palette": "ivory, olive, oak",
+    "type": "one serif headline, tiny spaced capitals",
+    "spacing": "wide white space"
+   },
+   "left_out": [
+    "the three product cards on pale grey",
+    "the olive sofa and the AI light"
+   ],
+   "differences": [
+    "Four room names as a switcher, not a fixed photo",
+    "Headline is short and the photo moves",
+    "The product row is not under it"
+   ],
+   "removal": "The headline floats over a busy photo and the switcher has no home."
+  }
+ ],
+ "house": {
+  "palette": "#F4EFE6 ivory, #2A211B ink, #9A6A3F timber",
+  "type": "Cormorant Garamond + Inter",
+  "spacing_step": "8px"
+ },
+ "axes": {
+  "STRUCTURE": "C",
+  "TYPE": "HOUSE",
+  "IMAGE": "B",
+  "COLOUR": "HOUSE",
+  "INTERACTION": "A",
+  "CONTENT": "HOUSE"
+ }
+}

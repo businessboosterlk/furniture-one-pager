@@ -1,0 +1,25 @@
+---
+// One picture slot. If the stand-in (or later the client's real photo) exists as src/assets/stand-ins/<slot>.jpg, show it.
+// If it does not, show a marked empty slot: an ivory panel with the slot's name and size. Never a drawn piece,
+// never a pin image (a-stand-in-plate-is-never-a-shipped-scene).
+import slots from '../../scripts/slots.json';
+interface Props {
+  slot: string;
+  alt: string;
+  eager?: boolean;
+}
+const { slot, alt, eager = false } = Astro.props;
+const found = import.meta.glob('../assets/stand-ins/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' }) as Record<string, string>;
+const key = Object.keys(found).find((k) => k.split('/').pop()!.replace(/\.[a-z]+$/, '') === slot);
+const info = (slots as Record<string, { size: string }>)[slot];
+const size = info ? info.size.replace('x', ' x ') : '';
+const [w, h] = info ? info.size.split('x').map(Number) : [0, 0];
+---
+{key
+  ? <img class="pic" src={found[key]} alt={alt} width={w} height={h} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  : (
+    <div class="slot" role="img" aria-label={`Picture to come: ${alt}`}>
+      <span class="slot__name">{slot}</span>
+      <span class="slot__size">{size}</span>
+    </div>
+  )}

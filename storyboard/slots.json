@@ -1,0 +1,82 @@
+{
+ "hero-photo": [
+  "1600x1200",
+  "The hero piece in a calm room, daylight from the left"
+ ],
+ "hero-drawing": [
+  "1200x1200",
+  "Pencil drawing of that same piece, made from the hero photo"
+ ],
+ "room-1": [
+  "2400x1350",
+  "Room view, camera spot A, living area"
+ ],
+ "room-2": [
+  "2400x1350",
+  "Same room, same camera, dining area"
+ ],
+ "room-3": [
+  "2400x1350",
+  "Same room, same camera, bedroom area"
+ ],
+ "room-4": [
+  "2400x1350",
+  "Same room, same camera, study area"
+ ],
+ "card-1": [
+  "1000x1250",
+  "Ready to buy piece 1, white-ish studio ground"
+ ],
+ "card-2": [
+  "1000x1250",
+  "Ready to buy piece 2"
+ ],
+ "card-3": [
+  "1000x1250",
+  "Ready to buy piece 3"
+ ],
+ "card-4": [
+  "1000x1250",
+  "Ready to buy piece 4"
+ ],
+ "build-drawing": [
+  "1200x1200",
+  "Build yours drawing with measurements"
+ ],
+ "weave-1": [
+  "800x800",
+  "Fabric close-up 1, the weave"
+ ],
+ "weave-2": [
+  "800x800",
+  "Fabric close-up 2"
+ ],
+ "weave-3": [
+  "800x800",
+  "Fabric close-up 3"
+ ],
+ "detail-1": [
+  "800x800",
+  "Detail crop 1, a joint or an edge"
+ ],
+ "detail-2": [
+  "800x800",
+  "Detail crop 2, a stitched seam"
+ ],
+ "detail-3": [
+  "800x800",
+  "Detail crop 3, the underside or a foot"
+ ],
+ "craft-band": [
+  "2400x1200",
+  "Workshop, a pair of hands at a bench"
+ ],
+ "maker": [
+  "600x600",
+  "Maker portrait, quiet, at the bench"
+ ],
+ "map": [
+  "1200x800",
+  "Showroom map (a screenshot, not a generated picture)"
+ ]
+}

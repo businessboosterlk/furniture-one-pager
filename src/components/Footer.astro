@@ -1,0 +1,31 @@
+---
+import { site } from '../site.config';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer gutter">
+  <p>{site.name}, {site.address.line1}, {site.address.city}, {site.address.country}</p>
+  <p>&copy; {year} {site.name}</p>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.875rem;
+    padding-top: 1.5rem;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 1.5rem);
+    text-align: center;
+  }
+  .site-footer p {
+    margin: 0 auto 0.25rem;
+  }
+  @media (min-width: 900px) {
+    .site-footer {
+      text-align: left;
+    }
+    .site-footer p {
+      margin-left: 0;
+    }
+  }
+</style>

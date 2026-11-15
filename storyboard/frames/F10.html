@@ -1,0 +1,97 @@
+<div class="col" style="height:100%; display:flex; flex-direction:column;">
+  <div class="in">
+    <div class="hdr" style="display:flex; justify-content:space-between; align-items:center; padding:24px 0 0 0;">
+      <div class="brand">[Brand name]</div>
+      <div class="nav" style="display:flex; gap:32px; align-items:center;">
+        <span>Collection</span>
+        <span>Journal</span>
+        <span>Contact</span>
+        <button class="btn" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border:none; background:#1a1a1a; color:#fff; cursor:pointer;">
+          <i class="ic ic-message-circle"></i> Message us
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="in" style="margin-top:48px;">
+    <h2 style="margin:0 0 8px 0;">Make it yours.</h2>
+    <div class="lede" style="margin:0 0 32px 0;">Pick a start, a size and a fabric. The price moves with you.</div>
+  </div>
+
+  <div class="in">
+    <div class="steps" style="display:flex; gap:0; width:100%; margin-bottom:8px;">
+      <span style="flex:1; padding:8px 0; border-bottom:2px solid #e0e0e0; text-align:left;">01 Start</span>
+      <span class="on" style="flex:1; padding:8px 0; border-bottom:2px solid #1a1a1a; text-align:left;">02 Size</span>
+      <span style="flex:1; padding:8px 0; border-bottom:2px solid #e0e0e0; text-align:left;">03 Fabric</span>
+      <span style="flex:1; padding:8px 0; border-bottom:2px solid #e0e0e0; text-align:left;">04 Send</span>
+    </div>
+    <div class="progress" style="width:100%; height:2px; background:#e0e0e0; margin-bottom:40px;">
+      <i style="width:50%; display:block; height:2px; background:#1a1a1a;"></i>
+    </div>
+  </div>
+
+  <div class="in" style="flex:1; display:flex; gap:56px; padding-bottom:48px;">
+    <!-- Left column -->
+    <div style="width:560px; display:flex; flex-direction:column;">
+      <div class="slot" data-label="Drawing with measurements" data-size="1200x1200" style="width:100%; height:400px; background:#f5f2ee; border:1px solid #e0ddd8; border-radius:4px;"></div>
+      <div class="row" style="display:flex; gap:24px; margin-top:16px;">
+        <span class="small">[Width] mm</span>
+        <span class="small">[Depth] mm</span>
+        <span class="small">[Seat height] mm</span>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div style="flex:1; display:flex; flex-direction:column; gap:24px;">
+      <div>
+        <div class="small" style="margin-bottom:8px;">Start</div>
+        <div style="display:flex; gap:12px;">
+          <button class="pick on" style="padding:10px 20px; border:1px solid #1a1a1a; background:#1a1a1a; color:#fff; cursor:pointer;">01</button>
+          <button class="pick" style="padding:10px 20px; border:1px solid #ccc; background:#fff; color:#1a1a1a; cursor:pointer;">02</button>
+          <button class="pick" style="padding:10px 20px; border:1px solid #ccc; background:#fff; color:#1a1a1a; cursor:pointer;">03</button>
+        </div>
+        <div class="small" style="margin-top:6px;">[Preset name]</div>
+      </div>
+
+      <div>
+        <div class="small" style="margin-bottom:8px;">Size</div>
+        <div style="display:flex; gap:12px;">
+          <button class="pick" style="padding:10px 20px; border:1px solid #ccc; background:#fff; color:#1a1a1a; cursor:pointer;">[Size 1]</button>
+          <button class="pick on" style="padding:10px 20px; border:1px solid #1a1a1a; background:#1a1a1a; color:#fff; cursor:pointer;">[Size 2]</button>
+          <button class="pick" style="padding:10px 20px; border:1px solid #ccc; background:#fff; color:#1a1a1a; cursor:pointer;">[Size 3]</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="small" style="margin-bottom:8px;">Fabric</div>
+        <div style="display:flex; gap:16px; align-items:center;">
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <div class="chip" style="display:flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid #1a1a1a; background:#fff;">
+              <span class="dot on" style="width:16px; height:16px; border-radius:50%; background:#8b6f47; display:inline-block;"></span>
+              <span>[Fabric 1]</span>
+            </div>
+            <div class="chip" style="display:flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid #ccc; background:#fff;">
+              <span class="dot" style="width:16px; height:16px; border-radius:50%; background:#6b5b4e; display:inline-block;"></span>
+              <span>[Fabric 2]</span>
+            </div>
+            <div class="chip" style="display:flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid #ccc; background:#fff;">
+              <span class="dot" style="width:16px; height:16px; border-radius:50%; background:#3a3a3a; display:inline-block;"></span>
+              <span>[Fabric 3]</span>
+            </div>
+          </div>
+          <div class="slot" data-label="Weave close-up" data-size="800x800" style="width:120px; height:120px; background:#f5f2ee; border:1px solid #e0ddd8; border-radius:4px; flex-shrink:0;"></div>
+        </div>
+      </div>
+
+      <div class="row" style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:auto; padding-top:16px;">
+        <div>
+          <div class="price" style="font-size:24px; font-weight:600; line-height:1.2;">LKR [price]</div>
+          <div class="small" style="margin-top:4px;">live price</div>
+        </div>
+        <button class="btn" style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px; background:#1a1a1a; color:#fff; border:none; cursor:pointer;">
+          <i class="ic ic-message-circle"></i> Send my build on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

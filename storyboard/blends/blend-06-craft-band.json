@@ -1,0 +1,96 @@
+{
+ "name": "craft band",
+ "sources": [
+  {
+   "id": "A",
+   "ref": "https://www.pinterest.com/pin/1135259018617893175",
+   "family": "3 Elements social post",
+   "kind_of_place": "social post",
+   "take": {
+    "axis": "STRUCTURE",
+    "thing": "One full width dark band between product sections holds one workshop photo and one short serif line, nothing else.",
+    "why": "It gives the price a reason in one glance without adding a fourth section type."
+   },
+   "native": {
+    "palette": "low warm light, wood chips",
+    "type": "serif line over the photo",
+    "spacing": "single image"
+   },
+   "left_out": [
+    "the Not just decor line",
+    "the caption under it"
+   ],
+   "differences": [
+    "The band is a web section not a post",
+    "The line is the client's own",
+    "A named timber card sits beside it"
+   ],
+   "removal": "The page goes from product to contact with no reason to pay."
+  },
+  {
+   "id": "B",
+   "ref": "https://www.pinterest.com/pin/1016335840923301942",
+   "family": "The Deco Furns",
+   "kind_of_place": "product post",
+   "take": {
+    "axis": "CONTENT",
+    "thing": "A small card names the timber, where it comes from and why it lasts.",
+    "why": "It turns a finish colour into a quality story a buyer can repeat."
+   },
+   "native": {
+    "palette": "black ground, teak",
+    "type": "product post type",
+    "spacing": "square crop"
+   },
+   "left_out": [
+    "the second craft photo",
+    "the black square crop"
+   ],
+   "differences": [
+    "Card sits inside the band",
+    "Species and origin are placeholders until the client",
+    "One line only, not a paragraph"
+   ],
+   "removal": "A finish is only a colour."
+  },
+  {
+   "id": "C",
+   "ref": "https://www.pinterest.com/pin/761178774569036128",
+   "family": "Adrian Vella furniture designer",
+   "kind_of_place": "designer portfolio site",
+   "take": {
+    "axis": "IMAGE",
+    "thing": "One real portrait of the lead maker sits beside the workshop photo.",
+    "why": "A made to order buyer trusts a person more than a badge."
+   },
+   "native": {
+    "palette": "brown and bone",
+    "type": "condensed display name",
+    "spacing": "magazine like"
+   },
+   "left_out": [
+    "the huge name across the top",
+    "the three service tiles"
+   ],
+   "differences": [
+    "Portrait is small and square",
+    "It sits inside a dark band",
+    "The maker's name is a placeholder"
+   ],
+   "removal": "The band shows hands but no face to trust."
+  }
+ ],
+ "house": {
+  "palette": "#F4EFE6 ivory, #2A211B ink, #9A6A3F timber",
+  "type": "Cormorant Garamond + Inter",
+  "spacing_step": "8px"
+ },
+ "axes": {
+  "STRUCTURE": "A",
+  "TYPE": "HOUSE",
+  "IMAGE": "C",
+  "COLOUR": "HOUSE",
+  "INTERACTION": "HOUSE",
+  "CONTENT": "B"
+ }
+}

@@ -1,0 +1,96 @@
+{
+ "name": "build yours",
+ "sources": [
+  {
+   "id": "A",
+   "ref": "https://www.pinterest.com/pin/1152780835907870267",
+   "family": "Furniture Made to Belong UI card",
+   "kind_of_place": "site UI",
+   "take": {
+    "axis": "STRUCTURE",
+    "thing": "Three numbered round buttons 01 02 03 sit beside the piece to move between three presets, with labels pinned to points on it.",
+    "why": "A buyer starts from a finished option instead of a blank canvas, which is the easiest first step."
+   },
+   "native": {
+    "palette": "cream, taupe, white pills",
+    "type": "heavy rounded sans",
+    "spacing": "rounded boxes"
+   },
+   "left_out": [
+    "the hashtag chips",
+    "the heavy rounded headline"
+   ],
+   "differences": [
+    "Square outlined buttons not round",
+    "Presets set the size and fabric together",
+    "Labels are plain ivory not white pills"
+   ],
+   "removal": "The visitor faces a blank canvas of choices."
+  },
+  {
+   "id": "B",
+   "ref": "https://www.pinterest.com/pin/468515167510346059",
+   "family": "ASTER brand studio",
+   "kind_of_place": "brand studio board",
+   "take": {
+    "axis": "IMAGE",
+    "thing": "Pressing a size button changes the pencil drawing to show that size with its measurements in millimetres.",
+    "why": "One drawing does two jobs: it proves the piece was designed and it explains the size."
+   },
+   "native": {
+    "palette": "deep brown, cream, mustard",
+    "type": "spaced serif wordmark",
+    "spacing": "magazine like"
+   },
+   "left_out": [
+    "the deep brown frame",
+    "the video play button"
+   ],
+   "differences": [
+    "Measurements update live on the drawing",
+    "Ivory page not a brown frame",
+    "The drawing comes from the same photo"
+   ],
+   "removal": "The size buttons change a number but nothing the buyer can see."
+  },
+  {
+   "id": "C",
+   "ref": "~/bb-references/furniture-configurator-scout-brief-2026-11-15.md",
+   "family": "Tylko live configurator",
+   "kind_of_place": "live product site",
+   "take": {
+    "axis": "INTERACTION",
+    "thing": "Sizes are fixed buttons not a free slider, and the live price sits at the button that sends the enquiry.",
+    "why": "Fixed steps keep every build makeable and the price beside the button removes the fear of asking."
+   },
+   "native": {
+    "palette": "white, black, colour swatches",
+    "type": "clean grotesque",
+    "spacing": "tight panel"
+   },
+   "left_out": [
+    "the free width slider",
+    "the 3D canvas"
+   ],
+   "differences": [
+    "Ends in a WhatsApp enquiry not a checkout",
+    "Fabric chips open a weave close up",
+    "Price shows LKR not a euro figure"
+   ],
+   "removal": "Every size is a surprise and the price is hidden until checkout."
+  }
+ ],
+ "house": {
+  "palette": "#F4EFE6 ivory, #2A211B ink, #9A6A3F timber",
+  "type": "Cormorant Garamond + Inter",
+  "spacing_step": "8px"
+ },
+ "axes": {
+  "STRUCTURE": "A",
+  "TYPE": "HOUSE",
+  "IMAGE": "B",
+  "COLOUR": "HOUSE",
+  "INTERACTION": "C",
+  "CONTENT": "HOUSE"
+ }
+}

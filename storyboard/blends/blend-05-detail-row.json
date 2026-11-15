@@ -1,0 +1,96 @@
+{
+ "name": "detail row",
+ "sources": [
+  {
+   "id": "A",
+   "ref": "https://www.pinterest.com/pin/1083819466608971260",
+   "family": "Muse lounge chair sheet",
+   "kind_of_place": "product sheet",
+   "take": {
+    "axis": "STRUCTURE",
+    "thing": "Three square crops sit in a row, each with a part name and a one line benefit beneath.",
+    "why": "It proves quality in the three places a buyer checks, back, seat and leg, without a spec table."
+   },
+   "native": {
+    "palette": "white ground, mustard, dark wood",
+    "type": "thin spaced capitals",
+    "spacing": "white space"
+   },
+   "left_out": [
+    "the large cut out chair",
+    "the fabric macro running off the edge"
+   ],
+   "differences": [
+    "Ivory page",
+    "Labels in a serif with an Inter benefit line",
+    "Crops come from our own piece"
+   ],
+   "removal": "Quality becomes a claim in a paragraph."
+  },
+  {
+   "id": "B",
+   "ref": "https://www.pinterest.com/pin/1147292073900457354",
+   "family": "LUME objects concept board",
+   "kind_of_place": "site UI",
+   "take": {
+    "axis": "CONTENT",
+    "thing": "Each tile gets a one word name and a two word character, such as Warm. Enduring.",
+    "why": "It gives craft a vocabulary a buyer can repeat without reading a paragraph."
+   },
+   "native": {
+    "palette": "bone, walnut, bronze",
+    "type": "serif headline, small caps",
+    "spacing": "square tiles"
+   },
+   "left_out": [
+    "the dark editorial band",
+    "the product cards"
+   ],
+   "differences": [
+    "Words wait for the client",
+    "Used on parts of the piece, not on materials",
+    "Three tiles not four"
+   ],
+   "removal": "The row reads as captions with no voice."
+  },
+  {
+   "id": "C",
+   "ref": "https://www.pinterest.com/pin/1152780835907870267",
+   "family": "Furniture Made to Belong UI card",
+   "kind_of_place": "site UI",
+   "take": {
+    "axis": "IMAGE",
+    "thing": "One of the three crops is a hand pressing the weave, so texture is felt not described.",
+    "why": "A hand in the picture tells a buyer how soft or firm the cushion is."
+   },
+   "native": {
+    "palette": "cream, taupe",
+    "type": "heavy rounded sans",
+    "spacing": "rounded boxes"
+   },
+   "left_out": [
+    "the floating card over the photo",
+    "the hashtag chips"
+   ],
+   "differences": [
+    "Our crop is square and on ivory",
+    "No UI card over it",
+    "The hand belongs to the client's maker"
+   ],
+   "removal": "All three crops are still objects and nothing says touch."
+  }
+ ],
+ "house": {
+  "palette": "#F4EFE6 ivory, #2A211B ink, #9A6A3F timber",
+  "type": "Cormorant Garamond + Inter",
+  "spacing_step": "8px"
+ },
+ "axes": {
+  "STRUCTURE": "A",
+  "TYPE": "HOUSE",
+  "IMAGE": "C",
+  "COLOUR": "HOUSE",
+  "INTERACTION": "HOUSE",
+  "CONTENT": "B"
+ }
+}
