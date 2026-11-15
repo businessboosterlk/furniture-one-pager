@@ -1,3 +1,5 @@
+// Build-time environment only (set by .github/workflows/staging.yml); the site ships no Node types.
+declare const process: { env: Record<string, string | undefined> };
 // The address prefix the site is served under. '/' on the client's own domain; '/furniture-one-pager/' on the
 // GitHub Pages staging preview. Set by BASE_PATH at build time (see astro.config.mjs and the deploy workflow).
 const base = String(import.meta.env.BASE_URL || '/').replace(/\/?$/, '/');
