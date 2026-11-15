@@ -1,6 +1,6 @@
 # RECIPE: furniture one pager site (header and hero)
 Kind: site
-Live: not deployed. Source is on GitHub in a private repo, https://github.com/businessboosterlk/furniture-one-pager, pushed 15 Nov 2026 on Thulaib's word. No staging address yet.
+Live: staging only, https://businessboosterlk.github.io/furniture-one-pager/ (GitHub Pages, noindex, robots disallow all). Source is in a public repo, https://github.com/businessboosterlk/furniture-one-pager, made public on Thulaib's yes on 15 Nov 2026. No domain.
 Ignore: crew/out/*, storyboard/*, dist/*, scripts/hero-shots.mjs, scripts/click-path.mjs
 Last verified: 2026-11-15, FURNITURE ONE PAGER 3
 
@@ -10,7 +10,7 @@ Checked by `python3 ~/bb-systems/qa/recipe-check.py ~/bb-websites/furniture-one-
 The first page of a minimal, classy one page furniture site for a new Sri Lankan client whose name, pieces, prices and photos are not known yet. Only the header and the hero are built so far. The hero tells one story as the visitor scrolls: raw timber, then joined, then the finished piece, then the piece at home. Two doors sit under it, Buy it ready and Build yours. Laptop first: Thulaib said on 15 Nov the phone waits until the client confirms, so the phone layout exists and passes its checks but is not being polished. Front end only, no database, no payments, no form posting. Enquiries go to WhatsApp through a placeholder number. Written 15 Nov 2026, chat FURNITURE ONE PAGER 2. Thulaib approved the hero story on 15 Nov. Polish in chat 3: the hero shows no step words and no numbers; a hairline with four timber marks that fill as you scroll takes their place. The step texts stay for screen readers only.
 
 ## 2. Where the source lives
-- `~/bb-websites/furniture-one-pager/` is the true copy and a git repo, branch `main`, remote `origin` = `https://github.com/businessboosterlk/furniture-one-pager` (private). Astro 7 static site from the BB Astro foundation starter, master never edited.
+- `~/bb-websites/furniture-one-pager/` is the true copy and a git repo, branch `main`, remote `origin` = `https://github.com/businessboosterlk/furniture-one-pager` (public). Astro 7 static site from the BB Astro foundation starter, master never edited.
 - `src/site.config.ts` holds every per-client value and the hero steps. `src/components/Header.astro` and `Hero.astro` were written by the BB Crew. `Picture.astro` shows a marked ivory slot panel when a picture is missing. `Icon.astro` reads `src/data/icons.json`, written by `scripts/build-icons.mjs` from Lucide and Simple Icons.
 - `scripts/hero-shots.mjs` takes the four scroll point pictures; `scripts/click-path.mjs` presses the menu, every nav link and both doors on a phone and a desk and counts console errors.
 - `public/hero.js` writes only the scroll progress; `public/site.js` runs the menu. CSS in `src/styles/` owns all movement.
@@ -54,7 +54,7 @@ ls -l ~/Downloads/FURNITURE-ONE-PAGER/first-look-2/
 git -C ~/bb-websites/furniture-one-pager remote -v
 git -C ~/bb-websites/furniture-one-pager log --oneline | head -3
 ```
-The source is pushed to the private repo `businessboosterlk/furniture-one-pager` (origin, branch main). Nothing is deployed, no staging address exists and no domain is attached. BB's convention for a staging address (Rathnaweera) is a PUBLIC repo with GitHub Pages and a deploy workflow, which waits on Thulaib's yes to a public repo. A private repo on a free plan cannot serve Pages. The picture slots and every `[bracket]` placeholder would show on that page. The first look pictures and the image sheet sit in `~/Downloads/FURNITURE-ONE-PAGER/`.
+The source is in the PUBLIC repo `businessboosterlk/furniture-one-pager` (origin, branch main). Every push to main runs `.github/workflows/staging.yml` (Deploy staging): checkout, Node 22, `npm ci`, `npm run build` with `SITE_URL=https://businessboosterlk.github.io`, `BASE_PATH=/furniture-one-pager` and `STAGING=1`, then GitHub Pages. `STAGING=1` adds noindex, drops the canonical link and makes robots.txt `Disallow: /`. `src/lib/base.ts` (`withBase`) puts the base path on every root link and public asset. A commit is not a deploy: poll the address with a cache-buster after a push. Checked live on 15 Nov: speed 12 of 12, click-path 41 PASS with 0 console errors, home and assets 200. The page shows `[Brand name]`, `[Piece name]` and `LKR [price]` placeholders and marked empty picture slots. No domain is attached. The first look pictures, the live screenshots and the image prompt sheet sit in `~/Downloads/FURNITURE-ONE-PAGER/`.
 
 ## 6. Finishing touches
 - Scroll is driven by one number, `--p`, written by hero.js; CSS owns every movement | why: JS-driven styles break the strict CSP and stall in hidden tabs | held by: public/hero.js#--p

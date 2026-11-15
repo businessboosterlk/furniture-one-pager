@@ -52,3 +52,14 @@ Read `~/bb-systems/MODULE-REGISTRY.md`, grepped furniture, one pager, switcher, 
 | GitHub | Private repo `businessboosterlk/furniture-one-pager`, `git init`, push `main` over HTTPS through gh | Public repo with Pages (Rathnaweera convention) | Pages needs a public repo on a free plan; making a placeholder page public is Thulaib's call. Asked as one question |
 | Staging address | None yet | A Vercel or Pages deploy | Not approved; no domain attached |
 | Phone | Checked only (no sideways scroll, menu, doors, Back) | Polishing | Thulaib 15 Nov: phone after the client confirms |
+
+## Chat FURNITURE ONE PAGER 3, part 2 (15 Nov 2026, Sonnet 5.5): staging address
+| Choice | Taken | Rejected | Why |
+|---|---|---|---|
+| Repo visibility | Public (supersedes "Private repo" above) | Staying private | Thulaib said "Yes, make public" on 15 Nov; Pages needs a public repo on a free plan |
+| Staging address | GitHub Pages, https://businessboosterlk.github.io/furniture-one-pager/ | A Vercel deploy | Rathnaweera convention; nothing new to pay for |
+| Search engines | `STAGING=1` gives noindex, no canonical and `Disallow: /` in robots.txt | Leaving the placeholder page indexable | A page full of brackets must not be found |
+| Base path | `src/lib/base.ts` `withBase`, with `BASE_PATH` and `SITE_URL` from the workflow | Hard coded root links | The address sits under /furniture-one-pager/; the real domain will not |
+| Deploy trigger | Push to main and manual run | Manual only | Staging should follow the source |
+| Domain, database, payments, form posting | None | | Not approved |
+| Pictures | Three of Thulaib's images used (hero 4, Rooms, build drawing stand-in); 18 prompts plus 2 optional written for the rest | Drawing furniture | A stand-in plate is never a shipped scene; the build drawing is three-quarter and its slot wants flat front, so it is replaced when the right image arrives |
