@@ -6,6 +6,7 @@ import '../styles/hero.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../site.config';
+import { withBase, STAGING } from '../lib/base';
 
 interface Props {
   title: string;
@@ -13,7 +14,8 @@ interface Props {
   noindex?: boolean;
   home?: boolean;
 }
-const { title, description = site.description, noindex = false, home = false } = Astro.props;
+const { title, description = site.description, home = false } = Astro.props;
+const noindex = Astro.props.noindex || STAGING;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const fullTitle = home ? title : `${title} | ${site.name}`;
 ---
@@ -28,16 +30,16 @@ const fullTitle = home ? title : `${title} | ${site.name}`;
     <meta name="theme-color" content={site.colours.paper} />
     <!-- Empty icon until the client sends a logo. Stops the browser asking for /favicon.ico and getting a 404. -->
     <link rel="icon" href="data:," />
-    <link rel="canonical" href={canonical} />
+    {!STAGING && <link rel="canonical" href={canonical} />}
     {noindex && <meta name="robots" content="noindex" />}
-    <link rel="preload" href="/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/theme.css" />
+    <link rel="preload" href={withBase('/fonts/cormorant.woff2')} as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href={withBase('/theme.css')} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={site.locale} />
-    <script src="/site.js" defer is:inline></script>
-    {home && <script src="/hero.js" defer is:inline></script>}
+    <script src={withBase('/site.js')} defer is:inline></script>
+    {home && <script src={withBase('/hero.js')} defer is:inline></script>}
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>

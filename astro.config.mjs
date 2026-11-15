@@ -3,8 +3,11 @@
 import { defineConfig } from 'astro/config';
 import { site } from './src/site.config.ts';
 
+// SITE_URL and BASE_PATH come from the deploy workflow, so the same source builds for the GitHub Pages staging
+// preview (https://businessboosterlk.github.io/furniture-one-pager/) and later for the client's own domain at '/'.
 export default defineConfig({
-  site: site.url,
+  site: process.env.SITE_URL || site.url,
+  base: process.env.BASE_PATH || '/',
   output: 'static',
   trailingSlash: 'always',
   build: {

@@ -1,0 +1,28 @@
+# Staging preview on GitHub Pages: https://businessboosterlk.github.io/furniture-one-pager/
+# Same convention as the Rathnaweera build. It is a noindex preview with placeholder content, never the client's
+# live site. SITE_URL and BASE_PATH change the addresses only; STAGING=1 adds noindex and a Disallow robots.txt.
+name: Deploy staging
+on:
+  push: { branches: [main] }
+  workflow_dispatch:
+permissions: { contents: read, pages: write, id-token: write }
+concurrency: { group: pages, cancel-in-progress: true }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run build
+        env: { SITE_URL: 'https://businessboosterlk.github.io', BASE_PATH: '/furniture-one-pager', STAGING: '1' }
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: dist }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: '${{ steps.d.outputs.page_url }}' }
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4

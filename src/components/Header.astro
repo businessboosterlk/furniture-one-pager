@@ -2,6 +2,7 @@
 import { site } from '../site.config';
 import { ph, waLink } from '../lib/ph';
 import Icon from './Icon.astro';
+import { withBase } from '../lib/base';
 
 const wa = waLink(site.contact.whatsapp, site.headerCta.text);
 ---
@@ -9,7 +10,7 @@ const wa = waLink(site.contact.whatsapp, site.headerCta.text);
 <header class="site-header">
   <div class="site-header__bar gutter">
     <button class="site-header__menu" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu" aria-label="Open menu"><Icon name="menu" /><Icon name="close" /></button>
-    <a class="brand" href="/"><span set:html={ph(site.name)} /></a>
+    <a class="brand" href={withBase('/')}><span set:html={ph(site.name)} /></a>
     <nav class="site-nav" id="site-menu" aria-label="Main">
       <ul class="site-nav__list">
         {site.nav.map((item) => (
