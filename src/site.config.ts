@@ -127,7 +127,7 @@ export const ready = {
 export const build = {
   eyebrow: 'Build yours',
   title: 'Make it yours.',
-  lede: 'Pick a start, a size and a fabric. The price moves with you.',
+  lede: 'Choose your shape, size and fabric. Send your choices for a tailored quote.',
   steps: ['Start', 'Size', 'Fabric', 'Send'],
   presets: [
     { n: '01', name: 'Ella, round arm' },
@@ -147,7 +147,7 @@ export const build = {
   ],
   drawing: { slot: 'build-drawing', alt: 'A line drawing of the piece, flat from the front' },
   price: 'LKR [price]',
-  priceNote: 'live price',
+  priceNote: 'sample pricing',
   send: 'Send my build on WhatsApp',
   sendIntro: 'Hello Daru, I would like to send my build.',
   groupLabels: { start: 'Start', size: 'Size', fabric: 'Fabric' },

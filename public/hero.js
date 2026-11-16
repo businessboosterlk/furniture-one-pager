@@ -17,9 +17,14 @@
     if (Math.abs(p - last) < 0.0005) return;
     last = p;
     hero.style.setProperty('--p', p.toFixed(4));
-    hero.setAttribute('data-at', String(Math.min(5, Math.max(1, Math.round(p * 4.5) + 1))));
+    hero.setAttribute('data-at', String(Math.min(4, Math.max(1, Math.floor(p * 3.25 + 0.2) + 1))));
   }
-  window.addEventListener('scroll', update, { passive: true });
+  var queued = false;
+  window.addEventListener('scroll', function () {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(function () { queued = false; update(); });
+  }, { passive: true });
   window.addEventListener('resize', update);
   window.addEventListener('pageshow', update);
   update();

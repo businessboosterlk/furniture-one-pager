@@ -1,37 +1,38 @@
 ---
 import { hero } from '../site.config';
-import { ph } from '../lib/ph';
 import Icon from './Icon.astro';
 import Picture from './Picture.astro';
+const steps = hero.steps.filter(s => s.slot !== 'build-drawing');
 ---
 
 <section class="hero" data-hero aria-labelledby="hero-title">
   <div class="hero__track">
     <div class="hero__stage gutter">
       <div class="hero__copy">
-        <p class="hero__eyebrow" set:html={ph(hero.piece.eyebrow)} />
-        <h1 class="hero__name" id="hero-title" set:html={ph(hero.piece.name)} />
-        <p class="hero__lede">{hero.lede}</p>
+        <p class="hero__eyebrow">The material. The making. Your home.</p>
+        <h1 class="hero__name" id="hero-title">From timber.<br /><em>To belonging.</em></h1>
+        <p class="hero__lede">Follow the making of the {hero.piece.name}. Choose a finished piece, or make it your own.</p>
         <div class="hero__doors">
-          <a class="btn btn--solid" href={hero.doors.ready.href}>{hero.doors.ready.label} <span aria-hidden="true">·</span> from <span set:html={ph(hero.piece.price)} /></a>
+          <a class="btn btn--solid" href={hero.doors.ready.href}>Explore the collection <Icon name="arrow" /></a>
           <a class="btn btn--line" href={hero.doors.build.href}>{hero.doors.build.label} <Icon name="arrow" /></a>
         </div>
+        <p class="hero__scroll">Scroll to see the transformation ↓</p>
       </div>
       <div class="hero__media">
-        {hero.steps.map((s, index) => (
+        {steps.map((s, index) => (
           <figure class="hero__frame" data-step={index + 1}>
-            <Picture slot={s.slot} alt={s.alt} eager={index === 0 || s.n === '04'} />
+            <Picture slot={s.slot} alt={s.alt} eager />
           </figure>
         ))}
       </div>
       <ol class="sr" aria-label="How a piece is made">
-        {hero.steps.map((s) => (
+        {steps.map((s) => (
           <li>{s.label}. {s.alt}</li>
         ))}
       </ol>
-      <div class="hero__trail" aria-hidden="true">
-        {hero.steps.map((_, index) => (
-          <span class="hero__mark" data-step={index + 1} />
+      <div class="hero__trail" aria-label="Making stages">
+        {steps.map((s, index) => (
+          <span class="hero__mark" data-step={index + 1}><small>0{index + 1}</small>{s.label}</span>
         ))}
       </div>
     </div>

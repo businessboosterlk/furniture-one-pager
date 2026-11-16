@@ -2,11 +2,11 @@
    hero.js writes only --p (0 to 1) and data-at. Everything that moves is here.
    Without script, or with reduced motion, it rests on the finished frame (step 4) and nothing is hidden. */
 .hero {
-  --t: calc(var(--p, 1) * 4.5); /* five frames: frame k is fully in at t = k - 1, with a half step to rest on the last */
+  --t: calc(var(--p, 1) * 3.25);
   position: relative;
 }
 .hero-live .hero__track {
-  height: calc((100svh - var(--header-h)) * 4.2);
+  height: calc((100svh - var(--header-h)) * 2.8);
 }
 .hero__stage {
   display: flex;
@@ -41,7 +41,7 @@
   letter-spacing: -0.01em;
 }
 .hero-live .hero__name {
-  opacity: clamp(0.16, calc(0.16 + (var(--t) - 2.5) * 0.84), 1);
+  opacity: 1;
 }
 .hero__lede {
   font-family: var(--serif);
@@ -232,3 +232,25 @@
     height: auto;
   }
 }
+
+/* Final editorial treatment: intact imagery, readable copy, four clear chapters. */
+.hero__name{font-size:clamp(48px,6.6vw,100px);line-height:.95;letter-spacing:-.035em}
+.hero__name em{color:var(--accent);font-weight:400}
+.hero__lede{font-family:var(--sans);font-style:normal;font-size:14px;line-height:1.75;max-width:350px}
+.hero__eyebrow{font-size:10px}
+.hero__doors{display:flex;flex-wrap:wrap;justify-content:center;width:auto;max-width:none}
+.hero__doors .btn{font-size:12px;padding-inline:18px}
+.hero__scroll{font-size:10px;letter-spacing:.08em;color:var(--muted);margin-top:12px}
+.hero__media{-webkit-mask-image:none;mask-image:none;isolation:isolate}
+.hero__frame .pic{object-fit:contain}
+.hero__frame[data-step='1'] .pic{object-fit:cover}
+.hero__frame[data-step='4'] .pic{object-fit:cover}
+.hero:not(.hero-live) .hero__frame[data-step='3']{opacity:1}
+.hero:not(.hero-live) .hero__frame[data-step='4']{opacity:0}
+.hero__trail{height:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-top:1px solid var(--line);padding-top:16px}
+.hero__trail::before,.hero__trail::after,.hero__mark::after{display:none}
+.hero__mark{width:auto;height:auto;border:0;border-radius:0;display:flex;gap:9px;align-items:baseline;font-size:11px;color:var(--muted);background:transparent}
+.hero__mark small{font-size:9px;opacity:.65}
+.hero[data-at='1'] .hero__mark[data-step='1'],.hero[data-at='2'] .hero__mark[data-step='2'],.hero[data-at='3'] .hero__mark[data-step='3'],.hero[data-at='4'] .hero__mark[data-step='4']{color:var(--ink);font-weight:600}
+@media(min-width:900px){.hero__stage{grid-template-columns:minmax(0,40%) minmax(0,1fr);column-gap:5%;padding-block:40px 28px}.hero__doors{justify-content:flex-start}.hero__media{grid-row:1}.hero__trail{grid-column:1/-1;width:100%;margin-top:28px}.hero__scroll{margin-top:18px}}
+@media(max-width:599px){.hero__stage{padding-top:22px;gap:14px}.hero__name{font-size:46px}.hero__eyebrow{font-size:8px}.hero__lede{font-size:12px}.hero__doors .btn{font-size:11px;min-height:42px;padding-inline:12px}.hero__scroll{display:none}.hero__trail{gap:8px}.hero__mark{font-size:10px;gap:5px}}
