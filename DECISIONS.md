@@ -80,3 +80,4 @@ Prior-art gate, answered in writing: BB has built a hero-led one page site befor
 | Links | WhatsApp (`wa.me`), `tel:`, no `<form>` | Form posting, payments | Not approved. Number is the placeholder 94000000000 |
 | Phone | Works, no sideways scroll, safe areas kept | Polishing | Thulaib 15 Nov: phone after the client confirms |
 | Hosting | None added | | BB provides no hosting; the client holds it |
+| Speed | Stand-ins recompressed (`scripts/shrink-stand-ins.sh`), backdrop noise flattened (`scripts/flatten-paper.sh`) | Lazy loading the hero frames | The live speed gate failed on weight (1,096 KB) and biggest image (457 KB). All five hero frames sit in the viewport so lazy loading does not help. Stand-ins are replaced later, so lighter files cost nothing |
