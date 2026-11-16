@@ -62,7 +62,16 @@
   flex: 1;
   min-height: 200px;
   overflow: hidden;
-  background: #ebe3d4;
+  /* No panel: no background colour, no hard edge. The picture's four edges fade into the page paper, so the
+     room belongs to the page instead of sitting in a box. The two gradients are intersected: soft on every side. */
+  --fade-x: 7%; /* phone: the sofa nearly fills the width, so the sides fade less and its arms stay clear */
+  --fade-y: 14%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-x), #000 calc(100% - var(--fade-x)), transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 var(--fade-y), #000 calc(100% - var(--fade-y)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-x), #000 calc(100% - var(--fade-x)), transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 var(--fade-y), #000 calc(100% - var(--fade-y)), transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 .hero__frame {
   position: absolute;
@@ -196,6 +205,8 @@
   .hero__media {
     grid-column: 2;
     grid-row: 1 / 3;
+    --fade-x: 16%;
+    --fade-y: 12%;
     align-self: stretch;
     order: 0;
     min-height: 0;
