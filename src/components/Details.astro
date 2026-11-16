@@ -1,0 +1,24 @@
+---
+// Section 6 (#detail). Three labelled close-ups: a part name and one line on what it does for the buyer.
+import { details } from '../site.config';
+import { ph } from '../lib/ph';
+import Picture from './Picture.astro';
+---
+
+<section class="details section" id="detail" aria-labelledby="detail-title">
+  <div class="gutter">
+    <div class="sec-head"><h2 class="h2" id="detail-title">{details.title}</h2></div>
+    <ul class="details__list">
+      {details.items.map((d) => (
+        <li class="detail">
+          <div class="detail__pic"><Picture slot={d.slot} alt={d.alt} /></div>
+          <div class="detail__text">
+            <p class="detail__n">{d.n}</p>
+            <h3 class="detail__name" set:html={ph(d.name)} />
+            <p class="detail__line" set:html={ph(d.line)} />
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

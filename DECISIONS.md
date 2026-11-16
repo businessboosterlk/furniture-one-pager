@@ -63,3 +63,20 @@ Read `~/bb-systems/MODULE-REGISTRY.md`, grepped furniture, one pager, switcher, 
 | Deploy trigger | Push to main and manual run | Manual only | Staging should follow the source |
 | Domain, database, payments, form posting | None | | Not approved |
 | Pictures | Three of Thulaib's images used (hero 4, Rooms, build drawing stand-in); 18 prompts plus 2 optional written for the rest | Drawing furniture | A stand-in plate is never a shipped scene; the build drawing is three-quarter and its slot wants flat front, so it is replaced when the right image arrives |
+
+## Chat FURNITURE ONE PAGER 3, part 3 (16 Nov 2026, Sonnet 5.5): drawing first, no picture box, six sections
+Prior-art gate, answered in writing: BB has built a hero-led one page site before (the foundation Astro starter and this site's own Hero). Best parts taken: `Picture.astro`, `ph()`, `withBase()`, the strict CSP and external script pattern, the Lucide icon generator. Not taken: the Rathnaweera section kit, because its sections carry client facts and use inline state.
+| Choice | Taken | Rejected | Why |
+|---|---|---|---|
+| Hero length | Five frames: drawing, timber, joined, finished, at home | Four frames with the drawing only in Build yours | Thulaib: show the client the drawing before the build. The drawing stays in Build yours too |
+| Picture box | Backdrops of hero 1 to 3 and the drawing set to the exact page paper `#F4EFE6` by `scripts/match-paper.sh` (sparse colour surface sampled outside the piece, divide, multiply by paper); shadows and the edge fade kept | Masking or blending the box away in CSS (or a lighter overlay) | Earlier passes erased the piece or left a visible edge. Dividing keeps shadow strength. Hero 4 is a room, so it keeps a gentle fade |
+| Section markup | Hand written by Sonnet 5.5 | BB Crew builds the parts and Claude moulds | Skipped to finish in one sitting. Disclosed. The sections pass lint, typecheck, the click-path and screenshot reads; they did not go through `crew/check.mjs` part checks |
+| Build yours state | Real radio inputs, weave close-up swapped by CSS `:has(:checked)`; `sections.js` only updates the step bar, summary, WhatsApp link and price tick | JS held state | Works with scripts off and under the strict CSP |
+| Rooms | No JS: 2 by 2 grid with labels. JS: one room at a time, crossfade, inactive rooms `inert` | Carousel library | Nothing new to load; hidden rooms cannot be tabbed into |
+| Dot positions | CSS rules per room and dot | Style attributes | The CSP test forbids style attributes |
+| Room 1 picture | Cropped from hero 4 (sofa and round table) | Waiting for a new image | A real stand-in is better than an empty slot; rooms 2 to 4 are separate pictures |
+| Fabric swatches | Placeholder labels | Invented fabric names | No fact may be invented |
+| Price | `LKR [price]` placeholder that ticks with the choices | A made up number | Their number, not ours |
+| Links | WhatsApp (`wa.me`), `tel:`, no `<form>` | Form posting, payments | Not approved. Number is the placeholder 94000000000 |
+| Phone | Works, no sideways scroll, safe areas kept | Polishing | Thulaib 15 Nov: phone after the client confirms |
+| Hosting | None added | | BB provides no hosting; the client holds it |

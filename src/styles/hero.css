@@ -1,12 +1,12 @@
-/* HERO. Raw timber, then joined, then finished, then at home. One camera. The page scroll drives it.
+/* HERO. A drawing, then raw timber, then joined, then finished, then at home. One camera. The page scroll drives it.
    hero.js writes only --p (0 to 1) and data-at. Everything that moves is here.
-   Without script, or with reduced motion, it rests on the finished frame (step 3) and nothing is hidden. */
+   Without script, or with reduced motion, it rests on the finished frame (step 4) and nothing is hidden. */
 .hero {
-  --t: calc(var(--p, 1) * 3.5);
+  --t: calc(var(--p, 1) * 4.5); /* five frames: frame k is fully in at t = k - 1, with a half step to rest on the last */
   position: relative;
 }
 .hero-live .hero__track {
-  height: calc((100svh - var(--header-h)) * 3.4);
+  height: calc((100svh - var(--header-h)) * 4.2);
 }
 .hero__stage {
   display: flex;
@@ -41,7 +41,7 @@
   letter-spacing: -0.01em;
 }
 .hero-live .hero__name {
-  opacity: clamp(0.16, calc(0.16 + (var(--t) - 1.5) * 0.84), 1);
+  opacity: clamp(0.16, calc(0.16 + (var(--t) - 2.5) * 0.84), 1);
 }
 .hero__lede {
   font-family: var(--serif);
@@ -82,13 +82,14 @@
   transform: scale(calc(1 + var(--p, 1) * 0.05));
   transform-origin: 50% 60%;
 }
-/* Without script only the finished frame shows. With script each later frame fades in over the one before. */
+/* Without script only the finished frame (step 4) shows. With script each later frame fades in over the one before. */
 .hero__frame[data-step='1'],
 .hero__frame[data-step='2'],
-.hero__frame[data-step='4'] {
+.hero__frame[data-step='3'],
+.hero__frame[data-step='5'] {
   opacity: 0;
 }
-.hero__frame[data-step='3'] {
+.hero__frame[data-step='4'] {
   opacity: 1;
 }
 .hero-live .hero__frame[data-step='1'] {
@@ -103,7 +104,10 @@
 .hero-live .hero__frame[data-step='4'] {
   opacity: clamp(0, calc((var(--t) - 2.5) * 2), 1);
 }
-/* The trail: one hairline and four small timber marks. No words, no numbers. The line fills and each mark lights as --t passes it. */
+.hero-live .hero__frame[data-step='5'] {
+  opacity: clamp(0, calc((var(--t) - 3.5) * 2), 1);
+}
+/* The trail: one hairline and five small timber marks. No words, no numbers. The line fills and each mark lights as --t passes it. */
 .hero__trail {
   order: 3;
   position: relative;
@@ -128,10 +132,10 @@
 .hero__trail::after {
   background: var(--accent);
   transform-origin: 0 50%;
-  transform: scaleX(0.6667);
+  transform: scaleX(0.75);
 }
 .hero-live .hero__trail::after {
-  transform: scaleX(clamp(0, calc(var(--t) / 3), 1));
+  transform: scaleX(clamp(0, calc(var(--t) / 4), 1));
 }
 .hero__mark {
   position: relative;
@@ -150,10 +154,11 @@
   background: var(--accent);
   opacity: 0;
 }
-/* Without script the finished frame rests, so marks one to three are lit. */
+/* Without script the finished frame rests, so marks one to four are lit. */
 .hero:not(.hero-live) .hero__mark[data-step='1']::after,
 .hero:not(.hero-live) .hero__mark[data-step='2']::after,
-.hero:not(.hero-live) .hero__mark[data-step='3']::after {
+.hero:not(.hero-live) .hero__mark[data-step='3']::after,
+.hero:not(.hero-live) .hero__mark[data-step='4']::after {
   opacity: 1;
 }
 .hero-live .hero__mark[data-step='1']::after {
@@ -167,6 +172,9 @@
 }
 .hero-live .hero__mark[data-step='4']::after {
   opacity: clamp(0, calc((var(--t) - 2.8) * 6), 1);
+}
+.hero-live .hero__mark[data-step='5']::after {
+  opacity: clamp(0, calc((var(--t) - 3.8) * 6), 1);
 }
 
 @media (min-width: 900px) {

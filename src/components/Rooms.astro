@@ -1,0 +1,51 @@
+---
+// Section 3. Four views of one room from one camera spot. With JS: a name tap pushes the view in over about 600 ms.
+// Without JS: all four rooms sit in a 2 x 2 grid, each named. A dot on a piece opens a WhatsApp message about it.
+import { rooms, site } from '../site.config';
+import { ph, waLink } from '../lib/ph';
+import Icon from './Icon.astro';
+import Picture from './Picture.astro';
+const total = rooms.list.length;
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<section class="rooms section" id="rooms" aria-labelledby="rooms-title" data-rooms>
+  <div class="rooms__inner gutter">
+    <div class="rooms__head">
+      <p class="eyebrow">{rooms.eyebrow}</p>
+      <h2 class="h2" id="rooms-title">{rooms.title}</h2>
+      <p class="lede">{rooms.lede}</p>
+    </div>
+    <div class="rooms__stage">
+      {rooms.list.map((r, i) => (
+        <figure class="room" data-room={i + 1} data-active={i === 0 ? '' : undefined}>
+          <Picture slot={r.slot} alt={r.alt} />
+          <figcaption class="room__label" set:html={ph(r.label)} />
+          {r.dots.map((d, j) => (
+            <a class="dot" data-dot={j + 1} href={waLink(site.contact.whatsapp, rooms.askText)} target="_blank" rel="noopener noreferrer">
+              <span class="dot__mark" aria-hidden="true" />
+              <span class="dot__tag" set:html={ph(d)} />
+              <span class="sr">, ask on WhatsApp</span>
+            </a>
+          ))}
+        </figure>
+      ))}
+    </div>
+    <div class="rooms__ctrl" data-rooms-ctrl>
+      <ul class="rooms__tabs">
+        {rooms.list.map((r, i) => (
+          <li>
+            <button class="rooms__tab" type="button" data-room-tab={i + 1} aria-current={i === 0 ? 'true' : undefined}>
+              <span class="rooms__tab-n" aria-hidden="true">{pad(i + 1)}</span>
+              <span set:html={ph(r.label)} />
+            </button>
+          </li>
+        ))}
+      </ul>
+      <div class="rooms__foot">
+        <p class="rooms__count" aria-live="polite"><span data-rooms-n>01</span> / {pad(total)}</p>
+        <button class="btn btn--line" type="button" data-rooms-next>{rooms.next} <Icon name="arrow" /></button>
+      </div>
+    </div>
+  </div>
+</section>

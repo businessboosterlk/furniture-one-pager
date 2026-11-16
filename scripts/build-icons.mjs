@@ -7,7 +7,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 
 const LINE = { // our name : Lucide file
-  menu: 'menu', close: 'x', arrow: 'arrow-right', chat: 'message-circle', pin: 'map-pin', check: 'check',
+  menu: 'menu', close: 'x', arrow: 'arrow-right', chat: 'message-circle', pin: 'map-pin', check: 'check', clock: 'clock', phone: 'phone',
 };
 const BRAND = { whatsapp: 'whatsapp', instagram: 'instagram', facebook: 'facebook' };
 

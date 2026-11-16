@@ -1,9 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
+import Rooms from '../components/Rooms.astro';
+import Ready from '../components/Ready.astro';
+import Build from '../components/Build.astro';
+import Details from '../components/Details.astro';
+import Craft from '../components/Craft.astro';
+import Visit from '../components/Visit.astro';
 import { site } from '../site.config';
 ---
 
 <Base title={site.name} description={site.description} home>
   <Hero />
+  <Rooms />
+  <Ready />
+  <Build />
+  <Details />
+  <Craft />
+  <Visit />
 </Base>

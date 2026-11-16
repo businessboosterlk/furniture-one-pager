@@ -20,7 +20,7 @@ import Picture from './Picture.astro';
       <div class="hero__media">
         {hero.steps.map((s, index) => (
           <figure class="hero__frame" data-step={index + 1}>
-            <Picture slot={s.slot} alt={s.alt} eager={s.n === '03'} />
+            <Picture slot={s.slot} alt={s.alt} eager={index === 0 || s.n === '04'} />
           </figure>
         ))}
       </div>

@@ -1,0 +1,27 @@
+---
+// Section 7 (#craft). One dark band, one workshop photo, one line and a named timber card. The photo runs to the
+// screen edge on desk. Nothing here is a claim until the client says where and how it is made.
+import { craft } from '../site.config';
+import { ph } from '../lib/ph';
+import Picture from './Picture.astro';
+---
+
+<section class="craft" id="craft" aria-labelledby="craft-title">
+  <div class="craft__inner">
+    <div class="craft__photo"><Picture slot={craft.photo.slot} alt={craft.photo.alt} /></div>
+    <div class="craft__copy gutter">
+      <p class="eyebrow">{craft.eyebrow}</p>
+      <h2 class="craft__line" id="craft-title" set:html={ph(craft.line)} />
+      <div class="timber">
+        <p class="timber__label">{craft.timber.label}</p>
+        <p class="timber__species" set:html={ph(craft.timber.species)} />
+        <p class="timber__origin" set:html={ph(craft.timber.origin)} />
+        <p class="timber__why" set:html={ph(craft.timber.why)} />
+      </div>
+      <div class="maker">
+        <div class="maker__pic"><Picture slot={craft.maker.slot} alt={craft.maker.alt} /></div>
+        <p><span class="maker__label">{craft.maker.label}</span><br /><span class="maker__name" set:html={ph(craft.maker.name)} /></p>
+      </div>
+    </div>
+  </div>
+</section>

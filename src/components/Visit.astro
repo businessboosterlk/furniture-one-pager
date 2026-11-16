@@ -1,0 +1,24 @@
+---
+// Section 8 (#visit). Where and when, then two ways to talk: WhatsApp first, a call second. Links only, no form.
+import { visit, site } from '../site.config';
+import { ph, waLink } from '../lib/ph';
+import Icon from './Icon.astro';
+import Picture from './Picture.astro';
+---
+
+<section class="visit section" id="visit" aria-labelledby="visit-title">
+  <div class="visit__inner gutter">
+    <div class="visit__copy">
+      <h2 class="h2" id="visit-title">{visit.title}</h2>
+      <ul class="visit__facts">
+        <li><Icon name="pin" /><span set:html={ph(`${site.address.line1}, ${site.address.city}, ${site.address.country}`)} /></li>
+        <li><Icon name="clock" /><span set:html={ph(site.hours)} /></li>
+      </ul>
+      <div class="visit__doors">
+        <a class="btn btn--solid" href={waLink(site.contact.whatsapp, visit.whatsappText)} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" /> {visit.whatsapp}</a>
+        <a class="btn btn--line" href={`tel:${site.contact.tel}`}><Icon name="phone" /> {visit.call} <span set:html={ph(site.contact.phoneLabel)} /></a>
+      </div>
+    </div>
+    <div class="visit__map"><Picture slot={visit.map.slot} alt={visit.map.alt} /></div>
+  </div>
+</section>

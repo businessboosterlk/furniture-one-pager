@@ -1,0 +1,90 @@
+---
+// Section 5 (#build). Light, never a full configurator. Real radio buttons, so it works without JS; sections.js only
+// moves the step bar, the summary line and the WhatsApp message. The weave close-up follows the fabric with CSS.
+// No price is invented: the price prints as a placeholder and ticks when a choice changes.
+import { build, site } from '../site.config';
+import { ph } from '../lib/ph';
+import Icon from './Icon.astro';
+import Picture from './Picture.astro';
+const wa = `https://wa.me/${site.contact.whatsapp}`;
+const first = `${build.presets[0].n} ${build.presets[0].name}`;
+const text = `${build.sendIntro} Start: ${first}. Size: ${build.sizes[0]}. Fabric: ${build.fabrics[0].label}.`;
+const href = `${wa}?text=${encodeURIComponent(text)}`;
+---
+
+<section class="build section" id="build" aria-labelledby="build-title" data-build data-wa={wa} data-intro={build.sendIntro}>
+  <div class="gutter">
+    <div class="sec-head">
+      <p class="eyebrow">{build.eyebrow}</p>
+      <h2 class="h2" id="build-title">{build.title}</h2>
+      <p class="lede">{build.lede}</p>
+    </div>
+    <ol class="steps" aria-label="Four steps">
+      {build.steps.map((s, i) => (
+        <li data-step={i + 1} data-state={i === 0 ? 'now' : undefined}><span class="steps__n">{String(i + 1).padStart(2, '0')}</span> {s}</li>
+      ))}
+    </ol>
+    <div class="build__grid">
+      <figure class="build__drawing">
+        <div class="build__sheet"><Picture slot={build.drawing.slot} alt={build.drawing.alt} /></div>
+        <figcaption>
+          <dl class="dims">
+            {build.dims.map((d) => (
+              <div><dt>{d.name}</dt><dd><span set:html={ph(d.value)} /> mm</dd></div>
+            ))}
+          </dl>
+        </figcaption>
+      </figure>
+      <div class="build__controls">
+        <fieldset class="group">
+          <legend>{build.groupLabels.start}</legend>
+          <div class="opts opts--presets">
+            {build.presets.map((p, i) => (
+              <label class="opt">
+                <input type="radio" name="preset" value={i + 1} data-label={`${p.n} ${p.name}`} checked={i === 0} />
+                <span class="opt__body"><span class="opt__n">{p.n}</span><span set:html={ph(p.name)} /></span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset class="group">
+          <legend>{build.groupLabels.size}</legend>
+          <div class="opts">
+            {build.sizes.map((z, i) => (
+              <label class="opt">
+                <input type="radio" name="size" value={i + 1} data-label={z} checked={i === 0} />
+                <span class="opt__body" set:html={ph(z)} />
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset class="group">
+          <legend>{build.groupLabels.fabric}</legend>
+          <div class="opts">
+            {build.fabrics.map((f, i) => (
+              <label class="opt">
+                <input type="radio" name="fabric" value={i + 1} data-label={f.label} checked={i === 0} />
+                <span class="opt__body" set:html={ph(f.label)} />
+              </label>
+            ))}
+          </div>
+          <div class="weave">
+            {build.fabrics.map((f, i) => (
+              <figure class="weave__item" data-w={i + 1}>
+                <Picture slot={f.slot} alt={f.alt} />
+              </figure>
+            ))}
+          </div>
+        </fieldset>
+        <div class="build__send">
+          <div class="price">
+            <p class="price__n" data-price set:html={ph(build.price)} />
+            <p class="price__note">{build.priceNote}</p>
+          </div>
+          <p class="build__sum" data-sum aria-live="polite" set:html={ph(`${first} · ${build.sizes[0]} · ${build.fabrics[0].label}`)} />
+          <a class="btn btn--solid" data-send href={href} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" /> {build.send}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

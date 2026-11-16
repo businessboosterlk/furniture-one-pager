@@ -1,5 +1,5 @@
 /* global document, window */
-// Screenshots the hero at four scroll points on a phone and a desk. node scripts/hero-shots.mjs <url> <outdir>
+// Screenshots the hero at five scroll points on a phone and a desk. node scripts/hero-shots.mjs <url> <outdir>
 import { launch } from '/Users/thulaibhassen/bb-systems/ask-bb-doors/scripts/lib/browser.mjs';
 const [url, out] = process.argv.slice(2);
 const b = await launch();
@@ -8,7 +8,7 @@ for (const [name, w, h, mobile] of [['phone', 390, 844, true], ['desk', 1440, 90
   const page = await ctx.newPage();
   await page.goto(url, { waitUntil: 'networkidle' });
   const run = await page.evaluate(() => { const t = document.querySelector('.hero__track'), s = document.querySelector('.hero__stage'); return t.offsetHeight - s.offsetHeight; });
-  for (const [i, f] of [0, 0.3, 0.62, 1].entries()) {
+  for (const [i, f] of [0, 0.22, 0.45, 0.7, 1].entries()) {
     await page.evaluate((y) => window.scrollTo(0, y), Math.round(run * f));
     await page.waitForTimeout(500);
     const st = await page.evaluate(() => ({ p: document.querySelector('[data-hero]').style.getPropertyValue('--p'), at: document.querySelector('[data-hero]').dataset.at, sx: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth }));

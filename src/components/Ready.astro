@@ -1,0 +1,44 @@
+---
+// Section 4 (#shop). Four finished pieces. Name left, fabric dots right, material line, price and Buy on one row.
+// Buy opens a WhatsApp message that already names the piece. Phone: a swipe row. Desk: four across.
+import { ready, site } from '../site.config';
+import { ph, waLink } from '../lib/ph';
+import Icon from './Icon.astro';
+import Picture from './Picture.astro';
+const total = ready.cards.length;
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<section class="ready section" id="shop" aria-labelledby="ready-title">
+  <div class="gutter">
+    <div class="sec-head">
+      <h2 class="h2" id="ready-title">{ready.title}</h2>
+      <p class="lede" set:html={ph(ready.lede)} />
+    </div>
+    <div class="ready__scroller" data-ready tabindex="0" role="region" aria-label="Ready-to-buy pieces">
+      <ul class="ready__list">
+        {ready.cards.map((c, i) => (
+          <li class="card">
+            <div class="card__pic"><Picture slot={c.slot} alt={c.alt} /></div>
+            <div class="card__row">
+              <h3 class="card__name" set:html={ph(ready.name)} />
+              <span class="card__fabrics" role="img" aria-label={ready.fabricsLabel}>
+                <span class="swatch" data-s="1" /><span class="swatch" data-s="2" /><span class="swatch" data-s="3" />
+              </span>
+            </div>
+            <p class="card__mat" set:html={ph(ready.material)} />
+            <div class="card__buy">
+              <p class="card__price" set:html={ph(ready.price)} />
+              <a class="btn btn--solid" href={waLink(site.contact.whatsapp, ready.buyText)} target="_blank" rel="noopener noreferrer" aria-label={`${ready.buy}: ${ready.name}, piece ${i + 1} of ${total}`}>
+                <Icon name="whatsapp" />
+                <span class="buy__long">{ready.buy}</span>
+                <span class="buy__short" aria-hidden="true">{ready.buyShort}</span>
+              </a>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p class="ready__count" aria-hidden="true"><span data-ready-n>01</span> / {pad(total)}</p>
+  </div>
+</section>

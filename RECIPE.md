@@ -46,7 +46,7 @@ node scripts/click-path.mjs http://localhost:4655/
 node ~/bb-systems/qa/speed.mjs http://localhost:4655/ --kind site
 python3 ~/bb-consultancy/house_style.py STAND-INS.md
 ```
-Expected: 0 errors, lint clean, 9 of 9 tests, click-path 41 PASS and no console error, speed 12 of 12, hand-svg PASS (pass `--allow src/components/Icon.astro=2`), icons match, desk h1 left edge equals brand left edge, no sideways scroll at 1440. Then LOOK at `node scripts/hero-shots.mjs http://localhost:4655/ ~/Downloads/FURNITURE-ONE-PAGER/first-look-2` pictures for all four scroll points.
+Expected: 0 errors, lint clean, 9 of 9 tests, click-path 41 PASS (plus sections-click 48 PASS) and no console error, speed 12 of 12, hand-svg PASS (pass `--allow src/components/Icon.astro=2`), icons match, desk h1 left edge equals brand left edge, no sideways scroll at 1440. Then LOOK at `node scripts/hero-shots.mjs http://localhost:4655/ ~/Downloads/FURNITURE-ONE-PAGER/first-look-2` pictures for all four scroll points.
 
 ## 5. Deliver or deploy
 ```bash
@@ -69,6 +69,14 @@ The source is in the PUBLIC repo `businessboosterlk/furniture-one-pager` (origin
 - The step texts stay in the page for screen readers only | why: the story must still be announced | held by: src/components/Hero.astro#class="sr"
 - An empty icon link stops the favicon 404 until the client sends a logo | why: a 404 in the console on every page open | held by: src/layouts/Base.astro#rel="icon"
 - Phone polish is deferred | why: Thulaib 15 Nov, laptop first, phone after the client confirms | held by: memory only
+
+## 6b. Sections and the paper-matched backdrops (16 Nov 2026)
+- The page is Hero (five frames: drawing, timber, joined, finished, at home), Rooms `#rooms`, Ready to buy `#shop`, Build yours `#build`, Detail row `#detail`, Craft band `#craft`, Visit `#visit`, Footer. Components: `src/components/{Rooms,Ready,Build,Details,Craft,Visit,Footer}.astro`; styles `src/styles/sections.css` (phone first, desk layout from 900px); script `public/sections.js` (rooms, ready counter, build state, all external, no inline).
+- Every text and value comes from `src/site.config.ts` (`rooms`, `ready`, `build`, `details`, `craft`, `visit`, `site.contact`) and prints through `ph()`.
+- Backdrop matching: originals are in `stand-in-originals/` (hero-1-timber, hero-2-joinery, hero-3-piece, build-drawing). `scripts/match-paper.sh <slot> x0 y0 x1 y1` (percent box of the piece and its shadow) rewrites `src/assets/stand-ins/<slot>.jpg` so the backdrop is exactly `#F4EFE6`. Needs ImageMagick (`magick`).
+- `room-1.jpg` is `magick hero-4-home.jpg -crop 2000x1333+0+380 +repage`.
+- Extra checks: `node scripts/sections-click.mjs <url>` presses every room tab, Next room, dot, Buy, preset, size, fabric, Send, Call and footer link (48 PASS expected); `node scripts/section-shots.mjs <url> <outdir>` writes a phone and a desk picture of every section and fails on sideways scroll or a console error; `node scripts/hero-shots.mjs <url> <outdir>` shows the five hero frames.
+- Rules kept: no inline script or style, no new external host, no form, WhatsApp and tel links only.
 
 ## 7. Cast a copy
 For another client: change `src/site.config.ts`, the colours in the same file, and `scripts/slots.json`; rewrite the brand placeholders; keep the hero step order and the class vocabulary. Never edit the foundation starter or the storyboard it came with.

@@ -1,31 +1,21 @@
 ---
 import { site } from '../site.config';
+import { ph } from '../lib/ph';
+import Icon from './Icon.astro';
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer gutter">
-  <p>{site.name}, {site.address.line1}, {site.address.city}, {site.address.country}</p>
-  <p>&copy; {year} {site.name}</p>
+  <div class="site-footer__row">
+    <p class="site-footer__brand" set:html={ph(site.name)} />
+    <nav aria-label="Footer">
+      <ul class="site-footer__nav">
+        {site.nav.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <p class="site-footer__ig"><Icon name="instagram" /> <span set:html={ph(site.instagram)} /></p>
+  </div>
+  <p class="site-footer__legal">&copy; {year}{' '}<span set:html={ph(site.name)} /></p>
 </footer>
-
-<style>
-  .site-footer {
-    border-top: 1px solid var(--line);
-    color: var(--muted);
-    font-size: 0.875rem;
-    padding-top: 1.5rem;
-    padding-bottom: calc(env(safe-area-inset-bottom) + 1.5rem);
-    text-align: center;
-  }
-  .site-footer p {
-    margin: 0 auto 0.25rem;
-  }
-  @media (min-width: 900px) {
-    .site-footer {
-      text-align: left;
-    }
-    .site-footer p {
-      margin-left: 0;
-    }
-  }
-</style>
