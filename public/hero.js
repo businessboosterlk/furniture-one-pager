@@ -23,7 +23,7 @@
   window.addEventListener('scroll', function () {
     if (queued) return;
     queued = true;
-    requestAnimationFrame(function () { queued = false; update(); });
+    window.requestAnimationFrame(function () { queued = false; update(); });
   }, { passive: true });
   window.addEventListener('resize', update);
   window.addEventListener('pageshow', update);
