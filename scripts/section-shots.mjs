@@ -18,6 +18,7 @@ for (const [name, w, h, mobile] of [['phone', 390, 844, true], ['desk', 1440, 90
     const el = page.locator(`#${id}`);
     await el.scrollIntoViewIfNeeded();
     await page.waitForTimeout(700);
+    await page.waitForFunction((sel) => [...document.querySelector(sel).querySelectorAll('img')].every((i) => i.complete && i.naturalWidth > 0), `#${id}`, { timeout: 15000 }); // lazy pictures must be in before the shot
     await el.screenshot({ path: `${out}/${id}-${name}.png` });
   }
   await page.locator('footer').scrollIntoViewIfNeeded();
