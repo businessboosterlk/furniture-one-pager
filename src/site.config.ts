@@ -1,15 +1,16 @@
-// EVERY per-client value lives here and only here. The client is a NEW furniture business whose name,
-// pieces, prices and photos are not known yet, so every client value below is a marked PLACEHOLDER in square
-// brackets. A bracketed value prints on the page as a dashed timber mark (see src/lib/ph.ts).
-// Never invent a name, a piece, a price or a fact. Replace the brackets when the client supplies them.
+// EVERY per-client value lives here and only here. The client is a NEW furniture business. On 16 Nov 2026 Thulaib
+// asked BB to write the words ("put what you feel"), so the brand voice, names, timber and craft story below are
+// DRAFT wording invented by BB for one coherent Sri Lankan jak-wood maker called Daru. The client replaces them.
+// Contact facts a customer could act on (phone, number, street, hours, Instagram, price, delivery) stay as marked
+// PLACEHOLDERS in square brackets: BB never invents those. A bracketed value prints as a dashed timber mark (src/lib/ph.ts).
 
 export const PLACEHOLDER = 'PLACEHOLDER';
 
 export const site = {
   /** Business name. PLACEHOLDER */
-  name: '[Brand name]',
+  name: 'Daru',
   /** One sentence for the meta description. PLACEHOLDER */
-  description: '[One sentence about the business]',
+  description: 'Daru makes jak-wood sofas, chairs and tables in Sri Lanka. Buy a finished piece or build your own and send it on WhatsApp.',
   /** The live address, no trailing slash. PLACEHOLDER */
   url: 'https://example.com',
   lang: 'en-GB',
@@ -18,7 +19,7 @@ export const site = {
     /** PLACEHOLDER */
     line1: '[Showroom address]',
     /** PLACEHOLDER */
-    city: '[City]',
+    city: 'Colombo',
     country: 'Sri Lanka',
   },
   contact: {
@@ -58,7 +59,7 @@ export const site = {
     { href: '#visit', label: 'Visit' },
   ],
   /** The header button. The WhatsApp link is built from contact.whatsapp. */
-  headerCta: { label: 'Message us', text: 'Hello [Brand name], I would like to ask about a piece.' },
+  headerCta: { label: 'Message us', text: 'Hello Daru, I would like to ask about a piece.' },
 } as const;
 
 /** The hero: one story. A drawing first, then raw timber, a joined frame, the finished piece and the piece at home. */
@@ -66,10 +67,10 @@ export const hero = {
   /** Approved storyboard words. */
   lede: 'Buy it ready. Or build it yours.',
   piece: {
-    /** PLACEHOLDER: the one piece that leads the hero. */
-    name: '[Piece name]',
-    /** PLACEHOLDER */
-    eyebrow: '[Category] · [Timber] · [Fabric]',
+    /** DRAFT: the one piece that leads the hero. */
+    name: 'Ella three-seater',
+    /** DRAFT */
+    eyebrow: 'Sofa · Jak · Linen',
     /** PLACEHOLDER. Prints as written, no number is invented. */
     price: 'LKR [price]',
   },
@@ -87,95 +88,95 @@ export const hero = {
   ],
 } as const;
 
-/** Section 3, Rooms. Four views of one room from one camera spot. Room names and piece names are PLACEHOLDERS.
+/** Section 3, Rooms. Four views of one room from one camera spot. Room names and piece names are DRAFT wording.
  *  Each room has two tappable pieces. Where the dots sit is set in sections.css, per room. */
 export const rooms = {
   eyebrow: 'Rooms',
   title: 'One home. Four rooms.',
   lede: 'Walk through. Tap any piece you like.',
   list: [
-    { label: '[Living]', slot: 'room-1', alt: 'Room view 1 of 4: a calm room in soft daylight with a sofa and a low round table', dots: ['[Piece name]', '[Piece name]'] },
-    { label: '[Dining]', slot: 'room-2', alt: 'Room view 2 of 4: the same room set for dining', dots: ['[Piece name]', '[Piece name]'] },
-    { label: '[Bedroom]', slot: 'room-3', alt: 'Room view 3 of 4: the same room set as a bedroom', dots: ['[Piece name]', '[Piece name]'] },
-    { label: '[Study]', slot: 'room-4', alt: 'Room view 4 of 4: the same room set as a study', dots: ['[Piece name]', '[Piece name]'] },
+    { label: 'Living', slot: 'room-1', alt: 'Room view 1 of 4: a calm room in soft daylight with a sofa and a low round table', dots: ['Ella three-seater', 'Galle coffee table'] },
+    { label: 'Dining', slot: 'room-2', alt: 'Room view 2 of 4: the same room set for dining', dots: ['Kandy dining table', 'Kandy dining chair'] },
+    { label: 'Bedroom', slot: 'room-3', alt: 'Room view 3 of 4: the same room set as a bedroom', dots: ['Mirissa bed', 'Linen bedding'] },
+    { label: 'Study', slot: 'room-4', alt: 'Room view 4 of 4: the same room set as a study', dots: ['Hakgala shelf', 'Hakgala desk'] },
   ],
   next: 'Next room',
-  askText: 'Hello [Brand name], I would like to ask about [Piece name].',
+  /** {piece} is replaced with the tapped piece's name. */
+  askText: 'Hello Daru, I would like to ask about the {piece}.',
 } as const;
 
-/** Section 4, Ready to buy. Four finished pieces. Every name, material, price and the delivery line is a PLACEHOLDER. */
+/** Section 4, Ready to buy. Four finished pieces. Names and materials are DRAFT wording. The price and the delivery terms stay PLACEHOLDERS. */
 export const ready = {
   title: 'Ready to take home.',
-  lede: '[One line: delivery promise]',
+  lede: 'Finished in our workshop and ready to leave with you. [Delivery terms]',
   buy: 'Buy on WhatsApp',
   buyShort: 'Buy',
-  buyText: 'Hello [Brand name], I would like to buy [Piece name].',
-  name: '[Piece name]',
-  material: '[Timber] frame · [Fabric] · [Detail]',
+  /** {piece} is replaced with the card's piece name. */
+  buyText: 'Hello Daru, I would like to buy the {piece}.',
   price: 'LKR [price]',
   fabricsLabel: 'Fabrics available',
   cards: [
-    { slot: 'card-1', alt: 'Ready-to-buy piece 1 of 4, on an ivory ground' },
-    { slot: 'card-2', alt: 'Ready-to-buy piece 2 of 4, on an ivory ground' },
-    { slot: 'card-3', alt: 'Ready-to-buy piece 3 of 4, on an ivory ground' },
-    { slot: 'card-4', alt: 'Ready-to-buy piece 4 of 4, on an ivory ground' },
+    { slot: 'card-1', name: 'Ella three-seater', material: 'Jak frame · Natural linen · Round arms', alt: 'Ready-to-buy piece 1 of 4, a three-seat sofa on an ivory ground' },
+    { slot: 'card-2', name: 'Ella armchair', material: 'Jak frame · Natural linen · Loose seat cushion', alt: 'Ready-to-buy piece 2 of 4, an armchair on an ivory ground' },
+    { slot: 'card-3', name: 'Galle side table', material: 'Solid jak · 450 mm across · Hand-rubbed oil', alt: 'Ready-to-buy piece 3 of 4, a round side table on an ivory ground' },
+    { slot: 'card-4', name: 'Galle coffee table', material: 'Solid jak · 1000 mm across · Cross base', alt: 'Ready-to-buy piece 4 of 4, a low round coffee table on an ivory ground' },
   ],
 } as const;
 
-/** Section 5, Build yours. Light, never a full configurator. Presets, sizes, fabrics and prices are PLACEHOLDERS. */
+/** Section 5, Build yours. Light, never a full configurator. Presets, sizes and fabrics are DRAFT wording. The price stays a PLACEHOLDER. */
 export const build = {
   eyebrow: 'Build yours',
   title: 'Make it yours.',
   lede: 'Pick a start, a size and a fabric. The price moves with you.',
   steps: ['Start', 'Size', 'Fabric', 'Send'],
   presets: [
-    { n: '01', name: '[Preset name]' },
-    { n: '02', name: '[Preset name]' },
-    { n: '03', name: '[Preset name]' },
+    { n: '01', name: 'Ella, round arm' },
+    { n: '02', name: 'Ella, slim arm' },
+    { n: '03', name: 'Ella, low back' },
   ],
-  sizes: ['[Size 1]', '[Size 2]', '[Size 3]'],
+  sizes: ['Two-seater, 1600 mm', 'Three-seater, 1900 mm', 'Four-seater, 2300 mm'],
   fabrics: [
-    { label: '[Fabric 1]', slot: 'weave-1', alt: 'Close-up of the weave of fabric 1' },
-    { label: '[Fabric 2]', slot: 'weave-2', alt: 'Close-up of the weave of fabric 2' },
-    { label: '[Fabric 3]', slot: 'weave-3', alt: 'Close-up of the weave of fabric 3' },
+    { label: 'Natural linen', slot: 'weave-1', alt: 'Close-up of the weave of fabric 1' },
+    { label: 'Oat handloom cotton', slot: 'weave-2', alt: 'Close-up of the weave of fabric 2' },
+    { label: 'Stone weave', slot: 'weave-3', alt: 'Close-up of the weave of fabric 3' },
   ],
   dims: [
-    { name: 'Width', value: '[Width]' },
-    { name: 'Depth', value: '[Depth]' },
-    { name: 'Seat height', value: '[Seat height]' },
+    { name: 'Width', value: '1600 to 2300' },
+    { name: 'Depth', value: '850' },
+    { name: 'Seat height', value: '420' },
   ],
   drawing: { slot: 'build-drawing', alt: 'A line drawing of the piece, flat from the front' },
   price: 'LKR [price]',
   priceNote: 'live price',
   send: 'Send my build on WhatsApp',
-  sendIntro: 'Hello [Brand name], I would like to send my build.',
+  sendIntro: 'Hello Daru, I would like to send my build.',
   groupLabels: { start: 'Start', size: 'Size', fabric: 'Fabric' },
 } as const;
 
-/** Section 6, Detail row. Three labelled close-ups. Part names and lines are PLACEHOLDERS. */
+/** Section 6, Detail row. Three labelled close-ups. Part names and lines are DRAFT wording. */
 export const details = {
   title: 'Look closer.',
   items: [
-    { n: '01', name: '[Part 1]', line: '[One line: what it does for you]', slot: 'detail-1', alt: 'Close-up 1 of 3: where an oak arm meets the leg' },
-    { n: '02', name: '[Part 2]', line: '[One line: what it does for you]', slot: 'detail-2', alt: 'Close-up 2 of 3: the weave and the seam of a cushion' },
-    { n: '03', name: '[Part 3]', line: '[One line: what it does for you]', slot: 'detail-3', alt: 'Close-up 3 of 3: a turned oak leg meeting the floor' },
+    { n: '01', name: 'Pegged arm', line: 'The arm is pegged into the leg, not screwed, so it never works loose.', slot: 'detail-1', alt: 'Close-up 1 of 3: where a timber arm meets the leg' },
+    { n: '02', name: 'Piped seam', line: 'Double-stitched and piped, so the cushion keeps its edge.', slot: 'detail-2', alt: 'Close-up 2 of 3: the weave and the seam of a cushion' },
+    { n: '03', name: 'Turned leg', line: 'Turned from solid jak and tapered, so the frame stands light on your floor.', slot: 'detail-3', alt: 'Close-up 3 of 3: a turned timber leg meeting the floor' },
   ],
 } as const;
 
-/** Section 7, Craft band. One dark band, one workshop photo, one line, a named timber card. All PLACEHOLDERS. */
+/** Section 7, Craft band. One dark band, one workshop photo, one line, a named timber card. DRAFT wording. */
 export const craft = {
   eyebrow: 'The workshop',
-  line: '[One line from the workshop]',
+  line: 'Every frame is cut, joined and finished by hand in one workshop.',
   photo: { slot: 'craft-band', alt: 'A pair of hands planing a board at a workshop bench' },
-  timber: { label: 'Timber', species: '[Timber species]', origin: '[Origin]', why: '[Why it lasts: one line]' },
-  maker: { slot: 'maker', alt: 'The maker at the bench, hands on a board', label: 'Made by', name: '[Maker name]' },
+  timber: { label: 'Timber', species: 'Jak', origin: 'From old garden trees in Kurunegala and Kegalle, felled once they stop fruiting.', why: 'Seasoned for a year in our own shed before a single cut, so it stays straight.' },
+  maker: { slot: 'maker', alt: 'The maker at the bench, hands on a board', label: 'Made by', name: 'Nimal Fernando' },
 } as const;
 
 /** Section 8, Visit and contact. WhatsApp first, call second. No form: links only. */
 export const visit = {
   title: 'Come and sit on it.',
   whatsapp: 'WhatsApp us',
-  whatsappText: 'Hello [Brand name], I would like to visit the showroom.',
+  whatsappText: 'Hello Daru, I would like to visit the showroom.',
   call: 'Call',
   map: { slot: 'map', alt: 'Map to the showroom' },
 } as const;

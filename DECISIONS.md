@@ -27,7 +27,7 @@ Read `~/bb-systems/MODULE-REGISTRY.md`, grepped furniture, one pager, switcher, 
 | Fonts in the storyboard | Cormorant Garamond with Inter (house) | Libre Caslon | Hero spec |
 | Picture slots | labelled ivory panels with their size | drawn furniture, stock, pin images | Never draw a product; pins are for looking only |
 | Frames | crew writes HTML fragments on a class vocabulary | hand-written in Python | Task step 4 and the crew gate |
-| Names | `[Brand name]`, `[Piece name]`, `LKR [price]` | The Cove or any invented name | Client facts are unknown |
+| Names | 16 Nov: DRAFT brand Daru, pieces named for Sri Lankan places (Ella, Galle, Kandy, Mirissa, Hakgala), maker Nimal Fernando. `LKR [price]` stays | Leaving every name as a bracket | Thulaib: "NO YOU PUT WHAT YOU FEEL". One coherent made-up maker so the page reads as a real brand. The client replaces all of it |
 
 ## Chat FURNITURE ONE PAGER 2 (15 Nov 2026, Sonnet 5.5): header and hero build
 | Choice | Taken | Rejected | Why |
@@ -75,9 +75,12 @@ Prior-art gate, answered in writing: BB has built a hero-led one page site befor
 | Rooms | No JS: 2 by 2 grid with labels. JS: one room at a time, crossfade, inactive rooms `inert` | Carousel library | Nothing new to load; hidden rooms cannot be tabbed into |
 | Dot positions | CSS rules per room and dot | Style attributes | The CSP test forbids style attributes |
 | Room 1 picture | Cropped from hero 4 (sofa and round table) | Waiting for a new image | A real stand-in is better than an empty slot; rooms 2 to 4 are separate pictures |
-| Fabric swatches | Placeholder labels | Invented fabric names | No fact may be invented |
+| Fabric swatches | 16 Nov: DRAFT Natural linen, Oat handloom cotton, Stone weave | Bracketed labels | Same call as Names |
 | Price | `LKR [price]` placeholder that ticks with the choices | A made up number | Their number, not ours |
 | Links | WhatsApp (`wa.me`), `tel:`, no `<form>` | Form posting, payments | Not approved. Number is the placeholder 94000000000 |
 | Phone | Works, no sideways scroll, safe areas kept | Polishing | Thulaib 15 Nov: phone after the client confirms |
 | Hosting | None added | | BB provides no hosting; the client holds it |
 | Speed | Stand-ins recompressed (`scripts/shrink-stand-ins.sh`), backdrop noise flattened (`scripts/flatten-paper.sh`) | Lazy loading the hero frames | The live speed gate failed on weight (1,096 KB) and biggest image (457 KB). All five hero frames sit in the viewport so lazy loading does not help. Stand-ins are replaced later, so lighter files cost nothing |
+| Timber | 16 Nov: DRAFT jak from old garden trees in Kurunegala and Kegalle; alt text says "timber", not oak | Teak or mahogany (red, the stand-ins are pale); oak (imported) | Local, pale gold like the stand-ins, and the felled-after-fruiting story is specific. The stand-in photos show oak until real ones arrive |
+| Contact facts | 16 Nov: stay placeholders: phone, WhatsApp number 94000000000, street, opening hours, Instagram, every price, delivery terms. City is DRAFT Colombo | Inventing them too | A customer could act on them (ring, drive, arrive, hold to a price). Thulaib's rule from the brief |
+| Per-piece copy | Ready cards carry their own name and materials; WhatsApp openers use a `{piece}` token | One shared name for all four cards | Four different pieces cannot share one name once the words are real. `sections-click.mjs` now checks each Buy message names its own card |

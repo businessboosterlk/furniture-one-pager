@@ -21,15 +21,15 @@ const pad = (n: number) => String(n).padStart(2, '0');
           <li class="card">
             <div class="card__pic"><Picture slot={c.slot} alt={c.alt} /></div>
             <div class="card__row">
-              <h3 class="card__name" set:html={ph(ready.name)} />
+              <h3 class="card__name" set:html={ph(c.name)} />
               <span class="card__fabrics" role="img" aria-label={ready.fabricsLabel}>
                 <span class="swatch" data-s="1" /><span class="swatch" data-s="2" /><span class="swatch" data-s="3" />
               </span>
             </div>
-            <p class="card__mat" set:html={ph(ready.material)} />
+            <p class="card__mat" set:html={ph(c.material)} />
             <div class="card__buy">
               <p class="card__price" set:html={ph(ready.price)} />
-              <a class="btn btn--solid" href={waLink(site.contact.whatsapp, ready.buyText)} target="_blank" rel="noopener noreferrer" aria-label={`${ready.buy}: ${ready.name}, piece ${i + 1} of ${total}`}>
+              <a class="btn btn--solid" href={waLink(site.contact.whatsapp, ready.buyText.replace('{piece}', c.name))} target="_blank" rel="noopener noreferrer" aria-label={`${ready.buy}: ${c.name}, piece ${i + 1} of ${total}`}>
                 <Icon name="whatsapp" />
                 <span class="buy__long">{ready.buy}</span>
                 <span class="buy__short" aria-hidden="true">{ready.buyShort}</span>

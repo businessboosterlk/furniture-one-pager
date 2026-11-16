@@ -27,11 +27,11 @@ for (const [name, w, h, mobile] of [['desk', 1440, 900, false], ['phone', 390, 8
     ok(c.a === String(want), `${name}: Next room shows room ${want}`);
   }
   const dots = await page.locator('.room[data-active] .dot').evaluateAll((els) => els.map((e) => e.getAttribute('href')));
-  ok(dots.length === 2 && dots.every((d) => d.startsWith('https://wa.me/')), `${name}: both piece dots open WhatsApp`);
+  ok(dots.length === 2 && dots.every((d) => d.startsWith('https://wa.me/') && decodeURIComponent(d).includes('ask about the ')), `${name}: both piece dots open WhatsApp`);
   const inactiveInert = await page.evaluate(() => [...document.querySelectorAll('.room:not([data-active])')].every((r) => r.hasAttribute('inert')));
   ok(inactiveInert, `${name}: hidden rooms cannot be tabbed into`);
   const buys = await page.locator('.card a.btn').evaluateAll((els) => els.map((e) => decodeURIComponent(e.href)));
-  ok(buys.length === 4 && buys.every((u) => u.includes('wa.me/') && u.includes('Piece name')), `${name}: four Buy buttons open WhatsApp naming the piece`);
+  ok(buys.length === 4 && ['Ella three-seater', 'Ella armchair', 'Galle side table', 'Galle coffee table'].every((n, i) => buys[i].includes('wa.me/') && buys[i].includes('buy the ' + n)), `${name}: four Buy buttons open WhatsApp naming the piece`);
   // Build yours
   const pick = async (g, v) => { await page.locator(`#build input[name="${g}"][value="${v}"]`).evaluate((el) => el.closest('label').scrollIntoView({ block: 'center' })); await page.locator(`#build input[name="${g}"][value="${v}"]`).locator('xpath=..').click(); };
   const state = () => page.evaluate(() => ({ sum: document.querySelector('[data-sum]').textContent, href: decodeURIComponent(document.querySelector('[data-send]').href), steps: [...document.querySelectorAll('.steps li')].map((l) => l.dataset.state || '-').join(','), weave: [...document.querySelectorAll('.weave__item')].map((f) => getComputedStyle(f).opacity).join(',') }));
@@ -40,13 +40,13 @@ for (const [name, w, h, mobile] of [['desk', 1440, 900, false], ['phone', 390, 8
   await pick('preset', 2); s = await state();
   ok(s.sum.includes('02') && s.steps === 'done,now,-,-', `${name}: preset 2 chosen, step 2 is next (${s.steps})`);
   await pick('size', 3); s = await state();
-  ok(s.sum.includes('[Size 3]') && s.steps === 'done,done,now,-', `${name}: size 3 chosen (${s.steps})`);
+  ok(s.sum.includes('Four-seater') && s.steps === 'done,done,now,-', `${name}: size 3 chosen (${s.steps})`);
   await pick('fabric', 2);
   await page.waitForTimeout(600);
   s = await state();
-  ok(s.sum.includes('[Fabric 2]') && s.steps === 'done,done,done,now', `${name}: fabric 2 chosen, step 4 is next (${s.steps})`);
+  ok(s.sum.includes('Oat handloom cotton') && s.steps === 'done,done,done,now', `${name}: fabric 2 chosen, step 4 is next (${s.steps})`);
   ok(s.weave === '0,1,0', `${name}: the weave close-up follows the fabric (${s.weave})`);
-  ok(s.href.includes('02 [Preset name]') && s.href.includes('Size: [Size 3]') && s.href.includes('Fabric: [Fabric 2]') && s.href.includes('wa.me/'), `${name}: the WhatsApp message carries the choices`);
+  ok(s.href.includes('02 Ella, slim arm') && s.href.includes('Size: Four-seater, 2300 mm') && s.href.includes('Fabric: Oat handloom cotton') && s.href.includes('wa.me/'), `${name}: the WhatsApp message carries the choices`);
   const popup = page.waitForEvent('popup', { timeout: 3000 }).catch(() => null);
   await page.locator('[data-send]').scrollIntoViewIfNeeded();
   await page.locator('[data-send]').click();
