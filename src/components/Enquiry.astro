@@ -1,0 +1,36 @@
+---
+import { site } from '../site.config';
+const connected = site.contact.whatsapp !== '94000000000';
+---
+<section class="enquiry section gutter" id="enquiry" aria-labelledby="enquiry-title" data-contact-number={connected ? site.contact.whatsapp : ''}>
+  <div>
+    <p class="eyebrow">Your furniture brief</p>
+    <h2 class="h2" id="enquiry-title">A good piece starts<br />with a conversation.</h2>
+    <p class="lede">Choose a product or build above, then add the details here. Copy or download the complete brief to keep it handy.</p>
+    {!connected && <p class="connection-note">Preview mode: the business contact number is not connected yet. You can prepare and save your brief, but it will not be sent to the showroom.</p>}
+  </div>
+  <form class="enquiry-form" method="dialog" data-enquiry-form>
+    <label>Your name<input name="customer" autocomplete="name" maxlength="100" placeholder="How should we address you?" /></label>
+    <label>Contact number (optional)<input name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="Your phone or WhatsApp number" /></label>
+    <label>What do you have in mind?<textarea name="request" rows="4" maxlength="2000" required data-request placeholder="Choose a piece above, or tell us what you need."></textarea></label>
+    <label>Room, delivery area or special requirements<textarea name="notes" rows="3" maxlength="2000" placeholder="For example: living room, doorway width, preferred fabric…"></textarea></label>
+    <div class="enquiry-actions">
+      {connected && <button class="btn btn--solid" type="button" data-whatsapp-enquiry>Continue on WhatsApp ↗</button>}
+      <button class="btn btn--line" type="button" data-copy-enquiry>Copy enquiry</button>
+      <button class="btn btn--line" type="button" data-download-enquiry>Download brief</button>
+    </div>
+    <p class="preview-note">Nothing is submitted automatically. Personal details stay on this page unless you copy, download or send them. Saving a brief does not place an order.</p>
+    <p data-enquiry-status role="status"></p>
+  </form>
+</section>
+<section class="faq section gutter" aria-labelledby="faq-title">
+  <p class="eyebrow">Before you choose</p><h2 class="h2" id="faq-title">A few useful answers.</h2>
+  <details><summary>Can I change the size and fabric?</summary><p>Use the builder to explore three styles, three sizes and three fabric tones. The preview is illustrative; request a quote to confirm exact dimensions, materials and what can be made.</p></details>
+  <details><summary>Is the preview an exact photograph of my order?</summary><p>No. The images are generated design studies. Wood grain, colour and proportions can vary. Ask for real product photographs, measurements and a fabric sample before confirming an order.</p></details>
+  <details><summary>What about pricing and delivery?</summary><p>Ask for a written quote that confirms the price, lead time, delivery area, installation, deposit and warranty. No price or availability is guaranteed by this preview.</p></details>
+  <details><summary>How do I save my design?</summary><p>Your style, size and fabric selections are saved on this device when browser storage is available. “Copy design link” lets someone else open the same combination. Download the enquiry to keep a text copy of your requirements.</p></details>
+</section>
+<dialog class="product-dialog" data-product-dialog aria-labelledby="product-dialog-title">
+  <button class="dialog-close" type="button" data-close-dialog aria-label="Close product view">×</button>
+  <h2 id="product-dialog-title">A closer look</h2><img data-dialog-image alt="" /><p class="preview-note">Illustrative product image. Confirm actual stock and specifications before ordering.</p>
+</dialog>

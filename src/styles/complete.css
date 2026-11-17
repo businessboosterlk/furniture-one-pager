@@ -1,0 +1,23 @@
+.config-preview{position:relative;isolation:isolate;background:#f3eee6;aspect-ratio:1;max-width:640px;--x:0%;--y:0%}
+.config-preview img{position:absolute;left:0;top:0;width:300%;height:300%;max-width:none;object-fit:fill;transform:translate(var(--x),var(--y));opacity:0;pointer-events:none}
+.config-preview[data-col='2']{--x:-33.333333%}.config-preview[data-col='3']{--x:-66.666667%}
+.config-preview[data-row='2']{--y:-33.333333%}.config-preview[data-row='3']{--y:-66.666667%}
+.config-preview[data-preset='1'] [data-preview-style='1'],.config-preview[data-preset='2'] [data-preview-style='2'],.config-preview[data-preset='3'] [data-preview-style='3']{opacity:1}
+.preview-note{font-size:12px;line-height:1.7;color:var(--muted);margin-top:14px;max-width:58ch}
+.build-tools,.enquiry-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+input[name='fabric']+.opt__body::before{content:'';width:20px;height:20px;border-radius:50%;background:#e4d8c6;border:1px solid #b8a993;margin-bottom:3px}input[name='fabric'][value='2']+.opt__body::before{background:#baa68d}input[name='fabric'][value='3']+.opt__body::before{background:#888681}
+.text-btn{background:none;border:0;border-bottom:1px solid var(--line);padding:12px 0;color:var(--muted);cursor:pointer}
+.product-zoom{position:relative;display:block;width:100%;padding:0;border:0;cursor:zoom-in;color:var(--ink)}
+.product-zoom>span{position:absolute;bottom:12px;right:12px;background:var(--paper);padding:8px 12px;font-size:11px}
+.product-zoom .pic{transition:transform .35s ease}.product-zoom:hover .pic{transform:scale(1.035)}
+.card__buy{flex-wrap:wrap}.card__price{font-size:1.15rem}.card__mat{min-height:44px}
+.enquiry{display:grid;gap:40px;border-top:1px solid var(--line)}
+.enquiry-form{display:grid;gap:20px}.enquiry-form label{display:grid;gap:8px;font-size:13px}
+.enquiry-form input,.enquiry-form textarea,[role='status'] textarea{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:0;background:transparent;padding:14px;font:inherit;color:var(--ink)}
+.enquiry-form textarea{resize:vertical;min-height:90px}.enquiry-form input:focus,.enquiry-form textarea:focus{outline:2px solid var(--accent);outline-offset:2px}
+.connection-note{border-left:2px solid var(--accent);padding:12px 18px;margin-top:26px;font-size:13px;line-height:1.7;max-width:45ch;color:var(--muted)}
+.faq{border-top:1px solid var(--line)}.faq h2{margin-bottom:32px}.faq details{border-bottom:1px solid var(--line);padding:22px 0;max-width:900px}.faq summary{cursor:pointer;font-size:18px}.faq details p{padding-top:16px;max-width:70ch;color:var(--muted);line-height:1.8}
+.product-dialog{border:1px solid var(--line);background:var(--paper);color:var(--ink);width:min(700px,90vw);max-height:90svh;padding:24px;overflow:auto}.product-dialog::backdrop{background:rgba(30,24,18,.65)}.product-dialog img{display:block;width:100%;height:65svh;object-fit:contain}.product-dialog h2{font-size:30px;padding-right:40px}.dialog-close{position:absolute;right:12px;top:8px;width:44px;height:44px;font-size:32px;border:0;background:transparent;cursor:pointer;color:inherit}
+[data-enquiry-status],[data-build-status]{font-size:12px;line-height:1.6}.visit__map .pic{height:100%;object-fit:cover}
+@media(min-width:900px){.enquiry{grid-template-columns:1fr 1fr;gap:8vw}.build__drawing{position:sticky;top:110px}.enquiry .h2{font-size:clamp(40px,4.2vw,64px)}}
+@media(prefers-reduced-motion:reduce){.product-zoom .pic{transition:none}}

@@ -15,7 +15,7 @@ const year = new Date().getFullYear();
         ))}
       </ul>
     </nav>
-    <p class="site-footer__ig"><Icon name="instagram" /> <span set:html={ph(site.instagram)} /></p>
+    {!site.instagram.includes('[') && <p class="site-footer__ig"><Icon name="instagram" /> <a href={`https://www.instagram.com/${site.instagram.replace('@', '')}/`} target="_blank" rel="noopener noreferrer">{site.instagram}</a></p>}
   </div>
-  <p class="site-footer__legal">&copy; {year}{' '}<span set:html={ph(site.name)} /></p>
+  <p class="site-footer__legal">&copy; {year}{' '}<span set:html={ph(site.name)} /> · Furniture concept preview. Generated imagery is illustrative, not a claim of stock or availability.</p>
 </footer>

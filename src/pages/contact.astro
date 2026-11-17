@@ -1,14 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-import ContactLinks from '../components/ContactLinks.astro';
-import { site } from '../site.config';
+import { withBase } from '../lib/base';
 ---
 
-<Base title="Contact" description={`How to reach ${site.name} by WhatsApp or email.`}>
+<Base title="Your furniture enquiry" description="Prepare your furniture enquiry on our one-page website.">
   <section class="page">
-    <h1>Contact</h1>
-    <p class="lead">Message us on WhatsApp or send an email.</p>
-    <ContactLinks />
-    <p>{site.address.line1}, {site.address.city}, {site.address.country}</p>
+    <h1>Let’s start with your idea.</h1>
+    <p class="lead">Choose a piece, explore the builder, or prepare an enquiry on our main page.</p>
+    <a class="btn btn--solid" href={withBase('/#enquiry')}>Prepare an enquiry ↗</a>
   </section>
 </Base>

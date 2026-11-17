@@ -1,24 +1,26 @@
 ---
 // Section 8 (#visit). Where and when, then two ways to talk: WhatsApp first, a call second. Links only, no form.
-import { visit, site } from '../site.config';
-import { ph, waLink } from '../lib/ph';
-import Icon from './Icon.astro';
+import { site } from '../site.config';
 import Picture from './Picture.astro';
+import Enquiry from './Enquiry.astro';
+const connected = site.contact.whatsapp !== '94000000000';
+const addressReady = !site.address.line1.includes('[');
 ---
 
 <section class="visit section" id="visit" aria-labelledby="visit-title">
   <div class="visit__inner gutter">
     <div class="visit__copy">
-      <h2 class="h2" id="visit-title">{visit.title}</h2>
-      <ul class="visit__facts">
-        <li><Icon name="pin" /><span set:html={ph(`${site.address.line1}, ${site.address.city}, ${site.address.country}`)} /></li>
-        <li><Icon name="clock" /><span set:html={ph(site.hours)} /></li>
-      </ul>
+      <p class="eyebrow">The next step</p>
+      <h2 class="h2" id="visit-title">Make room<br />for something yours.</h2>
+      <p class="lede">Start with a piece you love. Add your measurements, fabric choice and questions to one clear enquiry.</p>
+      {addressReady && <p class="lede">{site.address.line1}, {site.address.city}<br />{site.hours}</p>}
       <div class="visit__doors">
-        <a class="btn btn--solid" href={waLink(site.contact.whatsapp, visit.whatsappText)} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" /> {visit.whatsapp}</a>
-        <a class="btn btn--line" href={`tel:${site.contact.tel}`}><Icon name="phone" /> {visit.call} <span set:html={ph(site.contact.phoneLabel)} /></a>
+        <a class="btn btn--solid" href="#enquiry">Prepare my enquiry ↗</a>
+        {addressReady && <a class="btn btn--line" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address.line1+', '+site.address.city)}`} target="_blank" rel="noopener noreferrer">Get directions ↗</a>}
+        {connected && <a class="btn btn--line" href={`tel:${site.contact.tel}`}>Call {site.contact.phoneLabel}</a>}
       </div>
     </div>
-    <div class="visit__map"><Picture slot={visit.map.slot} alt={visit.map.alt} /></div>
+    <div class="visit__map"><Picture slot="room-1" alt="Illustrative living room with a timber sofa and coffee table" /></div>
   </div>
 </section>
+<Enquiry />

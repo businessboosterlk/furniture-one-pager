@@ -16,20 +16,17 @@ const pad = (n: number) => String(n).padStart(2, '0');
       <p class="lede" set:html={ph(ready.lede)} />
     </div>
     <div class="ready__scroller" data-ready tabindex="0" role="region" aria-label="Ready-to-buy pieces">
-      <ul class="ready__list">
+      <ul class="ready__list" data-ready-list>
         {ready.cards.map((c, i) => (
           <li class="card">
-            <div class="card__pic"><Picture slot={c.slot} alt={c.alt} /></div>
+            <button type="button" class="card__pic product-zoom" data-zoom aria-label={`View ${c.name} larger`}><Picture slot={c.slot} alt={c.alt} /><span>View closer ↗</span></button>
             <div class="card__row">
               <h3 class="card__name" set:html={ph(c.name)} />
-              <span class="card__fabrics" role="img" aria-label={ready.fabricsLabel}>
-                <span class="swatch" data-s="1" /><span class="swatch" data-s="2" /><span class="swatch" data-s="3" />
-              </span>
             </div>
             <p class="card__mat" set:html={ph(c.material)} />
             <div class="card__buy">
               <p class="card__price" set:html={ph(ready.price)} />
-              <a class="btn btn--solid" href={waLink(site.contact.whatsapp, ready.buyText.replace('{piece}', c.name))} target="_blank" rel="noopener noreferrer" aria-label={`${ready.buy}: ${c.name}, piece ${i + 1} of ${total}`}>
+              <a class="btn btn--solid" data-enquiry={ready.buyText.replace('{piece}', c.name)} href={waLink(site.contact.whatsapp, ready.buyText.replace('{piece}', c.name))} aria-label={`${ready.buy}: ${c.name}, piece ${i + 1} of ${total}`}>
                 <Icon name="whatsapp" />
                 <span class="buy__long">{ready.buy}</span>
                 <span class="buy__short" aria-hidden="true">{ready.buyShort}</span>

@@ -8,5 +8,6 @@ export function ph(text: string): string {
 
 /** The WhatsApp link for the header button and later the order. Placeholder number until the client gives one. */
 export function waLink(number: string, text: string): string {
+  if (!number || number === '94000000000') return '#enquiry';
   return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 }

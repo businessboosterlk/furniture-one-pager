@@ -46,7 +46,7 @@
   }
 
   // READY TO BUY: which card is at the left of the phone swipe row
-  var row = $('[data-ready]');
+  var row = $('[data-ready-list]');
   var rn = $('[data-ready-n]');
   if (row && rn) {
     var cards = $$('.card', row);
@@ -69,7 +69,6 @@
     var sum = $('[data-sum]', build);
     var send = $('[data-send]', build);
     var price = $('[data-price]', build);
-    var base = build.getAttribute('data-wa');
     var intro = build.getAttribute('data-intro');
     var done = [false, false, false, false];
     var label = function (n) {
@@ -87,7 +86,10 @@
     var refresh = function () {
       var p = label('preset'), z = label('size'), f = label('fabric');
       if (sum) setPh(sum, p + ' · ' + z + ' · ' + f);
-      if (send) send.setAttribute('href', base + '?text=' + encodeURIComponent(intro + ' Start: ' + p + '. Size: ' + z + '. Fabric: ' + f + '.'));
+      if (send) {
+        send.setAttribute('href', '#enquiry');
+        send.setAttribute('data-enquiry', intro + ' Start: ' + p + '. Size: ' + z + '. Fabric: ' + f + '.');
+      }
       if (price) { price.removeAttribute('data-tick'); void price.offsetWidth; price.setAttribute('data-tick', ''); }
       paint();
     };

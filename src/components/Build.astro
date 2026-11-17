@@ -5,11 +5,11 @@
 import { build, site } from '../site.config';
 import { ph } from '../lib/ph';
 import Icon from './Icon.astro';
-import Picture from './Picture.astro';
-const wa = `https://wa.me/${site.contact.whatsapp}`;
+import { withBase } from '../lib/base';
+const wa = site.contact.whatsapp === '94000000000' ? '' : `https://wa.me/${site.contact.whatsapp}`;
 const first = `${build.presets[0].n} ${build.presets[0].name}`;
 const text = `${build.sendIntro} Start: ${first}. Size: ${build.sizes[0]}. Fabric: ${build.fabrics[0].label}.`;
-const href = `${wa}?text=${encodeURIComponent(text)}`;
+const href = '#enquiry';
 ---
 
 <section class="build section" id="build" aria-labelledby="build-title" data-build data-wa={wa} data-intro={build.sendIntro}>
@@ -26,11 +26,14 @@ const href = `${wa}?text=${encodeURIComponent(text)}`;
     </ol>
     <div class="build__grid">
       <figure class="build__drawing">
-        <div class="build__sheet"><Picture slot={build.drawing.slot} alt={build.drawing.alt} /></div>
+        <div class="build__sheet config-preview" data-preview data-row="1" data-col="1" data-preset="1" role="img" aria-label="Illustrative round-arm two-seat sofa in natural linen">
+          {['round', 'slim', 'low'].map((name, i) => <img src={withBase(`/configurator/${name}.webp`)} width="3072" height="3072" data-preview-style={i+1} alt="" loading="lazy" />)}
+        </div>
+        <p class="preview-note">AI-generated design preview. Proportions, materials and availability must be confirmed before ordering.</p>
         <figcaption>
           <dl class="dims">
             {build.dims.map((d) => (
-              <div><dt>{d.name}</dt><dd><span set:html={ph(d.value)} /> mm</dd></div>
+              <div><dt>{d.name}</dt><dd><span data-dimension={d.name} set:html={ph(d.name === 'Width' ? '1600' : d.value)} /> mm</dd></div>
             ))}
           </dl>
         </figcaption>
@@ -68,13 +71,7 @@ const href = `${wa}?text=${encodeURIComponent(text)}`;
               </label>
             ))}
           </div>
-          <div class="weave">
-            {build.fabrics.map((f, i) => (
-              <figure class="weave__item" data-w={i + 1}>
-                <Picture slot={f.slot} alt={f.alt} />
-              </figure>
-            ))}
-          </div>
+          <p class="preview-note">Compare the fabric tones on your sofa preview. Request physical samples to confirm colour and feel.</p>
         </fieldset>
         <div class="build__send">
           <div class="price">
@@ -82,7 +79,9 @@ const href = `${wa}?text=${encodeURIComponent(text)}`;
             <p class="price__note">{build.priceNote}</p>
           </div>
           <p class="build__sum" data-sum aria-live="polite" set:html={ph(`${first} · ${build.sizes[0]} · ${build.fabrics[0].label}`)} />
-          <a class="btn btn--solid" data-send href={href} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" /> {build.send}</a>
+          <a class="btn btn--solid" data-send data-enquiry={text} href={href}><Icon name="chat" /> {build.send}</a>
+          <div class="build-tools"><button class="btn btn--line" type="button" data-share-build>Copy design link</button><button class="text-btn" type="button" data-reset-build>Reset choices</button></div>
+          <p class="preview-note" data-build-status role="status">Your design choices are saved on this device. No personal details are saved.</p>
         </div>
       </div>
     </div>

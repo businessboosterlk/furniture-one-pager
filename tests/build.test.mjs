@@ -95,7 +95,13 @@ test('every internal link and asset resolves to a built file', () => {
 });
 
 test('no form posts anywhere', () => {
-  for (const f of pages) assert.doesNotMatch(read(f), /<form\b/i, `${rel(f)} has a form`);
+  for (const f of pages) {
+    for (const form of read(f).matchAll(/<form\b[^>]*>/gi)) {
+      assert.match(form[0], /method="dialog"/, `${rel(f)} has a network-submitting form`);
+      assert.doesNotMatch(form[0], /\saction\s*=/i, `${rel(f)} has a form action`);
+    }
+    assert.doesNotMatch(read(f), /\sformaction\s*=/i, `${rel(f)} overrides a form action`);
+  }
 });
 
 test('host header files carry the full set and agree with each other', () => {

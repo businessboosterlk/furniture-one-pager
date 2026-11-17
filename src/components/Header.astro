@@ -18,6 +18,6 @@ const wa = waLink(site.contact.whatsapp, site.headerCta.text);
         ))}
       </ul>
     </nav>
-    <a class="site-header__cta" href={wa} target="_blank" rel="noopener noreferrer"><Icon name="chat" /><span class="site-header__cta-label">{site.headerCta.label}</span></a>
+    <a class="site-header__cta" href={wa} data-enquiry={site.headerCta.text}><Icon name="chat" /><span class="site-header__cta-label">{site.headerCta.label}</span></a>
   </div>
 </header>

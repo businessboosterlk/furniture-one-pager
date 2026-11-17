@@ -10,9 +10,9 @@ export const site = {
   /** Business name. PLACEHOLDER */
   name: 'Daru',
   /** One sentence for the meta description. PLACEHOLDER */
-  description: 'Daru makes jak-wood sofas, chairs and tables in Sri Lanka. Buy a finished piece or build your own and send it on WhatsApp.',
+  description: 'Explore timber furniture, discover room ideas and create a personal furniture brief with Daru.',
   /** The live address, no trailing slash. PLACEHOLDER */
-  url: 'https://example.com',
+  url: 'https://businessboosterlk.github.io',
   lang: 'en-GB',
   locale: 'en_GB',
   address: {
@@ -59,7 +59,7 @@ export const site = {
     { href: '#visit', label: 'Visit' },
   ],
   /** The header button. The WhatsApp link is built from contact.whatsapp. */
-  headerCta: { label: 'Message us', text: 'Hello Daru, I would like to ask about a piece.' },
+  headerCta: { label: 'Enquire', text: 'Hello Daru, I would like to ask about a piece.' },
 } as const;
 
 /** The hero: one story. A drawing first, then raw timber, a joined frame, the finished piece and the piece at home. */
@@ -107,13 +107,13 @@ export const rooms = {
 
 /** Section 4, Ready to buy. Four finished pieces. Names and materials are DRAFT wording. The price and the delivery terms stay PLACEHOLDERS. */
 export const ready = {
-  title: 'Ready to take home.',
-  lede: 'Finished in our workshop and ready to leave with you. [Delivery terms]',
-  buy: 'Buy on WhatsApp',
-  buyShort: 'Buy',
+  title: 'Find your next favourite.',
+  lede: 'Explore the collection concepts. Ask about a piece to confirm materials, availability, pricing and delivery. Images are illustrative.',
+  buy: 'Enquire',
+  buyShort: 'Enquire',
   /** {piece} is replaced with the card's piece name. */
   buyText: 'Hello Daru, I would like to buy the {piece}.',
-  price: 'LKR [price]',
+  price: 'Request a quote',
   fabricsLabel: 'Fabrics available',
   cards: [
     { slot: 'card-1', name: 'Ella three-seater', material: 'Jak frame · Natural linen · Round arms', alt: 'Ready-to-buy piece 1 of 4, a three-seat sofa on an ivory ground' },
@@ -128,7 +128,7 @@ export const build = {
   eyebrow: 'Build yours',
   title: 'Make it yours.',
   lede: 'Choose your shape, size and fabric. Send your choices for a tailored quote.',
-  steps: ['Start', 'Size', 'Fabric', 'Send'],
+  steps: ['Style', 'Size', 'Fabric', 'Enquire'],
   presets: [
     { n: '01', name: 'Ella, round arm' },
     { n: '02', name: 'Ella, slim arm' },
@@ -146,9 +146,9 @@ export const build = {
     { name: 'Seat height', value: '420' },
   ],
   drawing: { slot: 'build-drawing', alt: 'A line drawing of the piece, flat from the front' },
-  price: 'LKR [price]',
-  priceNote: 'sample pricing',
-  send: 'Send my build on WhatsApp',
+  price: 'Made for you.',
+  priceNote: 'priced on enquiry',
+  send: 'Enquire about this design',
   sendIntro: 'Hello Daru, I would like to send my build.',
   groupLabels: { start: 'Start', size: 'Size', fabric: 'Fabric' },
 } as const;
@@ -157,19 +157,19 @@ export const build = {
 export const details = {
   title: 'Look closer.',
   items: [
-    { n: '01', name: 'Pegged arm', line: 'The arm is pegged into the leg, not screwed, so it never works loose.', slot: 'detail-1', alt: 'Close-up 1 of 3: where a timber arm meets the leg' },
-    { n: '02', name: 'Piped seam', line: 'Double-stitched and piped, so the cushion keeps its edge.', slot: 'detail-2', alt: 'Close-up 2 of 3: the weave and the seam of a cushion' },
-    { n: '03', name: 'Turned leg', line: 'Turned from solid jak and tapered, so the frame stands light on your floor.', slot: 'detail-3', alt: 'Close-up 3 of 3: a turned timber leg meeting the floor' },
+    { n: '01', name: 'The joinery', line: 'Look closely at how the arm meets the leg. Ask about the joinery and construction of your chosen piece.', slot: 'detail-1', alt: 'Illustrative close-up of timber joinery' },
+    { n: '02', name: 'The fabric', line: 'Colour is only the beginning. Compare the weave, feel and care requirements before you choose.', slot: 'detail-2', alt: 'Illustrative close-up of cushion fabric' },
+    { n: '03', name: 'The finish', line: 'A small detail changes the whole silhouette. Explore the timber tone and leg profile you prefer.', slot: 'detail-3', alt: 'Illustrative close-up of a furniture leg' },
   ],
 } as const;
 
 /** Section 7, Craft band. One dark band, one workshop photo, one line, a named timber card. DRAFT wording. */
 export const craft = {
   eyebrow: 'The workshop',
-  line: 'Every frame is cut, joined and finished by hand in one workshop.',
+  line: 'From the first cut to the finishing touch.',
   photo: { slot: 'craft-band', alt: 'A pair of hands planing a board at a workshop bench' },
-  timber: { label: 'Timber', species: 'Jak', origin: 'From old garden trees in Kurunegala and Kegalle, felled once they stop fruiting.', why: 'Seasoned for a year in our own shed before a single cut, so it stays straight.' },
-  maker: { slot: 'maker', alt: 'The maker at the bench, hands on a board', label: 'Made by', name: 'Nimal Fernando' },
+  timber: { label: 'The material', species: 'Natural character.', origin: 'Grain, tone and texture make every piece feel different.', why: 'Confirm timber species, sourcing and finish with the maker before ordering. Workshop imagery is illustrative.' },
+  maker: { slot: 'maker', alt: 'Illustrative craftsman at a woodworking bench', label: 'The process', name: 'Considered in every detail.' },
 } as const;
 
 /** Section 8, Visit and contact. WhatsApp first, call second. No form: links only. */
