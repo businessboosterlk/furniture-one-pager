@@ -44,3 +44,12 @@ Use the following prompt once per style, substituting SHAPE with:
 ## Browser QA
 
 All 27 combinations selected and confirmed against rendered preview state with all 3 asset sheets loaded. Enquiry prefill, copy/download, enlarged product dialog and URL-driven design selection checked locally. Do not interpret this as testing real WhatsApp delivery; the real recipient is not supplied.
+
+## Final interaction polish — 18 November 2026
+
+- Four clickable hero chapters, smooth native scroll, pressed-state indicators; direct still switching for reduced motion.
+- Room controls support arrow keys, Home and End.
+- Product dialog shows the selected product name and offers a direct prefilled enquiry.
+- Header enquiry preserves an existing written request.
+- Quote-only labels, improved focus/anchor spacing, clipped product hover zoom and a subtle reduced-motion-safe dialog entrance.
+- Verified hero stage selection, dialog-to-enquiry prefill, draft preservation and room keyboard controls in-browser; no captured console errors. Real contact information remains the launch dependency.

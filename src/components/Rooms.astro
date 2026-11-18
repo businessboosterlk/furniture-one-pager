@@ -25,7 +25,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
             <a class="dot" data-dot={j + 1} data-enquiry={rooms.askText.replace('{piece}', d)} aria-label={`Enquire about ${d}`} href={waLink(site.contact.whatsapp, rooms.askText.replace('{piece}', d))}>
               <span class="dot__mark" aria-hidden="true" />
               <span class="dot__tag" set:html={ph(d)} />
-              <span class="sr">, ask on WhatsApp</span>
+              <span class="sr">, prepare an enquiry</span>
             </a>
           ))}
         </figure>

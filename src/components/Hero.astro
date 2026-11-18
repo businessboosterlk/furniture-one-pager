@@ -32,7 +32,7 @@ const steps = hero.steps.filter(s => s.slot !== 'build-drawing');
       </ol>
       <div class="hero__trail" aria-label="Making stages">
         {steps.map((s, index) => (
-          <span class="hero__mark" data-step={index + 1}><small>0{index + 1}</small>{s.label}</span>
+          <button type="button" class="hero__mark" data-step={index + 1} data-hero-jump={index + 1} aria-label={`View ${s.label.toLowerCase()} stage`}><small>0{index + 1}</small>{s.label}</button>
         ))}
       </div>
     </div>

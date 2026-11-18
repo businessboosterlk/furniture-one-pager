@@ -41,7 +41,18 @@
     };
     rooms.classList.add('rooms--live');
     show(0);
-    tabs.forEach(function (t, k) { t.addEventListener('click', function () { show(k); }); });
+    tabs.forEach(function (t, k) {
+      t.addEventListener('click', function () { show(k); });
+      t.addEventListener('keydown', function (event) {
+        var target;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') target = (k + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') target = (k + tabs.length - 1) % tabs.length;
+        else if (event.key === 'Home') target = 0;
+        else if (event.key === 'End') target = tabs.length - 1;
+        else return;
+        event.preventDefault(); show(target); tabs[target].focus();
+      });
+    });
     if (next) next.addEventListener('click', function () { show(cur + 1); });
   }
 

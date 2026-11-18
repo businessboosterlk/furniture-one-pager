@@ -112,7 +112,7 @@ export const ready = {
   buy: 'Enquire',
   buyShort: 'Enquire',
   /** {piece} is replaced with the card's piece name. */
-  buyText: 'Hello Daru, I would like to buy the {piece}.',
+  buyText: 'Hello Daru, please send me a quote and availability for the {piece}.',
   price: 'Request a quote',
   fabricsLabel: 'Fabrics available',
   cards: [

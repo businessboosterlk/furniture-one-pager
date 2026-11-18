@@ -55,7 +55,8 @@
     form.addEventListener('submit', function (event) { event.preventDefault(); });
     document.querySelectorAll('[data-enquiry]').forEach(function (link) {
       link.addEventListener('click', function (event) {
-        event.preventDefault(); $('[data-request]').value = link.dataset.enquiry;
+        event.preventDefault();
+        if (!link.classList.contains('site-header__cta') || !$('[data-request]').value.trim()) $('[data-request]').value = link.dataset.enquiry;
         $('#enquiry').scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
         $('[data-request]').focus({preventScroll: true});
         output.textContent = 'Your selection is added. Add your details, then save or send your enquiry.';
@@ -82,14 +83,24 @@
   }
   var dialog = $('[data-product-dialog]');
   if (dialog) {
+    var productRequest = '';
     document.querySelectorAll('[data-zoom]').forEach(function (button) {
       button.addEventListener('click', function () {
         var image = button.querySelector('img'); var target = $('[data-dialog-image]');
         target.src = image.currentSrc || image.src; target.alt = image.alt;
+        $('#product-dialog-title').textContent = button.dataset.productName || 'A closer look';
+        productRequest = button.dataset.productEnquiry || '';
         dialog.showModal();
       });
     });
     $('[data-close-dialog]').addEventListener('click', function () { dialog.close(); });
+    $('[data-dialog-enquire]').addEventListener('click', function () {
+      dialog.close();
+      $('[data-request]').value = productRequest;
+      $('#enquiry').scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+      $('[data-request]').focus({preventScroll: true});
+      output.textContent = 'Your chosen piece is added. Tell us what you have in mind.';
+    });
     dialog.addEventListener('click', function (event) { if (event.target === dialog) { var rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
   }
 })();

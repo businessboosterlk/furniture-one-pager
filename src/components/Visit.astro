@@ -3,7 +3,7 @@
 import { site } from '../site.config';
 import Picture from './Picture.astro';
 import Enquiry from './Enquiry.astro';
-const connected = site.contact.whatsapp !== '94000000000';
+const connected = /^\+?\d{8,15}$/.test(site.contact.tel) && !site.contact.tel.includes('000000000');
 const addressReady = !site.address.line1.includes('[');
 ---
 

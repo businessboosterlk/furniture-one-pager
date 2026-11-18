@@ -15,11 +15,11 @@ const pad = (n: number) => String(n).padStart(2, '0');
       <h2 class="h2" id="ready-title">{ready.title}</h2>
       <p class="lede" set:html={ph(ready.lede)} />
     </div>
-    <div class="ready__scroller" data-ready tabindex="0" role="region" aria-label="Ready-to-buy pieces">
+    <div class="ready__scroller" data-ready role="region" aria-label="Furniture collection">
       <ul class="ready__list" data-ready-list>
         {ready.cards.map((c, i) => (
           <li class="card">
-            <button type="button" class="card__pic product-zoom" data-zoom aria-label={`View ${c.name} larger`}><Picture slot={c.slot} alt={c.alt} /><span>View closer ↗</span></button>
+            <button type="button" class="card__pic product-zoom" data-zoom data-product-name={c.name} data-product-enquiry={ready.buyText.replace('{piece}', c.name)} aria-label={`View ${c.name} larger`}><Picture slot={c.slot} alt={c.alt.replace('Ready-to-buy piece', 'Illustrative furniture piece')} /><span>View closer ↗</span></button>
             <div class="card__row">
               <h3 class="card__name" set:html={ph(c.name)} />
             </div>

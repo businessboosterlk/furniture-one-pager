@@ -1,6 +1,6 @@
 ---
 import { site } from '../site.config';
-const connected = site.contact.whatsapp !== '94000000000';
+const connected = /^\d{8,15}$/.test(site.contact.whatsapp) && site.contact.whatsapp !== '94000000000';
 ---
 <section class="enquiry section gutter" id="enquiry" aria-labelledby="enquiry-title" data-contact-number={connected ? site.contact.whatsapp : ''}>
   <div>
@@ -32,5 +32,5 @@ const connected = site.contact.whatsapp !== '94000000000';
 </section>
 <dialog class="product-dialog" data-product-dialog aria-labelledby="product-dialog-title">
   <button class="dialog-close" type="button" data-close-dialog aria-label="Close product view">×</button>
-  <h2 id="product-dialog-title">A closer look</h2><img data-dialog-image alt="" /><p class="preview-note">Illustrative product image. Confirm actual stock and specifications before ordering.</p>
+  <h2 id="product-dialog-title">A closer look</h2><img data-dialog-image alt="" /><button type="button" class="btn btn--solid" data-dialog-enquire>Enquire about this piece ↗</button><p class="preview-note">Illustrative product image. Confirm actual stock and specifications before ordering.</p>
 </dialog>
