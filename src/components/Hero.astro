@@ -9,21 +9,22 @@ const steps = hero.steps.filter(s => s.slot !== 'build-drawing');
   <div class="hero__track">
     <div class="hero__stage gutter">
       <div class="hero__copy">
-        <p class="hero__eyebrow">The material. The making. Your home.</p>
-        <h1 class="hero__name" id="hero-title">From timber.<br /><em>To belonging.</em></h1>
-        <p class="hero__lede">Follow the making of the {hero.piece.name}. Choose a finished piece, or make it your own.</p>
+        <p class="hero__eyebrow">Considered furniture. Everyday living.</p>
+        <h1 class="hero__name" id="hero-title">Good wood.<br />Beautiful<br /><em>possibilities.</em></h1>
+        <p class="hero__lede">From the character of the timber to your favourite corner. Find a piece you love. Make it your own.</p>
         <div class="hero__doors">
           <a class="btn btn--solid" href={hero.doors.ready.href}>Explore the collection <Icon name="arrow" /></a>
           <a class="btn btn--line" href={hero.doors.build.href}>{hero.doors.build.label} <Icon name="arrow" /></a>
         </div>
-        <p class="hero__scroll">Scroll to see the transformation ↓</p>
+        <p class="hero__scroll">One piece. Four perspectives. Explore below ↘</p>
       </div>
       <div class="hero__media">
         {steps.map((s, index) => (
-          <figure class="hero__frame" data-step={index + 1}>
+          <figure class="hero__frame" data-step={index + 1} data-active={index === 3 ? 'true' : 'false'} aria-hidden={index !== 3}>
             <Picture slot={s.slot} alt={s.alt} eager />
           </figure>
         ))}
+        <p class="hero__caption" data-hero-caption aria-live="polite">At home · Illustrative design study</p>
       </div>
       <ol class="sr" aria-label="How a piece is made">
         {steps.map((s) => (
@@ -32,7 +33,7 @@ const steps = hero.steps.filter(s => s.slot !== 'build-drawing');
       </ol>
       <div class="hero__trail" aria-label="Making stages">
         {steps.map((s, index) => (
-          <button type="button" class="hero__mark" data-step={index + 1} data-hero-jump={index + 1} aria-label={`View ${s.label.toLowerCase()} stage`}><small>0{index + 1}</small>{s.label}</button>
+          <button type="button" class="hero__mark" data-step={index + 1} data-hero-jump={index + 1} data-caption={`${s.label} · Illustrative design study`} aria-pressed={index === 3} aria-label={`View ${s.label.toLowerCase()} stage`}><small>0{index + 1}</small>{s.label}<span aria-hidden="true">↗</span></button>
         ))}
       </div>
     </div>

@@ -1,256 +1,29 @@
-/* HERO. A drawing, then raw timber, then joined, then finished, then at home. One camera. The page scroll drives it.
-   hero.js writes only --p (0 to 1) and data-at. Everything that moves is here.
-   Without script, or with reduced motion, it rests on the finished frame (step 4) and nothing is hidden. */
-.hero {
-  --t: calc(var(--p, 1) * 3.25);
-  position: relative;
-}
-.hero-live .hero__track {
-  height: calc((100svh - var(--header-h)) * 2.8);
-}
-.hero__stage {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100svh - var(--header-h));
-  padding-block: 28px 20px;
-  gap: 18px;
-}
-.hero-live .hero__stage {
-  position: sticky;
-  top: var(--header-h);
-  height: calc(100svh - var(--header-h));
-  min-height: 0;
-  overflow: hidden;
-}
-.hero__copy {
-  order: 1;
-  text-align: center;
-  display: grid;
-  gap: 12px;
-  justify-items: center;
-}
-.hero__eyebrow {
-  font-size: 0.6875rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.hero__name {
-  font-size: clamp(40px, 7.5svh, 56px);
-  line-height: 0.95;
-  letter-spacing: -0.01em;
-}
-.hero-live .hero__name {
-  opacity: 1;
-}
-.hero__lede {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.25rem;
-  color: var(--muted);
-}
-.hero__doors {
-  display: grid;
-  gap: 10px;
-  width: 100%;
-  max-width: 380px;
-  margin-top: 6px;
-}
-.hero__media {
-  order: 2;
-  position: relative;
-  flex: 1;
-  min-height: 200px;
-  overflow: hidden;
-  /* No panel: no background colour, no hard edge. The picture's four edges fade into the page paper, so the
-     room belongs to the page instead of sitting in a box. The two gradients are intersected: soft on every side. */
-  --fade-x: 7%; /* phone: the sofa nearly fills the width, so the sides fade less and its arms stay clear */
-  --fade-y: 14%;
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-x), #000 calc(100% - var(--fade-x)), transparent 100%),
-    linear-gradient(to bottom, transparent 0, #000 var(--fade-y), #000 calc(100% - var(--fade-y)), transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-x), #000 calc(100% - var(--fade-x)), transparent 100%),
-    linear-gradient(to bottom, transparent 0, #000 var(--fade-y), #000 calc(100% - var(--fade-y)), transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
-}
-.hero__frame {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-}
-.hero-live .hero__media .hero__frame {
-  transform: scale(calc(1 + var(--p, 1) * 0.05));
-  transform-origin: 50% 60%;
-}
-/* Without script only the finished frame (step 4) shows. With script each later frame fades in over the one before. */
-.hero__frame[data-step='1'],
-.hero__frame[data-step='2'],
-.hero__frame[data-step='3'],
-.hero__frame[data-step='5'] {
-  opacity: 0;
-}
-.hero__frame[data-step='4'] {
-  opacity: 1;
-}
-.hero-live .hero__frame[data-step='1'] {
-  opacity: 1;
-}
-.hero-live .hero__frame[data-step='2'] {
-  opacity: clamp(0, calc((var(--t) - 0.5) * 2), 1);
-}
-.hero-live .hero__frame[data-step='3'] {
-  opacity: clamp(0, calc((var(--t) - 1.5) * 2), 1);
-}
-.hero-live .hero__frame[data-step='4'] {
-  opacity: clamp(0, calc((var(--t) - 2.5) * 2), 1);
-}
-.hero-live .hero__frame[data-step='5'] {
-  opacity: clamp(0, calc((var(--t) - 3.5) * 2), 1);
-}
-/* The trail: one hairline and five small timber marks. No words, no numbers. The line fills and each mark lights as --t passes it. */
-.hero__trail {
-  order: 3;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 9px;
-  margin-top: 4px;
-}
-.hero__trail::before,
-.hero__trail::after {
-  content: '';
-  position: absolute;
-  left: 4px;
-  right: 4px;
-  top: 4px;
-  height: 1px;
-}
-.hero__trail::before {
-  background: var(--line);
-}
-.hero__trail::after {
-  background: var(--accent);
-  transform-origin: 0 50%;
-  transform: scaleX(0.75);
-}
-.hero-live .hero__trail::after {
-  transform: scaleX(clamp(0, calc(var(--t) / 4), 1));
-}
-.hero__mark {
-  position: relative;
-  z-index: 1;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: 1px solid var(--accent);
-  background: var(--paper);
-}
-.hero__mark::after {
-  content: '';
-  position: absolute;
-  inset: 1px;
-  border-radius: 50%;
-  background: var(--accent);
-  opacity: 0;
-}
-/* Without script the finished frame rests, so marks one to four are lit. */
-.hero:not(.hero-live) .hero__mark[data-step='1']::after,
-.hero:not(.hero-live) .hero__mark[data-step='2']::after,
-.hero:not(.hero-live) .hero__mark[data-step='3']::after,
-.hero:not(.hero-live) .hero__mark[data-step='4']::after {
-  opacity: 1;
-}
-.hero-live .hero__mark[data-step='1']::after {
-  opacity: clamp(0, calc((var(--t) + 0.2) * 6), 1);
-}
-.hero-live .hero__mark[data-step='2']::after {
-  opacity: clamp(0, calc((var(--t) - 0.8) * 6), 1);
-}
-.hero-live .hero__mark[data-step='3']::after {
-  opacity: clamp(0, calc((var(--t) - 1.8) * 6), 1);
-}
-.hero-live .hero__mark[data-step='4']::after {
-  opacity: clamp(0, calc((var(--t) - 2.8) * 6), 1);
-}
-.hero-live .hero__mark[data-step='5']::after {
-  opacity: clamp(0, calc((var(--t) - 3.8) * 6), 1);
-}
-
-@media (min-width: 900px) {
-  .hero__stage {
-    display: grid;
-    grid-template-columns: minmax(520px, 44%) 1fr;
-    grid-template-rows: 1fr auto;
-    column-gap: clamp(40px, 5vw, 96px);
-    row-gap: 0;
-    padding-block: 56px 40px;
-    align-items: end;
-  }
-  .hero__copy {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: center;
-    text-align: left;
-    justify-items: start;
-    gap: 20px;
-    order: 0;
-  }
-  .hero__name {
-    font-size: clamp(64px, 6.4vw, 112px);
-  }
-  .hero__lede {
-    font-size: 1.625rem;
-  }
-  .hero__doors {
-    grid-auto-flow: column;
-    grid-auto-columns: max-content;
-    max-width: none;
-    width: auto;
-    gap: 14px;
-    margin-top: 12px;
-  }
-  .hero__media {
-    grid-column: 2;
-    grid-row: 1 / 3;
-    --fade-x: 10%;
-    --fade-y: 12%;
-    align-self: stretch;
-    order: 0;
-    min-height: 0;
-  }
-  .hero__trail {
-    grid-column: 1;
-    grid-row: 2;
-    order: 0;
-    width: min(360px, 100%);
-    margin-top: 40px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-live .hero__track {
-    height: auto;
-  }
-}
-
-/* Final editorial treatment: intact imagery, readable copy, four clear chapters. */
-.hero__name{font-size:clamp(48px,6.6vw,100px);line-height:.95;letter-spacing:-.035em}
-.hero__name em{color:var(--accent);font-weight:400}
-.hero__lede{font-family:var(--sans);font-style:normal;font-size:14px;line-height:1.75;max-width:350px}
-.hero__eyebrow{font-size:10px}
-.hero__doors{display:flex;flex-wrap:wrap;justify-content:center;width:auto;max-width:none}
-.hero__doors .btn{font-size:12px;padding-inline:18px}
-.hero__scroll{font-size:10px;letter-spacing:.08em;color:var(--muted);margin-top:12px}
-.hero__media{-webkit-mask-image:none;mask-image:none;isolation:isolate}
-.hero__frame .pic{object-fit:contain}
-.hero__frame[data-step='1'] .pic{object-fit:cover}
-.hero__frame[data-step='4'] .pic{object-fit:cover}
-.hero:not(.hero-live) .hero__frame[data-step='3']{opacity:1}
-.hero:not(.hero-live) .hero__frame[data-step='4']{opacity:0}
-.hero__trail{height:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-top:1px solid var(--line);padding-top:16px}
-.hero__trail::before,.hero__trail::after,.hero__mark::after{display:none}
-.hero__mark{width:auto;height:auto;border:0;border-radius:0;display:flex;gap:9px;align-items:baseline;font-size:11px;color:var(--muted);background:transparent}
-.hero__mark small{font-size:9px;opacity:.65}
-.hero[data-at='1'] .hero__mark[data-step='1'],.hero[data-at='2'] .hero__mark[data-step='2'],.hero[data-at='3'] .hero__mark[data-step='3'],.hero[data-at='4'] .hero__mark[data-step='4']{color:var(--ink);font-weight:600}
-@media(min-width:900px){.hero__stage{grid-template-columns:minmax(0,40%) minmax(0,1fr);column-gap:5%;padding-block:40px 28px}.hero__doors{justify-content:flex-start}.hero__media{grid-row:1}.hero__trail{grid-column:1/-1;width:100%;margin-top:28px}.hero__scroll{margin-top:18px}}
-@media(max-width:599px){.hero__stage{padding-top:22px;gap:14px}.hero__name{font-size:46px}.hero__eyebrow{font-size:8px}.hero__lede{font-size:12px}.hero__doors .btn{font-size:11px;min-height:42px;padding-inline:12px}.hero__scroll{display:none}.hero__trail{gap:8px}.hero__mark{font-size:10px;gap:5px}}
+/* Room-first editorial hero. Native scrolling; the making story is optional. */
+.hero{background:#eee9e0;position:relative}
+.hero__stage{display:grid;grid-template-columns:41% 59%;min-height:min(780px,calc(100svh - var(--header-h)));padding:0!important;position:relative}
+.hero__copy{padding:clamp(36px,5vw,88px);padding-right:32px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;position:relative;z-index:2}
+.hero__eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.19em;color:#665a49;margin-bottom:32px}
+.hero__name{font-size:clamp(58px,6.5vw,104px);line-height:.94;letter-spacing:-.045em;font-weight:400}
+.hero__name em{font-weight:400;color:#7b6349}
+.hero__lede{font-size:13px;line-height:1.8;max-width:280px;margin-top:28px;color:#5e574e}
+.hero__doors{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:28px}
+.hero__doors .btn{font-size:12px;padding:14px 19px;min-height:48px}
+.hero__doors .btn--line{border:0;padding-left:0;background:transparent}
+.hero__scroll{font-size:10px;letter-spacing:.09em;color:#756c61;margin-top:38px}
+.hero__media{position:relative;min-height:600px;overflow:hidden;background:#e5ded2}
+.hero__frame{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .8s ease,transform 1.3s cubic-bezier(.2,.65,.3,1);transform:scale(1.035)}
+.hero__frame[data-active='true']{opacity:1;transform:scale(1)}
+.hero__frame .pic{width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.hero__frame[data-step='2'] .pic,.hero__frame[data-step='3'] .pic{object-fit:contain}
+.hero__caption{position:absolute;right:24px;top:24px;z-index:2;font-size:10px;letter-spacing:.08em;background:rgba(250,248,243,.9);padding:10px 14px;color:#4b4238}
+.hero__trail{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);background:#f8f5ef;border-top:1px solid #d9d2c8}
+.hero .hero__mark{position:relative;display:flex;align-items:center;gap:14px;width:auto;height:auto;min-height:80px;border:0;border-right:1px solid #d9d2c8;border-radius:0;padding:18px 24px;background:transparent;color:#766b5d;text-align:left;font-size:12px;cursor:pointer;transition:background .25s,color .25s}
+.hero__mark:last-child{border-right:0}
+.hero__mark small{font-size:10px;color:#9c8b75}
+.hero .hero__mark[aria-pressed='true']{background:#ded4c5;color:#29231b}
+.hero .hero__mark:hover{background:#e9e1d5}
+.hero__mark:focus-visible{outline:2px solid #6f5136;outline-offset:-5px}
+.hero__mark span{margin-left:auto;font-size:18px}
+@media(min-width:1600px){.hero__media{min-height:740px}}
+@media(max-width:899px){.hero__stage{grid-template-columns:1fr;min-height:0}.hero__copy{padding:36px 24px 30px}.hero__eyebrow{margin-bottom:22px}.hero__name{font-size:clamp(52px,10vw,80px)}.hero__lede{max-width:400px;margin-top:20px}.hero__doors{flex-direction:row;flex-wrap:wrap;margin-top:20px}.hero__scroll{display:none}.hero__media{min-height:0;height:65vw;max-height:600px}.hero .hero__mark{padding:16px 12px;gap:6px;min-height:66px;font-size:10px}.hero__mark span{display:none}.hero__caption{top:16px;right:16px;font-size:9px}}
+@media(prefers-reduced-motion:reduce){.hero__frame{transition:none;transform:none}}

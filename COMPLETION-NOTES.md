@@ -53,3 +53,13 @@ All 27 combinations selected and confirmed against rendered preview state with a
 - Header enquiry preserves an existing written request.
 - Quote-only labels, improved focus/anchor spacing, clipped product hover zoom and a subtle reduced-motion-safe dialog entrance.
 - Verified hero stage selection, dialog-to-enquiry prefill, draft preservation and room keyboard controls in-browser; no captured console errors. Real contact information remains the launch dependency.
+- Build-versioned script URLs prevent visitors using old interaction scripts with newly deployed markup.
+- Technical follow-up: GitHub's npm audit reported high-severity dependency advisories on 18 November. Compatible auto-fix did not complete and was stopped without tracked dependency changes; do not mark the security audit as passed. The static Pages deployment and local build/typecheck/tests passed, but dependency remediation still requires review (do not disable the audit or force breaking downgrades).
+# Room-first hero update
+
+- Replaced the long pinned opening with a room-first editorial composition.
+- Four accessible chapter buttons show timber, joinery, the finished piece and the room; no forced timer or scroll lock.
+- Kept direct collection and configurator links, generated-image disclosure and reduced-motion support.
+- Inspiration: the image-led collection presentation at https://www.boconcept.com/en-us/ and editorial furniture stories at https://www.poliform.it/en/; original layout, not a copy.
+- Local build, Astro typecheck and all nine existing tests pass. All four chapter controls verified in browser.
+

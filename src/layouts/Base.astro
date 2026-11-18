@@ -9,6 +9,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../site.config';
 import { withBase, STAGING } from '../lib/base';
+const buildVersion = Date.now().toString(36);
+const scriptUrl = (file: string) => `${withBase('/' + file)}?v=${buildVersion}`;
 
 interface Props {
   title: string;
@@ -40,10 +42,10 @@ const fullTitle = home ? title : `${title} | ${site.name}`;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={site.locale} />
-    <script src={withBase('/site.js')} defer is:inline></script>
-    {home && <script src={withBase('/hero.js')} defer is:inline></script>}
-    {home && <script src={withBase('/sections.js')} defer is:inline></script>}
-    {home && <script src={withBase('/complete.js')} defer is:inline></script>}
+    <script src={scriptUrl('site.js')} defer is:inline></script>
+    {home && <script src={scriptUrl('hero.js')} defer is:inline></script>}
+    {home && <script src={scriptUrl('sections.js')} defer is:inline></script>}
+    {home && <script src={scriptUrl('complete.js')} defer is:inline></script>}
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
