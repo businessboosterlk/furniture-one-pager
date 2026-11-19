@@ -1,25 +1,23 @@
-// EVERY per-client value lives here and only here. The client is a NEW furniture business. On 16 Nov 2026 Thulaib
-// asked BB to write the words ("put what you feel"), so the brand voice, names, timber and craft story below are
-// DRAFT wording invented by BB for one coherent Sri Lankan jak-wood maker called Daru. The client replaces them.
-// Contact facts a customer could act on (phone, number, street, hours, Instagram, price, delivery) stay as marked
-// PLACEHOLDERS in square brackets: BB never invents those. A bracketed value prints as a dashed timber mark (src/lib/ph.ts).
+// Singhe facts verified against official About and Contact pages on 19 November 2026.
+// Generated products and configuration dimensions remain illustrative design studies.
+// WhatsApp and email are unconnected: do not activate without verified client details.
 
 export const PLACEHOLDER = 'PLACEHOLDER';
 
 export const site = {
   /** Business name. PLACEHOLDER */
-  name: 'Daru',
+  name: 'Singhe Furniture',
   /** One sentence for the meta description. PLACEHOLDER */
-  description: 'Explore timber furniture, discover room ideas and create a personal furniture brief with Daru.',
+  description: 'A Business Booster redesign concept for Singhe Furniture. Discover teak craftsmanship, room inspiration and personal furniture design.',
   /** The live address, no trailing slash. PLACEHOLDER */
   url: 'https://businessboosterlk.github.io',
   lang: 'en-GB',
   locale: 'en_GB',
   address: {
     /** PLACEHOLDER */
-    line1: '[Showroom address]',
+    line1: 'No. 184, De Soyza Road, Moratumulla',
     /** PLACEHOLDER */
-    city: 'Colombo',
+    city: 'Moratuwa',
     country: 'Sri Lanka',
   },
   contact: {
@@ -30,12 +28,12 @@ export const site = {
     /** PLACEHOLDER */
     email: 'hello@example.com',
     /** The number for the Call button, with country code and plus sign. PLACEHOLDER number */
-    tel: '+94000000000',
+    tel: '+94767288143',
     /** PLACEHOLDER */
-    phoneLabel: '[Phone number]',
+    phoneLabel: '076 728 8143',
   },
   /** PLACEHOLDER */
-  hours: '[Opening hours]',
+  hours: 'Open daily, 9:00 am–6:00 pm',
   /** PLACEHOLDER. Prints as text with the Instagram mark until the client gives a handle, then it becomes a link. */
   instagram: '[Instagram handle]',
   /** House tokens, approved on the storyboard: ivory, ink, timber. The site is light only. */
@@ -53,13 +51,13 @@ export const site = {
   },
   /** Main navigation, fixed by the storyboard: Shop, Build yours, Craft, Visit. */
   nav: [
-    { href: '#shop', label: 'Shop' },
+    { href: '#collections', label: 'Collections' },
     { href: '#build', label: 'Build yours' },
     { href: '#craft', label: 'Craft' },
     { href: '#visit', label: 'Visit' },
   ],
   /** The header button. The WhatsApp link is built from contact.whatsapp. */
-  headerCta: { label: 'Enquire', text: 'Hello Daru, I would like to ask about a piece.' },
+  headerCta: { label: 'Plan your piece', text: 'Hello Singhe Furniture, I would like to discuss a custom piece.' },
 } as const;
 
 /** The hero: one story. A drawing first, then raw timber, a joined frame, the finished piece and the piece at home. */
@@ -68,9 +66,9 @@ export const hero = {
   lede: 'Buy it ready. Or build it yours.',
   piece: {
     /** DRAFT: the one piece that leads the hero. */
-    name: 'Ella three-seater',
+    name: 'Round-arm sofa concept',
     /** DRAFT */
-    eyebrow: 'Sofa · Jak · Linen',
+    eyebrow: 'Illustrative sofa design',
     /** PLACEHOLDER. Prints as written, no number is invented. */
     price: 'LKR [price]',
   },
@@ -95,14 +93,14 @@ export const rooms = {
   title: 'One home. Four rooms.',
   lede: 'Walk through. Tap any piece you like.',
   list: [
-    { label: 'Living', slot: 'room-1', alt: 'Room view 1 of 4: a calm room in soft daylight with a sofa and a low round table', dots: ['Ella three-seater', 'Galle coffee table'] },
-    { label: 'Dining', slot: 'room-2', alt: 'Room view 2 of 4: the same room set for dining', dots: ['Kandy dining table', 'Kandy dining chair'] },
-    { label: 'Bedroom', slot: 'room-3', alt: 'Room view 3 of 4: the same room set as a bedroom', dots: ['Mirissa bed', 'Linen bedding'] },
-    { label: 'Study', slot: 'room-4', alt: 'Room view 4 of 4: the same room set as a study', dots: ['Hakgala shelf', 'Hakgala desk'] },
+    { label: 'Living', slot: 'room-1', alt: 'Room view 1 of 4: a calm room in soft daylight with a sofa and a low round table', dots: ['Round-arm sofa concept', 'Coffee table concept'] },
+    { label: 'Dining', slot: 'room-2', alt: 'Room view 2 of 4: the same room set for dining', dots: ['Dining table concept', 'Dining chair concept'] },
+    { label: 'Bedroom', slot: 'room-3', alt: 'Room view 3 of 4: the same room set as a bedroom', dots: ['Bed concept', 'Linen bedding'] },
+    { label: 'Study', slot: 'room-4', alt: 'Room view 4 of 4: the same room set as a study', dots: ['Shelf concept', 'Desk concept'] },
   ],
   next: 'Next room',
   /** {piece} is replaced with the tapped piece's name. */
-  askText: 'Hello Daru, I would like to ask about the {piece}.',
+  askText: 'Hello Singhe Furniture, I would like to ask about the {piece}.',
 } as const;
 
 /** Section 4, Ready to buy. Four finished pieces. Names and materials are DRAFT wording. The price and the delivery terms stay PLACEHOLDERS. */
@@ -112,14 +110,14 @@ export const ready = {
   buy: 'Enquire',
   buyShort: 'Enquire',
   /** {piece} is replaced with the card's piece name. */
-  buyText: 'Hello Daru, please send me a quote and availability for the {piece}.',
+  buyText: 'Hello Singhe Furniture, please send me a quote and availability for the {piece}.',
   price: 'Request a quote',
   fabricsLabel: 'Fabrics available',
   cards: [
-    { slot: 'card-1', name: 'Ella three-seater', material: 'Jak frame · Natural linen · Round arms', alt: 'Ready-to-buy piece 1 of 4, a three-seat sofa on an ivory ground' },
-    { slot: 'card-2', name: 'Ella armchair', material: 'Jak frame · Natural linen · Loose seat cushion', alt: 'Ready-to-buy piece 2 of 4, an armchair on an ivory ground' },
-    { slot: 'card-3', name: 'Galle side table', material: 'Solid jak · 450 mm across · Hand-rubbed oil', alt: 'Ready-to-buy piece 3 of 4, a round side table on an ivory ground' },
-    { slot: 'card-4', name: 'Galle coffee table', material: 'Solid jak · 1000 mm across · Cross base', alt: 'Ready-to-buy piece 4 of 4, a low round coffee table on an ivory ground' },
+    { slot: 'card-1', name: 'Round-arm sofa concept', material: 'Design study · Round arms', alt: 'Ready-to-buy piece 1 of 4, a three-seat sofa on an ivory ground' },
+    { slot: 'card-2', name: 'Lounge chair concept', material: 'Design study · Loose seat cushion', alt: 'Ready-to-buy piece 2 of 4, an armchair on an ivory ground' },
+    { slot: 'card-3', name: 'Side table concept', material: 'Design study · Round timber profile', alt: 'Ready-to-buy piece 3 of 4, a round side table on an ivory ground' },
+    { slot: 'card-4', name: 'Coffee table concept', material: 'Design study · Cross base', alt: 'Ready-to-buy piece 4 of 4, a low round coffee table on an ivory ground' },
   ],
 } as const;
 
@@ -127,12 +125,12 @@ export const ready = {
 export const build = {
   eyebrow: 'Build yours',
   title: 'Make it yours.',
-  lede: 'Choose your shape, size and fabric. Send your choices for a tailored quote.',
+  lede: 'Explore a shape, size and fabric direction. These sample dimensions and designs are a conversation starter, not Singhe product specifications.',
   steps: ['Style', 'Size', 'Fabric', 'Enquire'],
   presets: [
-    { n: '01', name: 'Ella, round arm' },
-    { n: '02', name: 'Ella, slim arm' },
-    { n: '03', name: 'Ella, low back' },
+    { n: '01', name: 'Concept: round arm' },
+    { n: '02', name: 'Concept: slim arm' },
+    { n: '03', name: 'Concept: low back' },
   ],
   sizes: ['Two-seater, 1600 mm', 'Three-seater, 1900 mm', 'Four-seater, 2300 mm'],
   fabrics: [
@@ -149,7 +147,7 @@ export const build = {
   price: 'Made for you.',
   priceNote: 'priced on enquiry',
   send: 'Enquire about this design',
-  sendIntro: 'Hello Daru, I would like to send my build.',
+  sendIntro: 'Hello Singhe Furniture, I would like to send my build.',
   groupLabels: { start: 'Start', size: 'Size', fabric: 'Fabric' },
 } as const;
 
@@ -176,7 +174,7 @@ export const craft = {
 export const visit = {
   title: 'Come and sit on it.',
   whatsapp: 'WhatsApp us',
-  whatsappText: 'Hello Daru, I would like to visit the showroom.',
+  whatsappText: 'Hello Singhe Furniture, I would like to visit the showroom.',
   call: 'Call',
   map: { slot: 'map', alt: 'Map to the showroom' },
 } as const;

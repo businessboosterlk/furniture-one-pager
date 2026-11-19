@@ -1,7 +1,7 @@
 ---
 import { hero } from '../site.config';
-import Icon from './Icon.astro';
 import Picture from './Picture.astro';
+import { withBase } from '../lib/base';
 const steps = hero.steps.filter(s => s.slot !== 'build-drawing');
 ---
 
@@ -9,19 +9,19 @@ const steps = hero.steps.filter(s => s.slot !== 'build-drawing');
   <div class="hero__track">
     <div class="hero__stage gutter">
       <div class="hero__copy">
-        <p class="hero__eyebrow">Considered furniture. Everyday living.</p>
-        <h1 class="hero__name" id="hero-title">Good wood.<br />Beautiful<br /><em>possibilities.</em></h1>
-        <p class="hero__lede">From the character of the timber to your favourite corner. Find a piece you love. Make it your own.</p>
+        <p class="hero__eyebrow">Singhe Furniture · Since 1975</p>
+        <h1 class="hero__name" id="hero-title">Rooted in teak.<br /><em>Made for<br />your life.</em></h1>
+        <p class="hero__lede">A home is personal. Your furniture should be too. Explore the possibilities, from a favourite silhouette to a piece made around you.</p>
         <div class="hero__doors">
-          <a class="btn btn--solid" href={hero.doors.ready.href}>Explore the collection <Icon name="arrow" /></a>
-          <a class="btn btn--line" href={hero.doors.build.href}>{hero.doors.build.label} <Icon name="arrow" /></a>
+          <a class="btn btn--solid" href="#collections">Discover Singhe</a>
+          <a class="btn btn--line" href={hero.doors.build.href}>Imagine your own</a>
         </div>
-        <p class="hero__scroll">One piece. Four perspectives. Explore below ↘</p>
+        <p class="hero__scroll">A new digital experience · Concept by Business Booster</p>
       </div>
       <div class="hero__media">
         {steps.map((s, index) => (
           <figure class="hero__frame" data-step={index + 1} data-active={index === 3 ? 'true' : 'false'} aria-hidden={index !== 3}>
-            <Picture slot={s.slot} alt={s.alt} eager />
+            {index === 3 ? <img class="pic" src={withBase('/collection-v2/hero-architecture.jpg')} width="1672" height="941" alt="Illustrative timber furniture in a light-filled architectural living room" fetchpriority="high" /> : <Picture slot={s.slot} alt={s.alt} eager />}
           </figure>
         ))}
         <p class="hero__caption" data-hero-caption aria-live="polite">At home · Illustrative design study</p>
@@ -33,7 +33,7 @@ const steps = hero.steps.filter(s => s.slot !== 'build-drawing');
       </ol>
       <div class="hero__trail" aria-label="Making stages">
         {steps.map((s, index) => (
-          <button type="button" class="hero__mark" data-step={index + 1} data-hero-jump={index + 1} data-caption={`${s.label} · Illustrative design study`} aria-pressed={index === 3} aria-label={`View ${s.label.toLowerCase()} stage`}><small>0{index + 1}</small>{s.label}<span aria-hidden="true">↗</span></button>
+          <button type="button" class="hero__mark" data-step={index + 1} data-hero-jump={index + 1} data-caption={`${s.label} · Illustrative design study`} aria-pressed={index === 3} aria-label={`View ${s.label.toLowerCase()} stage`}>{s.label}</button>
         ))}
       </div>
     </div>

@@ -1,0 +1,16 @@
+---
+const categories = [
+  ['Sofas', 'Comfort, with character.', 'sofas'],
+  ['Beds', 'Your own quiet retreat.', 'beds'],
+  ['Dining tables', 'Made for gathering.', 'dining-tables'],
+  ['Divans & single chairs', 'A place just for you.', 'divans-and-single-chairs'],
+  ['Wardrobes', 'Everything in its place.', 'wardrobes'],
+  ['Dresser units', 'A considered daily ritual.', 'dresser-units'],
+];
+---
+<section class="singhe-intro gutter section" id="collections" aria-labelledby="singhe-collections-title">
+  <div class="singhe-proof"><span>Established in 1975</span><span>Teak furniture specialists</span><span>Custom sizes, shapes & fabrics</span></div>
+  <div class="singhe-heading"><div><p class="eyebrow">The Singhe collection</p><h2 class="h2" id="singhe-collections-title">Every room.<br /><em>Entirely yours.</em></h2></div><p class="lede">Start with the real collection. Then explore the interactive design studies below to discover what feels right for your home.</p></div>
+  <div class="singhe-categories">{categories.map(([name, line, slug]) => <a href={`https://singhefurniture.lk/${slug}/`} target="_blank" rel="noopener noreferrer"><h3>{name}</h3><p>{line}</p><span>View official collection</span></a>)}</div>
+  <p class="preview-note">Collection links open Singhe’s existing website. Images and configurations elsewhere in this proposal are illustrative, not a stock catalogue.</p>
+</section>

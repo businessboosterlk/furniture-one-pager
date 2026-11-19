@@ -10,13 +10,13 @@ const addressReady = !site.address.line1.includes('[');
 <section class="visit section" id="visit" aria-labelledby="visit-title">
   <div class="visit__inner gutter">
     <div class="visit__copy">
-      <p class="eyebrow">The next step</p>
-      <h2 class="h2" id="visit-title">Make room<br />for something yours.</h2>
-      <p class="lede">Start with a piece you love. Add your measurements, fabric choice and questions to one clear enquiry.</p>
+      <p class="eyebrow">Visit Singhe</p>
+      <h2 class="h2" id="visit-title">Some things are<br />better felt.</h2>
+      <p class="lede">Feel the fabric. See the grain. Find your comfort. Visit the Moratuwa showroom, or explore Singhe’s Malabe and Colombo locations.</p>
       {addressReady && <p class="lede">{site.address.line1}, {site.address.city}<br />{site.hours}</p>}
       <div class="visit__doors">
-        <a class="btn btn--solid" href="#enquiry">Prepare my enquiry ↗</a>
-        {addressReady && <a class="btn btn--line" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address.line1+', '+site.address.city)}`} target="_blank" rel="noopener noreferrer">Get directions ↗</a>}
+        <a class="btn btn--solid" href="#enquiry">Prepare my enquiry</a>
+        <a class="btn btn--line" href="https://singhefurniture.lk/contact-us/" target="_blank" rel="noopener noreferrer">All showrooms</a>
         {connected && <a class="btn btn--line" href={`tel:${site.contact.tel}`}>Call {site.contact.phoneLabel}</a>}
       </div>
     </div>

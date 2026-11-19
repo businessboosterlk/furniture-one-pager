@@ -7,7 +7,7 @@ const connected = /^\d{8,15}$/.test(site.contact.whatsapp) && site.contact.whats
     <p class="eyebrow">Your furniture brief</p>
     <h2 class="h2" id="enquiry-title">A good piece starts<br />with a conversation.</h2>
     <p class="lede">Choose a product or build above, then add the details here. Copy or download the complete brief to keep it handy.</p>
-    {!connected && <p class="connection-note">Preview mode: the business contact number is not connected yet. You can prepare and save your brief, but it will not be sent to the showroom.</p>}
+    {!connected && <p class="connection-note">Design proposal: save your brief here, then call Singhe on <a href={`tel:${site.contact.tel}`}>{site.contact.phoneLabel}</a>. This demo does not submit enquiries. WhatsApp integration awaits a verified number.</p>}
   </div>
   <form class="enquiry-form" method="dialog" data-enquiry-form>
     <label>Your name<input name="customer" autocomplete="name" maxlength="100" placeholder="How should we address you?" /></label>

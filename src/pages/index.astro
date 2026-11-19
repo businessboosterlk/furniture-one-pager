@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
+import SingheCollections from '../components/SingheCollections.astro';
 import Rooms from '../components/Rooms.astro';
 import Ready from '../components/Ready.astro';
 import Build from '../components/Build.astro';
@@ -11,8 +12,9 @@ import Visit from '../components/Visit.astro';
 import { site } from '../site.config';
 ---
 
-<Base title={site.name} description={site.description} home>
+<Base title={`${site.name} — Design Concept`} description={site.description} home noindex>
   <Hero />
+  <SingheCollections />
   <Rooms />
   <Ready />
   <Build />
